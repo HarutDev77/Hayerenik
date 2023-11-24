@@ -1,8 +1,7 @@
 import classes from "./TopCategories.module.scss";
-import imageBooks from "../../../../../public/booksjpg.jpg";
+import imageBooks from "@/assets/images/booksjpg.jpg";
 import imageKub from "@/assets/images/kub.jpg";
 import imageStationary from "@/assets/images/stationary.jpg"
-import Image from "next/image";
 import {useState} from "react";
 import BigPuzzle from "@/components/pages/Home/TopCategories/BigPuzzle";
 const SectionTopCategories = () => {
@@ -11,7 +10,7 @@ const SectionTopCategories = () => {
     const [showImage2,setShowImage2] = useState(false);
     const [showImage3,setShowImage3] = useState(false);
 
-    const handleMouseEnter = (num) => {
+    const handleMouseEnter = (num: number) => {
 
         if(num === 1){
             setShowImage1(true);
@@ -23,7 +22,7 @@ const SectionTopCategories = () => {
         }
     }
 
-    const handleMouseLeave = (num) => {
+    const handleMouseLeave = (num: number) => {
         if(num === 1){
             setShowImage1(false);
 
@@ -33,13 +32,6 @@ const SectionTopCategories = () => {
             setShowImage3(false);
         }
     }
-
-    // type DelayFunction = () => object;
-    // const delay1s: DelayFunction = async ()  =>  {
-    //     await setTimeout(() => {
-    //         return {opacity: "1",transition: "0.6s"}
-    //     },600)
-    // }
 
     return (
         <section className={classes.hk_home_section_top_categories}>
@@ -54,112 +46,28 @@ const SectionTopCategories = () => {
                     handleMouseEnter={handleMouseEnter}
                     handleMouseLeave={handleMouseLeave}
                     isShow={showImage1}
+                    id={1}
                 />
-                {/*<div*/}
-                {/*    id={"1"}*/}
-                {/*    onMouseEnter={()=>handleMouseEnter(1)}*/}
-                {/*    onMouseLeave={()=>handleMouseLeave(1)}*/}
-                {/*    className={classes.hk_home_section_top_categories_box_content_box}*/}
-                {/*>*/}
-                {/*    {showImage1 ? null : <h3>Books</h3>}*/}
 
-                {/*             <Image*/}
-                {/*                 style={showImage1 ? {opacity: "1",transition: "0.2s" ,transitionDelay: "0.4s"} : {opacity: "0",transition: "0.4s"}}*/}
-                {/*                src={imageBooks}*/}
-                {/*                alt="books image"*/}
-                {/*                priority={true}*/}
-                {/*            />*/}
+                <BigPuzzle
+                    color={"yellow"}
+                    src={imageKub}
+                    title={"Games"}
+                    handleMouseEnter={handleMouseEnter}
+                    handleMouseLeave={handleMouseLeave}
+                    isShow={showImage2}
+                    id={2}
+                />
 
-                {/*    <div*/}
-                {/*        style={showImage1 ? { top: "0",transition: "all 0.4s ease",} : {opacity: "1",transition: "0.4s"}}*/}
-                {/*        className={classes.hk_puzzle_1_red}>*/}
-                {/*    </div>*/}
-                {/*    <div className={classes.hk_puzzle_container}>*/}
-                {/*        <div*/}
-                {/*            style={showImage1 ? { left: "0",transition: "all 0.4s ease", } : {opacity: "1",transition: "0.4s"}}*/}
-                {/*            className={classes.hk_puzzle_2_red}>*/}
-                {/*        </div>*/}
-                {/*        <div*/}
-                {/*            style={showImage1 ? { right: "-64px",transition: "all 0.4s ease" } : {opacity: "1",transition: "0.4s"}}*/}
-                {/*            className={classes.hk_puzzle_3_white}>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*    <div*/}
-                {/*        style={showImage1 ? { bottom: "-64px",transition: "all 0.4s ease" } : {opacity: "1",transition: "0.4s"}}*/}
-                {/*        className={classes.hk_puzzle_4_white}>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                <div
-                    id={"2"}
-                    onMouseEnter={()=>handleMouseEnter(2)}
-                    onMouseLeave={()=>handleMouseLeave(2)}
-                    className={`${classes.hk_home_section_top_categories_box_content_box} ${classes.yellow_container}`}
-                >
-
-                    {showImage2 ? null : <h3>Games</h3>}
-
-                            <Image
-                                style={showImage2 ? { opacity: "1",transition: "0.2s",transitionDelay: "0.4s" } : {opacity: "0",transition: "0.4s",}}
-                                src={imageKub}
-                                alt="Stationary image"
-                                priority={true}
-                            />
-
-                    <div
-                        style={showImage2 ? { top: "0",transition: "all 0.4s ease",} : {opacity: "1",transition: "0.4s"}}
-                        className={`${classes.hk_puzzle_1_red} ${classes.hk_puzzle_1_yellow}`}></div>
-                    <div
-
-                        className={classes.hk_puzzle_container}>
-                        <div
-                            style={showImage2 ? { left: "0",transition: "all 0.4s ease", } : {opacity: "1",transition: "0.4s"}}
-                            className={`${classes.hk_puzzle_2_red} ${classes.hk_puzzle_1_yellow}`}>
-                        </div>
-                        <div
-                            style={showImage2 ? { right: "-64px",transition: "all 0.4s ease" } : {opacity: "1",transition: "0.4s"}}
-                            className={classes.hk_puzzle_3_white}>
-                        </div>
-                    </div>
-                    <div
-                        style={showImage2 ? { bottom: "-64px",transition: "all 0.4s ease" } : {opacity: "1",transition: "0.4s"}}
-                        className={classes.hk_puzzle_4_white}>
-                    </div>
-                </div>
-                <div
-                    id={"3"}
-                    onMouseEnter={()=>handleMouseEnter(3)}
-                    onMouseLeave={()=>handleMouseLeave(3)}
-                    className={`${classes.hk_home_section_top_categories_box_content_box} ${classes.green_container}`}
-                >
-                    { showImage3 ? null : <h3>Stationary</h3> }
-
-                             <Image
-                                 style={showImage3 ? { opacity: "1",transition:"0.2s", transitionDelay: "0.4s" } : {opacity: "0",transition: "0.4s"}}
-                                 src={imageStationary}
-                                alt="kub image"
-                                priority={true}
-                            />
-                    <div
-                        style={showImage3 ? { top: "0",transition: "all 0.4s ease",} : {opacity: "1",transition: "0.4s"}}
-                        className={`${classes.hk_puzzle_1_red} ${classes.hk_puzzle_1_green}`}>
-                    </div>
-                    <div
-                        className={classes.hk_puzzle_container}>
-                        <div
-                            style={showImage3 ? { left: "0",transition: "all 0.4s ease", } : {opacity: "1",transition: "0.4s"}}
-                            className={`${classes.hk_puzzle_2_red} ${classes.hk_puzzle_1_green}`}>
-                        </div>
-                        <div
-                            style={showImage3 ? { right: "-64px",transition: "all 0.4s ease" } : {opacity: "1",transition: "0.4s"}}
-                            className={classes.hk_puzzle_3_white}>
-                        </div>
-                    </div>
-                    <div
-                        style={showImage3 ? { bottom: "-64px",transition: "all 0.4s ease" } : {opacity: "1",transition: "0.4s"}}
-                        className={classes.hk_puzzle_4_white}>
-                    </div>
-                </div>
-
+                <BigPuzzle
+                    color={"green"}
+                    src={imageStationary}
+                    title={"Stationary"}
+                    handleMouseEnter={handleMouseEnter}
+                    handleMouseLeave={handleMouseLeave}
+                    isShow={showImage3}
+                    id={3}
+                />
             </div>
         </section>
     );

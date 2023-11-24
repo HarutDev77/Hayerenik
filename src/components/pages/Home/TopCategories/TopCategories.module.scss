@@ -7,79 +7,9 @@
     color: #384480;
     margin-bottom: 157px;
   }
-  .hk_home_section_top_categories_box{
+  .hk_home_section_top_categories_box {
     display: flex;
     justify-content: space-between;
     padding-left: 32px;
-    .hk_home_section_top_categories_box_content_box{
-      position: relative;
-      width: 295px;
-      height: 295px;
-      background-color: #EC1F1F;
-      transition: opacity 1s ease;
-      h3{
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        color: white;
-        font-size: 36px;
-        font-weight: 700;
-      }
-      .hk_puzzle_1_red{
-        background-color: #EC1F1F;
-        width: 100px;
-        height: 64px;
-        position: absolute;
-        top: -63px;
-        left: 100px;
-        border-radius: 50px 50px 0 0;
-        z-index: -10;
-      }
-      .hk_puzzle_container{
-        display: flex;
-        justify-content: space-between;
-      }
-      .hk_puzzle_2_red{
-        background-color: #EC1F1F;
-        width: 64px;
-        height: 100px;
-        position: absolute;
-        top: 100px;
-        left: -63px;
-        border-radius: 50px 0 0 50px;
-        z-index: -10;
-      }
-      .hk_puzzle_3_white{
-        background-color: white;
-        width: 64px;
-        height: 100px;
-        position: absolute;
-        right: -2px;
-        top: 100px;
-        border-radius: 50px 0 0 50px;
-      }
-      .hk_puzzle_4_white{
-        background-color: white;
-        width: 100px;
-        height: 63px;
-        position: absolute;
-        bottom: -2px;
-        left: 100px;
-        border-radius: 50px 50px 0 0;
-      }
-      .hk_puzzle_1_green{
-        background-color: #C8FD30;
-      }
-      .hk_puzzle_1_yellow{
-        background-color: #FDD030;
-      }
-
-    }
-    .yellow_container{
-      background-color: #FDD030;
-    }
-    .green_container{
-      background-color: #C8FD30;
-    }
-}
+  }
 }
