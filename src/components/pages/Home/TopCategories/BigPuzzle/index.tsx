@@ -2,11 +2,11 @@ import React, {FC} from 'react';
 import classes from "./BigPuzzle.module.scss";
 import Image from "next/image";
 interface IBigPuzzle {
-    color: "red" | "yellow" | "green",
+    color: string,
     src: string,
     title: string,
     handleMouseEnter: (num: number) => void
-    handleMouseLeave: (num: number) => void
+    handleMouseLeave: () => void
     isShow: boolean,
     id: number
 }
@@ -15,7 +15,7 @@ const BigPuzzle: FC<IBigPuzzle> = (props: IBigPuzzle) => {
     return (
         <div
             onMouseEnter={()=>props.handleMouseEnter(props.id)}
-            onMouseLeave={()=>props.handleMouseLeave(props.id)}
+            onMouseLeave={()=>props.handleMouseLeave()}
             className={`${classes.hk_home_section_top_categories_box_content_box} ${ props.color === "yellow" ? classes.yellow_container : props.color === "green" ? classes.green_container : null }` }
                 >
                 {props.isShow ? null : <h3>{props.title}</h3>}

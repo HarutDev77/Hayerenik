@@ -1,0 +1,141 @@
+.hk_home_section_review{
+  width: 100%;
+  height: 1650px;
+  overflow: hidden;
+  position: relative;
+  &_puzzles_img{
+    width: 100%;
+  }
+
+  &_sea_img{
+    margin-top: -74px;
+    animation-name: wave;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.hk_home_section_review_waveTop_img{
+  position: absolute;
+  top: 498px;
+  z-index: 20;
+  animation-name: wave;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.hk_home_section_review_waveBottom_img{
+  position: absolute;
+  top: 585px;
+  animation-name: wave;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  z-index: 5;
+}
+
+.hk_home_section_review_boat_img{
+  position: absolute;
+  top: 272px;
+  right: 680px;
+  z-index: 10;
+  animation-name: boat;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.hk_home_section_review_cable_img{
+  position: absolute;
+  top: 491px;
+  right: 510px;
+  z-index: 1;
+}
+
+.hk_home_section_review_under_water_container_top{
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 682px;
+  left: 246px;
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 75px;
+  }
+  p{
+    width: 412px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+  }
+  .hk_home_section_review_green_fish{
+    position: absolute;
+    top: 110px;
+    right: -530px;
+  }
+}
+
+.hk_home_section_review_under_water_container_bottom{
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 360px;
+  right: 387px;
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 75px;
+  }
+  p{
+    width: 412px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+  }
+  .hk_home_section_review_yellow_fish{
+    position: absolute;
+    top: 100px;
+    left: -379px;
+  }
+}
+.hk_home_section_review_sandImg_img{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+}
+
+
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-200px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes boat {
+  0% {
+    transform: rotate3d(0,0,0,0);
+  }
+
+  50% {
+    transform: rotate3d(5, 5, 7, -10deg)
+  }
+
+  100% {
+    transform: rotate3d(0,0,0,0);
+  }
+}

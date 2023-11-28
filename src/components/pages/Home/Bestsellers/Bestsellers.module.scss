@@ -1,60 +1,67 @@
 @import '@/assets/styles/veariables.scss';
 
-.hk_home_section_bestsellers{
-    width: 1192px;
-    margin: 150px auto 42px;
-    &_title{
-        color: $main-blue;
-        font-size: 48px;
-        font-weight: 700;
-        margin-bottom: 34px;
+.hk_home_section_bestsellers {
+  width: 1192px;
+  margin: 150px auto 42px;
+
+  &_title {
+    color: $main-blue;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 34px;
+  }
+
+  &_items_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 0 0 32px;
+  }
+
+  &_item_box {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    img {
+      width: 138px;
+      height: 138px;
     }
-    &_items_container{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 0 0 0 32px;
-        .hk_home_section_bestsellers_item_box{
-           img{
-               width: 138px;
-               height: 138px;
-           }
-            h3{
-                font-size: 16px;
-                font-weight: 700;
-                margin-bottom: 10px;
-            }
-            p{
-                font-size: 12px;
-                font-weight: 400;
-                margin-bottom: 10px;
-            }
-            span{
-                font-size: 21px;
-                font-weight: 350;
-            }
-            div:first-child{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 190px;
-                border-radius: 19.5px;
-                background: #FFF;
-                box-shadow: 0 0 12.75px 0 rgba(0, 0, 0, 0.25);
-                margin-bottom: 12px;
-            }
-            div:last-child{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-right: 7px;
-            }
-        }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
-    &_item_box{
-        display: flex;
-        flex-direction: column;
-        width: 200px;
+
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      margin-bottom: 10px;
     }
+
+    span {
+      font-size: 21px;
+      font-weight: 350;
+    }
+
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 190px;
+      border-radius: 19.5px;
+      background: #FFF;
+      box-shadow: 0 0 12.75px 0 rgba(0, 0, 0, 0.25);
+      margin-bottom: 12px;
+    }
+
+    div:last-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 7px;
+    }
+  }
 }

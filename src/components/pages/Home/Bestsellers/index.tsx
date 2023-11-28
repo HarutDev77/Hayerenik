@@ -1,15 +1,16 @@
-import classes from "./Bestsellers.module.scss"
-import {BESTSELLERS_ITEMS} from "@/app/costants";
 import Image from "next/image";
+import {BESTSELLERS_ITEMS} from "@/costants";
 import MainButton from "@/components/Parts/MainButton";
+import classes from "./Bestsellers.module.scss"
+
 const SectionBestsellers = () => {
     return (
         <section className={classes.hk_home_section_bestsellers}>
             <div>
                 <h2 className={classes.hk_home_section_bestsellers_title}>Bestsellers</h2>
                 <div className={classes.hk_home_section_bestsellers_items_container}>
-                    {BESTSELLERS_ITEMS.map(item => {
-                        return(
+                    {BESTSELLERS_ITEMS.map(item =>
+                        (
                             <div className={classes.hk_home_section_bestsellers_item_box} key={item.id}>
                                 <div>
                                     <Image
@@ -23,8 +24,8 @@ const SectionBestsellers = () => {
                                     <p>{
                                         item.description.length < 72
                                             ? item.description
-                                            : item.description.slice(0,73) + "..."
-                                        }
+                                            : item.description.slice(0, 73) + "..."
+                                    }
                                     </p>
                                 </div>
                                 <div>
@@ -33,7 +34,7 @@ const SectionBestsellers = () => {
                                 </div>
                             </div>
                         )
-                    })}
+                    )}
                 </div>
 
             </div>

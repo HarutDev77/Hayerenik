@@ -9,7 +9,8 @@ const SectionHeader = () => {
             <div className={classes.hk_home_section_header_content}>
                 <h1>Best for our children</h1>
                 <p>
-                    HAYERENIK is your one-stop shop for children aged 2 to 10. We offer a curated selection of books, bags, games, handmade toys, art supplies, and more.
+                    HAYERENIK is your one-stop shop for children aged 2 to 10. We offer a curated selection of books,
+                    bags, games, handmade toys, art supplies, and more.
                 </p>
                 <div>
                     <button>Explore now</button>
