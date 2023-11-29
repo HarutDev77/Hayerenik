@@ -13,6 +13,9 @@ import anchor from "@/assets/images/anchor.svg";
 import imageBooks from "@/assets/images/booksjpg.jpg";
 import imageKub from "@/assets/images/kub.jpg";
 import imageStationary from "@/assets/images/stationary.jpg";
+import bigBubble from "@/assets/images/bigBubble.svg";
+import middleBubble from "@/assets/images/middleBubble.svg";
+import smallBubble from "@/assets/images/smallBubble.svg";
 
 export const BESTSELLERS_ITEMS = [
     {
@@ -55,33 +58,65 @@ export const BESTSELLERS_ITEMS = [
 export const REVIEWS_IMAGES = [
     {
         img: imagePuzzles,
-        className: 'hk_home_section_review_puzzles_img'
+        className: ['hk_home_section_review_puzzles_img']
     },
     {
         img: imageSea,
-        className: 'hk_home_section_review_sea_img'
+        className: ['hk_home_section_review_sea_img']
     },
     {
         img: waveTop,
-        className: 'hk_home_section_review_waveTop_img'
+        className: ['hk_home_section_review_waveTop_img']
     },
     {
         img: waveBottom,
-        className: 'hk_home_section_review_waveBottom_img'
+        className: ['hk_home_section_review_waveBottom_img']
     },
     {
         img: boatImag,
-        className: 'hk_home_section_review_boat_img'
+        className: ['hk_home_section_review_boat_img']
     },
     {
         img: anchor,
-        className: 'hk_home_section_review_cable_img'
+        className: ['hk_home_section_review_cable_img']
     },
     {
         img: sandImg,
-        className: 'hk_home_section_review_sandImg_img'
+        className: ['hk_home_section_review_sandImg_img']
+    },
+
+]
+
+export const BUBBLES_RIGHT = [
+    {
+        img: bigBubble,
+        className: ['hk_home_section_review_bigBubbleImg_img']
+    },
+    {
+        img: middleBubble,
+        className: ['hk_home_section_review_middleBubbleImg_img']
+    },
+    {
+        img: smallBubble,
+        className: ['hk_home_section_review_smallBubbleImg_img']
     },
 ]
+
+export const BUBBLES_LEFT = [
+    {
+        img: bigBubble,
+        className: ['hk_home_section_review_bigBubbleImg_img', 'hk_home_section_review_bigBubbleImgLeft_img']
+    },
+    {
+        img: middleBubble,
+        className: ['hk_home_section_review_middleBubbleImg_img', 'hk_home_section_review_middleBubbleImgLeft_img']
+    },
+    {
+        img: smallBubble,
+        className: ['hk_home_section_review_smallBubbleImg_img', 'hk_home_section_review_smallBubbleImgLeft_img']
+    },
+]
+
 
 export const PUZZLES = [
     {

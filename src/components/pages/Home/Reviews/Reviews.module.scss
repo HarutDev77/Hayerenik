@@ -110,6 +110,39 @@
   bottom: 0;
 }
 
+.hk_home_section_review_bigBubbleImg_img{
+  position: absolute;
+  top: -40px;
+  right: -284px;
+  animation: smallBubbleRight 1.7s infinite 0.5s;
+}
+.hk_home_section_review_middleBubbleImg_img{
+  position: absolute;
+  top: 61px;
+  right: -192px;
+  animation: smallBubbleRight 1.7s infinite 0.3s;
+}
+.hk_home_section_review_smallBubbleImg_img{
+  position: absolute;
+  top: 136px;
+  right: -216px;
+  animation: smallBubbleRight 1.7s infinite 0.1s;
+}
+.hk_home_section_review_bigBubbleImgLeft_img{
+  position: absolute;
+  top: -56px;
+  left: -200px;
+}
+.hk_home_section_review_middleBubbleImgLeft_img{
+  position: absolute;
+  top: 50px;
+  left: -110px;
+}
+.hk_home_section_review_smallBubbleImgLeft_img{
+  position: absolute;
+  top: 117px;
+  left: -153px;
+}
 
 
 @keyframes wave {
@@ -137,5 +170,19 @@
 
   100% {
     transform: rotate3d(0,0,0,0);
+  }
+}
+
+@keyframes smallBubbleRight {
+  0%, 25% {
+    opacity: 0;
+  }
+
+  30%, 55% {
+    opacity: 1;
+  }
+
+  60%, 100% {
+    opacity: 0;
   }
 }

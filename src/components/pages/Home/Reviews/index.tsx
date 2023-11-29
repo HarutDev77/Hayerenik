@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import {REVIEWS_IMAGES} from "@/costants";
+import {BUBBLES_LEFT, BUBBLES_RIGHT, REVIEWS_IMAGES} from "@/costants";
 import startsImage from "@/assets/images/stars.svg";
 import greenFishImg from "@/assets/images/grinFish.svg";
 import yellowFishImg from "@/assets/images/yellowFishsvg.svg"
@@ -13,12 +13,14 @@ const SectionReviews = () => {
             {REVIEWS_IMAGES.map((img, index) => (
                 <Image
                     key={index}
-                    className={classes[img.className]}
+                    className={img.className.map(className => classes[className]).join(' ')}
                     src={img.img}
                     alt={"image Puzzles"}
                     priority={true}
                 />
             ))}
+
+
 
             <div className={classes.hk_home_section_review_under_water_container_top}>
                 <div>
@@ -58,6 +60,16 @@ const SectionReviews = () => {
                     priority={true}
                     className={classes.hk_home_section_review_green_fish}
                 />
+                {BUBBLES_RIGHT.map((bubble,index)=>(
+                        <Image
+                            key={index}
+                            src={bubble.img}
+                            alt="bubbles image"
+                            priority={true}
+                            className={bubble.className.map(className => classes[className]).join(' ')}
+                        />
+                    )
+                )}
             </div>
             <div className={classes.hk_home_section_review_under_water_container_bottom}>
                 <Image
@@ -95,7 +107,16 @@ const SectionReviews = () => {
 
                     </p>
                 </div>
-
+                {BUBBLES_LEFT.map((bubble,index)=>(
+                        <Image
+                            key={index}
+                            src={bubble.img}
+                            alt="bubbles image"
+                            priority={true}
+                            className={bubble.className.map(className => classes[className]).join(' ')}
+                        />
+                    )
+                )}
             </div>
         </section>
     );
