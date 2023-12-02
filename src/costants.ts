@@ -16,6 +16,10 @@ import imageStationary from "@/assets/images/stationary.jpg";
 import bigBubble from "@/assets/images/bigBubble.svg";
 import middleBubble from "@/assets/images/middleBubble.svg";
 import smallBubble from "@/assets/images/smallBubble.svg";
+import redSquare from "@/assets/images/redSquare.svg";
+import blueSquare from "@/assets/images/blueSquare.svg";
+import circleImg from "@/assets/images/circleImg.svg";
+import {blue} from "next/dist/lib/picocolors";
 
 export const BESTSELLERS_ITEMS = [
     {
@@ -137,4 +141,43 @@ export const PUZZLES = [
         src: imageStationary,
         title: "Stationary"
     }
+]
+
+export const AGES = [
+    {
+        title: "0+",
+        src: redSquare
+    },
+    {
+        title: "1",
+        src: circleImg
+    },
+    {
+        title: "2",
+        src: blueSquare
+    },
+    {
+        title: "3",
+        src: redSquare
+    },
+    {
+        title: "4",
+        src: circleImg
+    },
+    {
+        title: "5",
+        src: blueSquare
+    },
+    {
+        title: "6",
+        src: redSquare
+    },
+    {
+        title: "7",
+        src: circleImg
+    },
+    {
+        title: "8+",
+        src: blueSquare
+    },
 ]

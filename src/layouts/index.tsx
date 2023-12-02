@@ -1,4 +1,4 @@
-import {FC} from "react";
+import React, {FC} from "react";
 import Header from "@/components/Parts/Header";
 import Footer from "@/components/Parts/Footer";
 

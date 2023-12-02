@@ -1,0 +1,42 @@
+.hk_home_section_different_ages{
+  max-width: 1170px;
+  margin: 0 auto 80px;
+  &_title{
+    color: #384480;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+  &_container{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 38px;
+    &_boxes{
+      &:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+        & img{
+          transform: rotate(-90deg);
+          transition: 2s;
+        }
+        &:nth-child(2),&:nth-child(5),&:nth-child(8):hover{
+          & img{
+            transform: translateY(-20px);
+            transition: 1s;
+          }
+        }
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      &_titles{
+        color: #C69797;
+        font-size: 64px;
+        font-weight: 700;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}

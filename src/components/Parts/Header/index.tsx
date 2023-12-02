@@ -1,9 +1,9 @@
-import classes from "./Header.module.scss"
 import Image from "next/image";
 import Logo from "../../../assets/images/hayerenikLogo.svg";
 import Search from "../../../assets/images/search.svg";
 import Cart from "../../../assets/images/cart.svg";
-import lang from "@/assets/images/icon _United States_.svg"
+import lang from "@/assets/images/icon _United States_.svg";
+import classes from "./Header.module.scss";
 
 const Header = () => {
     return (
