@@ -19,7 +19,6 @@ import smallBubble from "@/assets/images/smallBubble.svg";
 import redSquare from "@/assets/images/redSquare.svg";
 import blueSquare from "@/assets/images/blueSquare.svg";
 import circleImg from "@/assets/images/circleImg.svg";
-import {blue} from "next/dist/lib/picocolors";
 
 export const BESTSELLERS_ITEMS = [
     {
