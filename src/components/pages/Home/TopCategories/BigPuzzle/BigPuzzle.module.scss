@@ -4,6 +4,10 @@
   height: 295px;
   background-color: #EC1F1F;
   transition: opacity 1s ease;
+  &_images{
+    width: 100%;
+    height: 100%;
+  }
   h3{
     position: absolute;
     top: 20px;
@@ -66,4 +70,46 @@
 }
 .green_container{
   background-color: #C8FD30;
+}
+
+@media screen and (max-width: 1440px){
+  .hk_home_section_top_categories_box_content_box {
+    width: 246px;
+    height: 246px;
+
+    h3 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 30px;
+    }
+
+    .hk_puzzle_1_red {
+      width: 83px;
+      height: 53px;
+      top: -53px;
+      left: 83px;
+    }
+
+    .hk_puzzle_2_red {
+      width: 53px;
+      height: 83px;
+      top: 83px;
+      left: -53px;
+    }
+
+    .hk_puzzle_3_white {
+      width: 53px;
+      height: 83px;
+      right: -2px;
+      top: 83px;
+    }
+
+    .hk_puzzle_4_white {
+      width: 83px;
+      height: 53px;
+      bottom: -2px;
+      left: 83px;
+    }
+  }
 }

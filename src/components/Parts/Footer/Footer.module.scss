@@ -1,23 +1,24 @@
 .hk_footer{
   background:  linear-gradient(181deg, #0E3175 -28.63%, #859DB2 173.05%), #D9D9D9;
   width: 100%;
-  height: 510px;
+  height: 535px;
   position: relative;
   .hk_footer_image_clouds{
     width: 100%;
+    height: auto;
     position: absolute;
     top: -90px;
   }
   .hk_footer_content_box{
     position: relative;
     display: flex;
-    max-width: 1000px;
+    max-width: 1192px;
     padding-top: 200px;
-    margin-left: 364px;
+    margin: 0 auto;
     gap: 80px;
     & p:hover{
       text-decoration: underline;
-      color: yellow;
+      color: #FFE500;
       cursor: pointer;
     }
     &_Logo_box{
@@ -43,13 +44,15 @@
       }
     }
     &_moon_image{
-      position: absolute;
-      right: -366px;
-      top: 0;
       z-index: 10;
       animation-name: moon;
       animation-iteration-count: infinite;
       animation-duration: 4s;
+    }
+    &_moonlight_image{
+      position: absolute;
+      right: -140px;
+      top: 25px;
     }
   }
   &_hk_llc_box{
@@ -62,11 +65,16 @@
     }
   }
   &_Code_Miles_box{
+    img:hover{
+      cursor: pointer;
+      transition: 0.5s;
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(4deg) brightness(99%) contrast(103%);
+    }
     p{
       margin-right: 20px;
       font-size: 16px;
       font-weight: 400;
-      color: white;
+      color: #A6B9D0;
     }
     display: flex;
     justify-content: flex-end;
@@ -82,5 +90,92 @@
   }
   100%{
     transform: rotate(0);
+  }
+}
+
+@media screen and (max-width: 1550px){
+  .hk_footer{
+    height: 475px;
+    .hk_footer_content_box{
+      max-width: 992px;
+      margin: 0 auto;
+      padding-top: 170px;
+      &_Logo_box{
+        &>div:last-child{
+          margin: 12px auto;
+        }
+      }
+      &>div{
+        font-size: 13px;
+        gap: 4px;
+        h5{
+          font-size: 13px;
+        }
+      }
+      &_moonlight_image{
+        width: 450px;
+        height: 450px;
+        right: -153px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1440px){
+  .hk_footer{
+    height: 417px;
+    .hk_footer_image_clouds{
+      top: -70px;
+    }
+    .hk_footer_content_box{
+      max-width: 992px;
+      padding-top: 140px;
+      margin: 0 auto;
+      gap: 60px;
+      &_Logo_box{
+        &>div:first-child{
+          width: 144px;
+          height: 58px;
+          img{
+            width: 100%;
+          }
+        }
+        &>div:last-child{
+          width: 52px;
+          margin: 10px auto;
+        }
+      }
+      &>div{
+        font-size: 12px;
+        gap: 3px;
+        h5{
+          font-size: 12px;
+        }
+      }
+      &_moon_image{
+        width: 166px;
+        height: 144px;
+        right: -153px;
+        top: 130px;
+      }
+      &_moonlight_image{
+        width: 366px;
+        height: 366px;
+        right: -29px;
+        top: 27px;
+      }
+    }
+    &_hk_llc_box{
+      margin: 60px 0 0 11px;
+      &>h4{
+        font-size: 10px;
+      }
+    }
+    &_Code_Miles_box{
+      p{
+        margin-right: 20px;
+        font-size: 13px;
+      }
+    }
   }
 }

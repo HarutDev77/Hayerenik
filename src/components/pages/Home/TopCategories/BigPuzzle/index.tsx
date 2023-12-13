@@ -25,6 +25,7 @@ const BigPuzzle: FC<IBigPuzzle> = (props: IBigPuzzle) => {
                 src={props.src}
                 alt={props.title}
                 priority={true}
+                className={classes.hk_home_section_top_categories_box_content_box_images}
             />
 
             <div
@@ -39,12 +40,12 @@ const BigPuzzle: FC<IBigPuzzle> = (props: IBigPuzzle) => {
                 >
                 </div>
                 <div
-                    style={props.isShow ? { right: "-64px",transition: "all 0.3s ease" } : {opacity: "1",transition: "0.3s"}}
+                    style={props.isShow ? { right: "-64px",transition: "all 0.3s ease",opacity: "0" } : {opacity: "1",transition: "0.3s"}}
                     className={classes.hk_puzzle_3_white}>
                 </div>
             </div>
             <div
-                style={props.isShow ? { bottom: "-64px",transition: "all 0.3s ease" } : {opacity: "1",transition: "0.3s"}}
+                style={props.isShow ? { bottom: "-64px",transition: "all 0.3s ease",opacity: "0" } : {opacity: "1",transition: "0.3s"}}
                 className={classes.hk_puzzle_4_white}>
             </div>
         </div>

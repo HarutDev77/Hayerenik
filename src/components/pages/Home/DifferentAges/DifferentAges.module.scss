@@ -40,3 +40,23 @@
     }
   }
 }
+
+@media screen and (max-width: 1440px){
+  .hk_home_section_different_ages{
+    max-width: 955px;
+    margin: 0 auto 200px;
+    &_title{
+      font-size: 40px;
+      margin-bottom: 39px;
+    }
+    &_container{
+      margin-left: 20px;
+      &_boxes{
+        &_titles{
+          font-size: 53px;
+          margin-bottom: 11px;
+        }
+      }
+    }
+  }
+}

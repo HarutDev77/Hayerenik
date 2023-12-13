@@ -4,7 +4,8 @@ import hk_logo from "@/assets/images/hkFooterLogo.svg";
 import instagramLogo from "@/assets/images/instagramLogo.svg";
 import FBLogo from "@/assets/images/FBLogo.svg";
 import CodeMilesLogo from "@/assets/images/CodeMiles.svg";
-import moonImage from "@/assets/images/moonImage.svg";
+import moonImage from "@/assets/images/moon.svg";
+import moonLight from "@/assets/images/moonLight.svg";
 import classes from "./Footer.module.scss";
 
 const Footer = () => {
@@ -62,13 +63,22 @@ const Footer = () => {
                     <p>Delivery & payment</p>
                     <p>Return/refund policy</p>
                     <p>Privacy policy</p>
+
                 </div>
-                <Image
-                    src={moonImage}
-                    alt={"Moon image"}
-                    priority={true}
-                    className={classes.hk_footer_content_box_moon_image}
-                />
+                <div>
+                    <Image
+                        src={moonImage}
+                        alt={"Moon image"}
+                        priority={true}
+                        className={classes.hk_footer_content_box_moon_image}
+                    />
+                    <Image
+                        src={moonLight}
+                        alt={"Moon Light"}
+                        priority={true}
+                        className={classes.hk_footer_content_box_moonlight_image}
+                    />
+                </div>
             </div>
             <div className={classes.hk_footer_hk_llc_box}>
                 <h4>©Hayerenik LLC. ALL RIGHTS RESERVED. 2023</h4>

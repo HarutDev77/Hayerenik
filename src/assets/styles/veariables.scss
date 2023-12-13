@@ -1,1 +1,15 @@
  $main-blue: #384480;
+
+ @mixin moveClouds($initial, $mid, $side, $animation-name) {
+   @keyframes #{$animation-name} {
+     0% {
+       #{$side}: $initial;
+     }
+     50% {
+       #{$side}: $mid;
+     }
+     100% {
+       #{$side}: $initial;
+     }
+   }
+ }
