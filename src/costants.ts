@@ -180,3 +180,90 @@ export const AGES = [
         src: blueSquare
     },
 ]
+
+export const ALL_ITEMS = [
+    {
+        id: Math.random(),
+        imageUrl: pencil,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pens,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: book,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: bookLion,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pen,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pencil,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pens,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: book,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: bookLion,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pen,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pencil,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+    {
+        id: Math.random(),
+        imageUrl: pens,
+        title: 'Pilot - Pen FriXion LX',
+        description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
+        price: 355
+    },
+]

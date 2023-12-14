@@ -1,0 +1,19 @@
+.hk_search_result_page_main_box{
+  max-width: 1004px;
+  margin: 0 auto;
+  h1{
+    margin: 45px 0 20px 0;
+    color: #384480;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  .hk_search_result_page_main_box_item_box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 185px;
+    &>div{
+      margin-bottom: 23px;
+    }
+  }
+}

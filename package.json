@@ -11,6 +11,7 @@
   "dependencies": {
     "@svgr/plugin-svgo": "^8.1.0",
     "@svgr/webpack": "^8.1.0",
+    "antd": "^5.12.2",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18"

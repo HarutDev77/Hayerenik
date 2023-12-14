@@ -1,0 +1,77 @@
+@import "@/assets/styles/veariables.scss";
+
+.hk_contacts_page{
+  h1{
+    text-align: center;
+    margin: 45px 0;
+    color: #384480;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  .hk_contacts_page_content_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1128px;
+    margin: 0 auto 136px;
+    gap: 32px;
+    .hk_contacts_page_content_box_image_box{
+      position: relative;
+      .hk_contacts_page_content_box_cloudLeft{
+        position: absolute;
+        top: 170px;
+        left: 30px;
+        width: 80px;
+        height: 40px;
+        @include moveClouds(30px,75px,left,cloudLeft);
+        animation: cloudLeft 5s linear 0.5s infinite;
+      }
+      .hk_contacts_page_content_box_cloudTop{
+        position: absolute;
+        top: 52px;
+        left: 124px;
+        width: 130px;
+        height: 65px;
+        @include moveClouds(124px,190px,left,cloudTop);
+        animation: cloudTop 6s linear 0.5s infinite;
+      }
+      .hk_contacts_page_content_box_cloudRight{
+        position: absolute;
+        top: 168px;
+        right: 30px;
+        width: 120px;
+        height: 54px;
+        @include moveClouds(30px,70px,right,cloudRight);
+        animation: cloudRight 6s linear 0.5s infinite;
+      }
+    }
+    p{
+      color: #606060;
+      margin-bottom: 5px;
+    }
+    .hk_contacts_page_content_box_tell{
+      text-align: center;
+      font-size: 60px;
+      font-weight: 600;
+    }
+    .hk_contacts_page_content_box_address{
+      text-align: center;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .hk_contacts_page_content_box_mail{
+      text-align: center;
+      font-size: 30px;
+      font-weight: 400;
+      text-decoration-line: underline;
+      a{
+        color: #606060;
+      }
+    }
+    .hk_contacts_page_content_box_timeLine{
+      text-align: center;
+      font-size: 30px;
+      font-weight: 400;
+    }
+  }
+}
