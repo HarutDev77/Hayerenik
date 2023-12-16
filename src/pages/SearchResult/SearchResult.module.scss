@@ -1,5 +1,5 @@
 .hk_search_result_page_main_box{
-  max-width: 1004px;
+  max-width: 1320px;
   margin: 0 auto;
   h1{
     margin: 45px 0 20px 0;
@@ -9,6 +9,7 @@
   }
   .hk_search_result_page_main_box_item_box{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 22px;
     margin-bottom: 185px;

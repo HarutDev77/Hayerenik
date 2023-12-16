@@ -58,6 +58,89 @@ export const BESTSELLERS_ITEMS = [
     },
 ]
 
+export const CHOSE_ITEMS = [
+    {
+        id: Math.random(),
+        imageUrl: bookLion,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 35,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: pen,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 35,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: pens,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 27,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: pen,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 11,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: pens,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 35,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: bookLion,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 31,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: pencil,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 26,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+    {
+        id: Math.random(),
+        imageUrl: book,
+        title: 'Pilot - Pen FriXion LX',
+        amount: 1,
+        price: 42,
+        totalPrice: function() {
+            return this.amount * this.price;
+        }
+    },
+]
+
 export const REVIEWS_IMAGES = [
     {
         img: imagePuzzles,

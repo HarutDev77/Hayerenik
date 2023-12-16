@@ -68,13 +68,16 @@ const Header = () => {
                                    height={30}
                                    onClick={searchItem}
                                />
-                               <Image
-                                   src={Cart}
-                                   alt="Cart"
-                                   width={24}
-                                   height={30}
-                               />
-                               <div className={classes.hk_nav_second_box_cart_count}><span>0</span></div>
+                               <Link href={"/Cart"}>
+                                   <Image
+                                       src={Cart}
+                                       alt="Cart"
+                                       width={24}
+                                       height={30}
+                                   />
+                                   <div className={classes.hk_nav_second_box_cart_count}><span>0</span></div>
+                               </Link>
+
                                {
                                    showInput
                                        ? <Input className={classes.hk_nav_second_box_search} placeholder="Search"/>

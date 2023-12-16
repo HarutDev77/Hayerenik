@@ -1,0 +1,49 @@
+.hk_cart{
+  max-width: 1128px;
+  margin: 0 auto 16px;
+  &_div_underscore{
+    width: 1192px;
+    height: 2px;
+    background-color: #B6B6B6;
+    margin: 16px auto 100px;
+  }
+  &>div:nth-child(even){
+    background-color: rgba(86, 83, 255, 0.04);
+    border-radius: 60px;
+  }
+  h2{
+    color: #384480;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    margin: 45px 0;
+  }
+  &_item_to_buy{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    &_first_box{
+      display: flex;
+      &_image{
+        width: 70px;
+        height: 70px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 57px;
+          height: 57px;
+        }
+      }
+    }
+    &_second_box{
+      display: flex;
+      &_image{
+
+      }
+    }
+  }
+}

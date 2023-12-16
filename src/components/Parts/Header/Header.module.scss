@@ -97,7 +97,7 @@
                 img{
                     cursor: pointer;
                 }
-                img:first-child{
+                &>img{
                     margin-right: 13px;
                 }
             }

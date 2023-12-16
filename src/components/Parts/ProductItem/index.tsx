@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import Image from "next/image";
 import MainButton from "@/components/Parts/MainButton";
 import classes from "./ProductItem.module.scss";
+import Link from "next/link";
 
 interface ProductItem {
     id: number;
