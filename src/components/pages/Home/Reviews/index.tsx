@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import {BUBBLES_LEFT, BUBBLES_RIGHT, REVIEWS_IMAGES} from "@/costants";
+import {BUBBLES_LEFT, BUBBLES_RIGHT, REVIEWS_IMAGES} from "@/constants";
 import startsImage from "@/assets/images/stars.svg";
 import greenFishImg from "@/assets/images/grinFish.svg";
 import yellowFishImg from "@/assets/images/yellowFishsvg.svg"

@@ -1,11 +1,11 @@
 import React, {ReactElement} from 'react';
 import classes from "./SearchResult.module.scss";
-import {ALL_ITEMS} from "@/costants";
+import {ALL_ITEMS} from "@/constants";
 import ProductItem from "@/components/Parts/ProductItem";
 import MainLayout from "@/layouts";
-import Contacts from "@/pages/Contacts";
+import Contacts from "@/pages/contacts";
 
-const SearchResult = () => {
+const SearchResultPage = () => {
     return (
         <div className={classes.hk_search_result_page_main_box}>
             <h1>Search results for <span>“book”</span></h1>
@@ -25,8 +25,4 @@ const SearchResult = () => {
     );
 };
 
-SearchResult.getLayout = function getLayout(page: ReactElement) {
-    return <MainLayout>{page}</MainLayout>
-}
-
-export default SearchResult;
+export default SearchResultPage;

@@ -1,6 +1,6 @@
 import {useState} from "react";
 import BigPuzzle from "@/components/pages/Home/TopCategories/BigPuzzle";
-import {PUZZLES} from "@/costants";
+import {PUZZLES} from "@/constants";
 
 import classes from "./TopCategories.module.scss";
 

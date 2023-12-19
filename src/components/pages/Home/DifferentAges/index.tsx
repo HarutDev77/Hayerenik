@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './DifferentAges.module.scss';
-import {AGES} from "@/costants";
+import {AGES} from "@/constants";
 import Image from "next/image";
 
 const SectionDifferentAges = () => {

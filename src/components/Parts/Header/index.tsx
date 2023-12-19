@@ -26,7 +26,7 @@ const Header = () => {
                                 <li><a href="#">Main</a></li>
                                 <li><a href="#">About us</a></li>
                                 <li><a href="#">Payment and Delivery</a></li>
-                                <li><Link href="/Contacts">Contact</Link>
+                                <li><Link href="/contacts">Contact</Link>
                                 </li>
                             </ul>
                         </div>
@@ -48,7 +48,7 @@ const Header = () => {
                                 <li><a href="#">Books</a></li>
                                 <li><a href="#">For school</a></li>
                                 <li><a href="#">Games</a></li>
-                                <li><Link href="/Contacts">Contacts</Link></li>
+                                <li><Link href="/contacts">Contacts</Link></li>
                             </ul>
                         </div>
                         <div>
@@ -68,7 +68,7 @@ const Header = () => {
                                    height={30}
                                    onClick={searchItem}
                                />
-                               <Link href={"/Cart"}>
+                               <Link href={"/cart"}>
                                    <Image
                                        src={Cart}
                                        alt="Cart"

@@ -1,4 +1,4 @@
-import {BESTSELLERS_ITEMS} from "@/costants";
+import {BESTSELLERS_ITEMS} from "@/constants";
 import ProductItem from "@/components/Parts/ProductItem";
 import classes from "./Bestsellers.module.scss"
 const SectionBestsellers = () => {
