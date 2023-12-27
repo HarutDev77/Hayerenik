@@ -270,83 +270,347 @@ export const ALL_ITEMS = [
         imageUrl: pencil,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pens,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: book,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: bookLion,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pen,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pencil,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pens,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: book,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: bookLion,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pen,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pencil,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
     {
         id: Math.random(),
         imageUrl: pens,
         title: 'Pilot - Pen FriXion LX',
         description: "Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.",
-        price: 355
+        price: 355,
+        extent: "24 pages",
+        dimensions: "150 x 150mm",
+        Board_ISBN: 9781805311980,
+        Publication_Date: "September 2023",
+        Work_Reference: 9248,
+        properties: [
+            {
+                title: "work book 1",
+                price: 7,
+                imageUrl: book
+            },
+            {
+                title: "work book 2",
+                price: 5,
+                imageUrl: book
+            },
+            {
+                title: "work book 3",
+                price: 2,
+                imageUrl: book
+            }
+        ]
     },
 ]

@@ -4,7 +4,11 @@ import {deleteAuthToken, getAuthToken} from './auth';
 import { BACKEND_API_URL } from "@/constants/config";
 
 const axiosRequest = axios.create({
-    baseURL: BACKEND_API_URL,
+    baseURL: `${BACKEND_API_URL}/api`,
+    withCredentials: true,
+    headers: {
+        'Content-Type': 'application/json',
+    }
 });
 
 axiosRequest.interceptors.request.use(
@@ -30,7 +34,7 @@ axiosRequest.interceptors.response.use(
         return res
     },
     async (error) => {
-        return Promise.reject(error)
+        return Promise.reject(error?.response?.data);
     }
 )
 

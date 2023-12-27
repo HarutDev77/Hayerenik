@@ -1,5 +1,9 @@
 import {deleteCookie, getCookie, hasCookie, setCookie} from 'cookies-next';
-export const getAuthToken = (): string | undefined => getCookie("token");
+export const getAuthToken = (): string | undefined => getCookie("token", {
+    path: '/',
+    sameSite: 'none',
+    secure: true,
+});
 
 export const deleteAuthToken = (): void => deleteCookie('token');
 

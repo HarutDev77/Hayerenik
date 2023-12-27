@@ -1,11 +1,76 @@
-import React, {FC} from 'react';
-import { Button, Checkbox, Form, Input, Typography } from "antd";
-import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import React, {FC, useState} from 'react';
+import {Button, Checkbox, Form, Input, Modal, Typography} from "antd";
+import {LockOutlined, MailOutlined} from "@ant-design/icons";
 import classes from "./Login.module.scss";
-
+import {useRouter} from "next/router";
+import axiosRequest from "@/api/axiosRequest";
+import {setAuthToken} from "@/api/auth";
+import {getCookie} from "cookies-next";
+import {useMutation} from "@tanstack/react-query";
 const { Text, Title, Link } = Typography;
 
+export async function getServerSideProps(context: any) {
+    const { req, res } = context;
+
+    const token = getCookie('token', {
+        req,
+        res,
+        httpOnly: false,
+        secure: true,
+        sameSite: 'none'
+    });
+
+    if(token){
+       return {
+            redirect: {
+                destination: "/admin",
+                permanent: false,
+            }
+        }
+    }
+
+    return {
+        props: {}
+    };
+}
+
 const Login:FC = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [message,setMessage] = useState("")
+    const router = useRouter();
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
+    const loginHandler = async () => {
+        try {
+            const response = await axiosRequest.post("admin/login", {
+                "email": email,
+                "password": password
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            setAuthToken(response.data.resData);
+
+             await router.push('/admin');
+        } catch (error) {
+            setMessage(error.message)
+            setIsModalOpen(prevState => !prevState)
+        }
+    }
+
+
 
     return (
         <section className={classes.hk_login_container}>
@@ -38,6 +103,8 @@ const Login:FC = () => {
                         <Input
                             prefix={<MailOutlined />}
                             placeholder="Email"
+                            value={email}
+                            onChange={(e)=>setEmail(e.target.value)}
                         />
                     </Form.Item>
                     <Form.Item
@@ -53,6 +120,8 @@ const Login:FC = () => {
                             prefix={<LockOutlined />}
                             type="password"
                             placeholder="Password"
+                            value={password}
+                            onChange={(e)=> setPassword(e.target.value)}
                         />
                     </Form.Item>
                     <Form.Item>
@@ -64,7 +133,7 @@ const Login:FC = () => {
                         </a>
                     </Form.Item>
                     <Form.Item style={{ marginBottom: "0px" }}>
-                        <Button block="true" type="primary" htmlType="submit">
+                        <Button block="true" type="primary" htmlType="submit" onClick={loginHandler}>
                             Log in
                         </Button>
                         <div className={classes.hk_login_footer}>
@@ -74,6 +143,9 @@ const Login:FC = () => {
                     </Form.Item>
                 </Form>
             </div>
+            <Modal title="Error" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <p>{message}</p>
+            </Modal>
         </section>
     );
 }

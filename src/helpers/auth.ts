@@ -11,18 +11,14 @@ const WithAuth = async (context: any, blockWhenLoggedIn: boolean = false) => {
         sameSite: 'none'
     });
 
-
-
     if (!token) {
         return {
             redirect: {
-                destination: 'admin/login',
+                destination: '/admin/login',
                 permanent: false,
             },
         };
     }
-
-
 
     return {
         props: {},
