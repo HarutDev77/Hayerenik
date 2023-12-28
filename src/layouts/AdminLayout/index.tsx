@@ -8,13 +8,13 @@ interface LayoutProp {
 
 const AdminLayout: FC<LayoutProp> = ({children}) => {
     return (
-        <>
+        <div style={{minHeight:'100vh', display:'flex', flexDirection:'column'}}>
             <AdminHeader/>
             <main>
                 {children}
             </main>
             <Footer/>
-        </>
+        </div>
 
     )
 }
