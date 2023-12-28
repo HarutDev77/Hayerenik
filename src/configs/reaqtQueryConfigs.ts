@@ -15,11 +15,8 @@ export const defaultOptions = {
             // }
             toast(error?.message || 'Something went wrong!', {
                 toastId: 'global-message',
-                hideProgressBar: true,
                 autoClose: 5000,
-                style: {
-                    backgroundColor: '#a10000',
-                },
+                type:'error'
             })
         },
     },
