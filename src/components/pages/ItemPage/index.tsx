@@ -8,17 +8,12 @@ import Bestsellers from '@/components/pages/Home/Bestsellers'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import classes from './ItemPage.module.scss'
-import { FRONTEND_URL } from '@/constants/config'
 
 const ItemPage = ({ product }) => {
    const [price, setPrice] = useState(product.price)
 
    const changePrice = (e: CheckboxChangeEvent, subProductPrice: number) => {
-      if (e.target.checked) {
-         setPrice((prevState) => prevState + subProductPrice)
-      } else {
-         setPrice((prevState) => prevState - subProductPrice)
-      }
+      setPrice((prevState) => (e.target.checked ? prevState + subProductPrice : prevState - subProductPrice))
    }
 
    if (!product) {
@@ -42,7 +37,7 @@ const ItemPage = ({ product }) => {
                      <Swiper autoHeight={false} spaceBetween={20} slidesPerView={3} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)}>
                         {product.images.map((image, index) => (
                            <div key={index}>
-                              <SwiperSlide className={classes.hk_item_page_main_section_main_box_first_box_swiper_container}>
+                              <SwiperSlide>
                                  <Image src={image} alt={'product image'} />
                               </SwiperSlide>
                            </div>
