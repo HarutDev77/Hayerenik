@@ -21,6 +21,7 @@ const AdminHeader = () => {
                     <li>Orders</li>
                     <li>Products</li>
                     <li>Categories</li>
+                    <li>Properties</li>
                 </ul>
             </div>
             <div className={classes.hk_admin_navigate_last_box}></div>
