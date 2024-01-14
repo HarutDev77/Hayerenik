@@ -1,17 +1,12 @@
-import WithAuth from "@/helpers/auth";
-import {ReactElement} from "react";
-import AdminLayout from "@/layouts/AdminLayout";
+import { ReactElement } from 'react'
+import AdminLayout from '@/layouts/AdminLayout'
 
-export async function getServerSideProps(context: any) {
-    return WithAuth(context, true);
-}
-
-const Admin = () =>{
-    return <h2>Admin page</h2>
+const Admin = () => {
+   return <h2>Admin page</h2>
 }
 
 Admin.getLayout = function getLayout(page: ReactElement) {
-    return <AdminLayout>{page}</AdminLayout>
+   return <AdminLayout>{page}</AdminLayout>
 }
 
-export default Admin;
+export default Admin
