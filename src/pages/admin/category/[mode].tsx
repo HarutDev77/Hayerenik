@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { ModeEnum } from '@/enums/common'
 
 // export const getServerSideProps = async (context: any) => {
-//    const { mode, id = null } = context.query
+//    const { mode, id } = context.query
 //
 //    if (![ModeEnum.edit, ModeEnum.create].includes(mode) || (mode === ModeEnum.edit && !id)) {
 //       return { notFound: true }

@@ -3,13 +3,21 @@ import { AxiosResponse } from 'axios'
 import { ICategoryData, ICategoryForm } from '@/types/admin'
 
 export default class QueryApi {
-   static async createCategoryPageData(): Promise<AxiosResponse<any>> {
-      const response = await axiosRequest.get('admin/category/create-page-data')
+   static async createCategoryPageData(url: string | ''): Promise<AxiosResponse<any>> {
+      const response = await axiosRequest.get(url)
       return response.data
    }
 
-   static async saveCategory(categoryForm: ICategoryForm): Promise<boolean> {
-      await axiosRequest.post('admin/category', { ...categoryForm })
+   static async saveCategory(categoryForm: ICategoryForm, id: number | undefined | string): Promise<boolean> {
+      let method = 'post'
+      let url = 'admin/category'
+
+      if (id) {
+         method = 'put'
+         url += `/${id}`
+      }
+
+      await axiosRequest[method](url, { ...categoryForm })
       return true
    }
 

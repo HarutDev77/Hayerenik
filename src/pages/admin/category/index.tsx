@@ -5,6 +5,7 @@ import QueryApi from '@/api/query.api'
 import { Spin } from 'antd'
 import { ICategoryData } from '@/types/admin'
 import TreeView from '@/components/Parts/CategoriesTree'
+import CategoriesTree from '@/components/Parts/CategoriesTree'
 
 const Categories = () => {
    const { data, isLoading } = useQuery<ICategoryData[]>('getCategories', () => {
@@ -17,11 +18,7 @@ const Categories = () => {
       return <Spin />
    }
 
-   return (
-      <>
-         <TreeView data={categoryTreeData} />
-      </>
-   )
+   return <CategoriesTree data={categoryTreeData} />
 }
 
 Categories.getLayout = function getLayout(page: ReactElement) {

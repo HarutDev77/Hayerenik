@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { Modal, Spin } from 'antd'
 import { useMutation, useQueryClient } from 'react-query'
 import QueryApi from '@/api/query.api'
+import { toast } from 'react-toastify'
 
 const TreeNode = ({ node }) => {
    const [isExpanded, setIsExpanded] = useState(false)
@@ -23,6 +24,7 @@ const TreeNode = ({ node }) => {
       },
       {
          onSuccess: () => {
+            toast.success('Success! category deleted')
             queryClient.invalidateQueries('getCategories')
          },
       },
@@ -45,15 +47,20 @@ const TreeNode = ({ node }) => {
 
    return (
       <div className={classes.tree_node}>
-         <div onClick={handleToggle} className={classes.node_toggle}>
-            {node.subCategories.length > 0 ? isExpanded ? <Image src={Minus} alt={'minus'} /> : <Image src={Plus} alt={'plus'} /> : <Image src={Circle} alt={'circle'} />}
-            <span>{node.titleEn}</span>
+         <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div onClick={handleToggle} className={classes.node_toggle}>
+               {node.subCategories.length > 0 ? isExpanded ? <Image src={Minus} alt={'minus'} /> : <Image src={Plus} alt={'plus'} /> : <Image src={Circle} alt={'circle'} />}
+               <span>{node.titleEn}</span>
+            </div>
             <div>
-               <EditOutlined style={{ marginRight: '5px', color: '#3533B0' }} />
-               <DeleteOutlined onClick={deleteCategory} />
+               <Link href={`/admin/category/edit?id=${node.id}`}>
+                  <EditOutlined style={{ marginRight: '5px', color: '#3533B0' }} />
+               </Link>
+               <DeleteOutlined onClick={deleteCategory} style={{ marginRight: '5px' }} />
                {isLoading && <Spin />}
             </div>
          </div>
+
          {isExpanded && (
             <ul className={classes.child_nodes}>
                {node.subCategories.map((childNode: ICategoryData) => (
@@ -70,7 +77,7 @@ const TreeNode = ({ node }) => {
    )
 }
 
-const TreeView = ({ data }) => {
+const CategoriesTree = ({ data }) => {
    const [isOpened, setIsOpened] = useState(true)
 
    const handleToggleAll = () => {
@@ -94,4 +101,4 @@ const TreeView = ({ data }) => {
    )
 }
 
-export default TreeView
+export default CategoriesTree
