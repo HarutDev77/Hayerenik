@@ -1,13 +1,12 @@
-.properties{
-    
-    margin: 150px auto 150px;
-    padding: 0 24px;
+.properties {
+   margin: 150px auto 150px;
+   padding: 0 24px;
 
-    &_header{
+   &_header {
+      margin-bottom: 24px;
+   }
 
-    }
-
-    &_tabel{
-        max-width: 680px;
-    }
+   &_tabel {
+      max-width: 680px;
+   }
 }

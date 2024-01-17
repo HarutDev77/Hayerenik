@@ -4,7 +4,6 @@ import PropertiesPage from '@/components/pages/admin/Properties'
 
 const Property = () => <PropertiesPage />
 
-
 Property.getLayout = function getLayout(page: ReactElement) {
    return <AdminLayout>{page}</AdminLayout>
 }
