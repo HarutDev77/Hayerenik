@@ -20,42 +20,8 @@ const CreateOrEditCategory: FC = () => {
    const [categories, setCategories] = useState([])
    const router = useRouter()
    const { id, mode } = router.query
-
-   console.log(id, mode)
-
-   const { data, isLoading } = useQuery(
-      'createCategoryPageData',
-      () => {
-         return QueryApi.createCategoryPageData(mode === ModeEnum.create ? 'admin/category/create-page-data' : id ? `admin/category/edit-page-data/${id}` : '')
-      },
-      {
-         onSuccess: (data) => {
-            if (mode === ModeEnum.create) {
-               setCategories(data.resData.categories)
-               setProperties(data.resData.properties)
-            } else {
-               const selectedIds = [...data.resData.category.properties.map((item) => item.id)]
-               setCategories(data.resData.categories)
-               setProperties(data.resData.properties.filter((item) => !selectedIds.includes(item.id)))
-               setCategoryForm({
-                  parentId: data ? data?.resData?.category?.parentId : null,
-                  titleEn: data ? data?.resData?.category?.titleEn : '',
-                  titleAm: data ? data?.resData.category?.titleAm : null,
-                  metaTitle: data ? data?.resData?.category?.metaTitle : null,
-                  metaDescription: data ? data?.resData?.category?.metaDescription : null,
-                  isHidden: data ? data?.resData?.category?.isHidden : false,
-                  isTop: data ? data?.resData?.category?.isTop : false,
-                  img: data ? data?.resData?.category?.img : null,
-                  propertiesIds: data ? selectedIds : [],
-               })
-            }
-         },
-      },
-   )
-   console.log(data)
-
    const [properties, setProperties] = useState([])
-   const [selectedValue, setSelectedValue] = useState<any>(mode === ModeEnum.create ? '' : data ? data?.resData?.category?.parentId : '')
+   const [selectedValue, setSelectedValue] = useState<number | null>(null)
    const [selectedValueProps, setSelectedValueProps] = useState<any>('')
    const [categoryForm, setCategoryForm] = useState<ICategoryForm>({
       parentId: null,
@@ -68,7 +34,41 @@ const CreateOrEditCategory: FC = () => {
       img: null,
       propertiesIds: [],
    })
-   const [propTags, setPropTags] = useState(mode === ModeEnum.create ? [] : data ? data.resData.category.properties : [])
+   const [propTags, setPropTags] = useState([])
+   const [showRequired, setShowRequired] = useState<boolean>(false)
+
+   useQuery(
+      'manageCategoryPageData',
+      () => {
+         return QueryApi.createCategoryPageData(mode === ModeEnum.create ? 'admin/category/create-page-data' : id ? `admin/category/edit-page-data/${id}` : '')
+      },
+      {
+         onSuccess: (data) => {
+            if (mode === ModeEnum.create) {
+               setCategories(data.resData.categories)
+               setProperties(data.resData.properties)
+            } else {
+               const selectedIds = [...data.resData.category.properties.map((item) => item.id)]
+               setCategories(data.resData.categories.filter((category) => category.id !== data?.resData?.category.id))
+               setProperties(data.resData.properties.filter((item) => !selectedIds.includes(item.id)))
+               setCategoryForm({
+                  parentId: data ? data?.resData?.category?.parentId : null,
+                  titleEn: data ? data?.resData?.category?.titleEn : '',
+                  titleAm: data ? data?.resData.category?.titleAm : null,
+                  metaTitle: data ? data?.resData?.category?.metaTitle : null,
+                  metaDescription: data ? data?.resData?.category?.metaDescription : null,
+                  isHidden: data ? data?.resData?.category?.isHidden : false,
+                  isTop: data ? data?.resData?.category?.isTop : false,
+                  img: data ? data?.resData?.category?.img : null,
+                  propertiesIds: data ? selectedIds : [],
+               })
+               setSelectedValue(data?.resData?.category?.parentId)
+               setPropTags(data.resData.category.properties)
+            }
+         },
+         enabled: !!id || mode === ModeEnum.create,
+      },
+   )
 
    const { mutate } = useMutation(
       (categoryForm: ICategoryForm) => {
@@ -76,9 +76,10 @@ const CreateOrEditCategory: FC = () => {
       },
       {
          onSuccess: () => {
-            toast.success(mode === ModeEnum.create ? 'Success! Category created' : 'Success! Category edited')
+            // toast.success(mode === ModeEnum.create ? 'Success! Category created' : 'Success! Category edited')
             setCategoryForm({ parentId: null, titleEn: '', titleAm: null, metaTitle: null, metaDescription: null, isHidden: false, isTop: false, img: null, propertiesIds: [] })
-            setSelectedValue('')
+            setSelectedValue(null)
+            router.push('/admin/category').catch(() => {})
          },
       },
    )
@@ -115,6 +116,7 @@ const CreateOrEditCategory: FC = () => {
    const changeTitle = (e) => {
       const { name, value } = e.target
       setCategoryForm({ ...categoryForm, [name]: value })
+      setShowRequired(false)
    }
 
    const handleChange = (event) => {
@@ -144,6 +146,7 @@ const CreateOrEditCategory: FC = () => {
       if (categoryForm.titleEn.trim()) {
          mutate(categoryForm)
       }
+      setShowRequired(true)
    }
 
    return (
@@ -154,7 +157,14 @@ const CreateOrEditCategory: FC = () => {
                <h3>
                   Category name <span>*</span>
                </h3>
-               <Input rules={[{ required: true, message: 'Please input your username!' }]} value={categoryForm.titleEn} name={'titleEn'} placeholder='Category name' onChange={(e) => changeTitle(e)} />
+               <Input
+                  style={showRequired ? { border: '2px solid red' } : {}}
+                  rules={[{ required: true, message: 'Please input your username!' }]}
+                  value={categoryForm.titleEn}
+                  name={'titleEn'}
+                  placeholder='Category name'
+                  onChange={(e) => changeTitle(e)}
+               />
             </div>
             <div>
                <h3>Parent category</h3>
@@ -186,11 +196,11 @@ const CreateOrEditCategory: FC = () => {
          <div className={classes.hk_admin_category_name_box}>
             <div className={classes.hk_admin_category_name_box_input_container}>
                <h3>Meta Title</h3>
-               <Input placeholder='Title' name={'metaTitle'} onChange={(e) => changeTitle(e)} />
+               <Input placeholder='Title' name={'metaTitle'} value={categoryForm.metaTitle} onChange={(e) => changeTitle(e)} />
             </div>
             <div className={classes.hk_admin_category_name_box_input_container}>
                <h3>Meta description</h3>
-               <Input name={'metaDescription'} onChange={(e) => changeTitle(e)} placeholder='Description' />
+               <Input name={'metaDescription'} value={categoryForm.metaDescription} onChange={(e) => changeTitle(e)} placeholder='Description' />
             </div>
          </div>
          {categoryForm.isTop && (

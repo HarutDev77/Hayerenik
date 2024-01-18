@@ -4,7 +4,6 @@ import Plus from '@/assets/images/plusImg.svg'
 import Minus from '@/assets/images/MinusImg.svg'
 import Circle from '@/assets/images/circle.svg'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
-import classes from './CategoriesTree.module.scss'
 import MainButton from '@/components/Parts/MainButton'
 import { ICategoryData } from '@/types/admin'
 import Link from 'next/link'
@@ -12,6 +11,7 @@ import { Modal, Spin } from 'antd'
 import { useMutation, useQueryClient } from 'react-query'
 import QueryApi from '@/api/query.api'
 import { toast } from 'react-toastify'
+import classes from './CategoriesTree.module.scss'
 
 const TreeNode = ({ node }) => {
    const [isExpanded, setIsExpanded] = useState(false)
@@ -24,7 +24,6 @@ const TreeNode = ({ node }) => {
       },
       {
          onSuccess: () => {
-            toast.success('Success! category deleted')
             queryClient.invalidateQueries('getCategories')
          },
       },
@@ -71,7 +70,9 @@ const TreeNode = ({ node }) => {
             </ul>
          )}
          <Modal open={isModalOpen} onOk={() => handleOk(node.id)} onCancel={handleCancel}>
-            <p>Are you sure to delete category {node.titleEn}</p>
+            <p className={classes.modal_category_delete_p}>
+               Are you sure to delete category <span>{node.titleEn}</span>{' '}
+            </p>
          </Modal>
       </div>
    )
