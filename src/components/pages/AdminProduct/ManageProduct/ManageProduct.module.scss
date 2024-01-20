@@ -1,0 +1,40 @@
+.hk_admin_product_manage{
+  width: 1128px;
+  margin: 0 auto 100px;
+
+  h2{
+    color: #9A97C6;
+    margin: 85px 0 40px 0;
+    font-size: 40px;
+    font-weight: 400;
+  }
+
+  &_first_box {
+    margin-bottom: 50px;
+  }
+
+  &_second_box{
+    margin-bottom: 50px;
+  }
+
+  &_third_box{
+    margin: 50px 0;
+    div{
+      text-align: start;
+    }
+  }
+
+  &_upload_section {
+    width: 600px;
+
+    &_button{
+      display: flex;
+      justify-content: flex-end;
+      width: 150px;
+      height: 150px;
+      border: 2px solid #3C3C3C;
+      border-radius: 11px;
+    }
+  }
+
+}

@@ -27,3 +27,25 @@
     height: 140px;
   }
 }
+#select-label{
+  top: -6px;
+  left: 10px;
+  font-size: 17px;
+  color: #c1b6b6;
+}
+
+.MuiFormControl-root {
+  margin-bottom: 15px;
+}
+
+.ant-upload-list-item:hover{
+  display: none!important;
+}
+
+.ant-tooltip-hidden{
+  display: none!important;
+}
+
+//:where(.css-dev-only-do-not-override-1twfe0g).ant-tooltip-hidden {
+//  display: none!important;
+//}

@@ -1,10 +1,9 @@
 .hk_admin_navigate{
+  padding-top: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  position: fixed;
-  top: 0;
   &_logo_box{
     width: 200px;
     cursor: pointer;
@@ -16,6 +15,10 @@
       justify-content: space-around;
       width: 410px;
       li{
+        a{
+          text-decoration: none;
+          color: #606060;
+        }
         font-size: 18px;
         font-weight: 400;
         cursor: pointer;
