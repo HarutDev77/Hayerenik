@@ -4,8 +4,7 @@ import { useQuery } from 'react-query'
 import QueryApi from '@/api/query.api'
 import { Spin } from 'antd'
 import { ICategoryData } from '@/types/admin'
-import TreeView from '@/components/Parts/CategoriesTree'
-import CategoriesTree from '@/components/Parts/CategoriesTree'
+import CategoriesTree from '@/components/pages/CategoryPage/CategoriesTree'
 
 const Categories = () => {
    const { data, isLoading } = useQuery<ICategoryData[]>('getCategories', () => {

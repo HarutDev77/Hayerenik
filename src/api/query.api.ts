@@ -41,4 +41,13 @@ export default class QueryApi {
 
       return response.data
    }
+
+   static async getProducts(): Promise<AxiosResponse<any>> {
+      const response = await axiosRequest.post('admin/product/all', {
+         body: {
+            categoryId: null,
+         },
+      })
+      return response.data
+   }
 }

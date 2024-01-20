@@ -24,16 +24,16 @@ const AdminHeader = () => {
          <div className={classes.hk_admin_navigate_menu_box}>
             <ul>
                <li>
-                  <Link href='/admin/Orders'>Orders</Link>
+                  <Link href='/admin/orders'>Orders</Link>
                </li>
                <li>
-                  <Link href='/admin/Products'>Products</Link>
+                  <Link href='/admin/product'>Products</Link>
                </li>
                <li>
                   <Link href='/admin/category'>Categories</Link>
                </li>
                <li>
-                  <Link href='/admin/Properties'>Properties</Link>
+                  <Link href='/admin/property'>Properties</Link>
                </li>
             </ul>
          </div>

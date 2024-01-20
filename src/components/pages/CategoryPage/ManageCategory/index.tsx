@@ -1,4 +1,4 @@
-import { Input, Spin, Switch } from 'antd'
+import { Input, Select as AntSelect, Spin, Switch } from 'antd'
 import Image from 'next/image'
 import AddImage from '@/assets/images/icon_image_plus_.svg'
 import { FC, useState } from 'react'
@@ -13,10 +13,9 @@ import { useRouter } from 'next/router'
 import { FolderEnum, ModeEnum } from '@/enums/common'
 import { BACKEND_IMAGES_URL } from '@/constants/config'
 import { ICategoryForm } from '@/types/admin'
-import { toast } from 'react-toastify'
-import classes from './CreateOrEditCategory.module.scss'
+import classes from './ManageCategory.module.scss'
 
-const CreateOrEditCategory: FC = () => {
+const ManageCategory: FC = () => {
    const [categories, setCategories] = useState([])
    const router = useRouter()
    const { id, mode } = router.query
@@ -52,14 +51,14 @@ const CreateOrEditCategory: FC = () => {
                setCategories(data.resData.categories.filter((category) => category.id !== data?.resData?.category.id))
                setProperties(data.resData.properties.filter((item) => !selectedIds.includes(item.id)))
                setCategoryForm({
-                  parentId: data ? data?.resData?.category?.parentId : null,
-                  titleEn: data ? data?.resData?.category?.titleEn : '',
-                  titleAm: data ? data?.resData.category?.titleAm : null,
-                  metaTitle: data ? data?.resData?.category?.metaTitle : null,
-                  metaDescription: data ? data?.resData?.category?.metaDescription : null,
-                  isHidden: data ? data?.resData?.category?.isHidden : false,
-                  isTop: data ? data?.resData?.category?.isTop : false,
-                  img: data ? data?.resData?.category?.img : null,
+                  parentId: data ? data.resData.category.parentId : null,
+                  titleEn: data ? data.resData.category.titleEn : '',
+                  titleAm: data ? data.resData.category.titleAm : null,
+                  metaTitle: data ? data.resData.category.metaTitle : null,
+                  metaDescription: data ? data.resData.category.metaDescription : null,
+                  isHidden: data ? data.resData.category.isHidden : false,
+                  isTop: data ? data.resData.category.isTop : false,
+                  img: data ? data?.resData.category.img : null,
                   propertiesIds: data ? selectedIds : [],
                })
                setSelectedValue(data?.resData?.category?.parentId)
@@ -149,6 +148,7 @@ const CreateOrEditCategory: FC = () => {
       setShowRequired(true)
    }
 
+   // noinspection TypeScriptValidateTypes
    return (
       <section className={classes.hk_admin_category}>
          <h1>{ModeEnum.create === mode ? 'Adding a new category' : 'Editing a category'}</h1>
@@ -159,7 +159,7 @@ const CreateOrEditCategory: FC = () => {
                </h3>
                <Input
                   style={showRequired ? { border: '2px solid red' } : {}}
-                  rules={[{ required: true, message: 'Please input your username!' }]}
+                  rules={[{ required: true }]}
                   value={categoryForm.titleEn}
                   name={'titleEn'}
                   placeholder='Category name'
@@ -270,8 +270,9 @@ const CreateOrEditCategory: FC = () => {
             <Link href={'/admin/category'}>
                <MainButton text={'Cancel'} width={'133px'} fontSize={'16px'} />
             </Link>
+            {/*<AntSelect defaultValue='lucy' style={{ width: 120 }} onChange={handleChange} options={[{ value: 'arman', label: 'test' }]} />*/}
          </div>
       </section>
    )
 }
-export default CreateOrEditCategory
+export default ManageCategory

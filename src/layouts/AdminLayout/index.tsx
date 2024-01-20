@@ -1,7 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import Footer from '@/components/Parts/Footer'
 import AdminHeader from '@/components/Parts/AdminHeader'
-import WithAuth from '@/helpers/auth'
 import { getAuthToken } from '@/api/auth'
 import { useRouter } from 'next/router'
 
