@@ -6,6 +6,6 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "semi": false,
-  "printWidth": 200,
+  "printWidth": 100,
   "tabWidth": 3
 }
