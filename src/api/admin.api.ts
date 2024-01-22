@@ -2,6 +2,8 @@ import axiosRequest from "@/api/axiosRequest";
 import {AxiosResponse} from "axios";
 
 export default class AdminApi {
+    // properties
+
     static async getProperties ():Promise<AxiosResponse<any>>{
         const response =  await axiosRequest.get("admin/property")
         return response.data.resData
@@ -23,5 +25,16 @@ export default class AdminApi {
 
     static async deleteProperty (id:number):Promise<AxiosResponse<any>>{
         return await axiosRequest.delete(`admin/property/${id}`)
+    }
+
+    // products
+
+    static async createProduct(data:any):Promise<AxiosResponse<any>>{
+        return await axiosRequest.post("admin/product", data)
+    }
+
+    static async getProductsDataForCreate ():Promise<AxiosResponse<any>>{
+        const response =  await axiosRequest.get("admin/product/create-page-data")
+        return response.data.resData
     }
 }
