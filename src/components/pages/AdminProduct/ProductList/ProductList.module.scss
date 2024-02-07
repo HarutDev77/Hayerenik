@@ -8,7 +8,11 @@
   }
   &_input_box{
     display: flex;
+    justify-content: space-between;
     margin: 63px 0 0 0;
+    &  input{
+      width: 45%;
+    }
   }
   &_table{
     margin: 40px auto;

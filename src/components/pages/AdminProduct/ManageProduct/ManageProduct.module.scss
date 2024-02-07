@@ -1,7 +1,22 @@
 .hk_admin_product_manage{
   width: 1128px;
   margin: 0 auto 100px;
+  &_upload_section{
+    display: flex;
+    align-items: center;
 
+    &_images_container{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-left: 10px;
+    }
+  }
+  &_properties_box{
+    &_child{
+
+    }
+  }
   h2{
     color: #9A97C6;
     margin: 85px 0 40px 0;

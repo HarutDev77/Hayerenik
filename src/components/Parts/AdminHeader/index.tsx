@@ -33,7 +33,7 @@ const AdminHeader = () => {
                   <Link href='/admin/category'>Categories</Link>
                </li>
                <li>
-                  <Link href='/admin/property'>Properties</Link>
+                  <Link href='/admin/properties'>Properties</Link>
                </li>
             </ul>
          </div>

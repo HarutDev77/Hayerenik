@@ -8,10 +8,9 @@ import { useMemo } from 'react'
 
 const PropertiesPage = () => {
    const router = useRouter()
-
    const { data, refetch } = useQuery('getProperties', AdminApi.getProperties)
 
-   const properties: any = useMemo(() => data, [data])
+   const properties: any = useMemo(() => data?.rows || [], [data])
 
    const { mutate: deleteProperty } = useMutation({
       mutationFn: (id: number) => {
@@ -82,7 +81,7 @@ const PropertiesPage = () => {
          <Table
             className={classes.properties_tabel}
             columns={propertiesTabel}
-            dataSource={properties || []}
+            dataSource={properties}
             pagination={{ position: ['bottomLeft'] }}
          />
          <Button

@@ -9,9 +9,6 @@ export const defaultOptions = {
    },
    mutations: {
       onError: (error: any) => {
-         // if (error.response.statusCode === 111) {
-         //     message = 'Something went wrong!';
-         // }
          toast(error?.message || 'Something went wrong!', {
             toastId: 'global-error-message',
             autoClose: 5000,

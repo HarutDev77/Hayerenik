@@ -10,7 +10,6 @@ import Link from 'next/link'
 import { Modal, Spin } from 'antd'
 import { useMutation, useQueryClient } from 'react-query'
 import QueryApi from '@/api/query.api'
-import { toast } from 'react-toastify'
 import classes from './CategoriesTree.module.scss'
 
 const TreeNode = ({ node }) => {
@@ -48,7 +47,15 @@ const TreeNode = ({ node }) => {
       <div className={classes.tree_node}>
          <div style={{ display: 'flex', alignItems: 'center' }}>
             <div onClick={handleToggle} className={classes.node_toggle}>
-               {node.subCategories.length > 0 ? isExpanded ? <Image src={Minus} alt={'minus'} /> : <Image src={Plus} alt={'plus'} /> : <Image src={Circle} alt={'circle'} />}
+               {node.subCategories.length > 0 ? (
+                  isExpanded ? (
+                     <Image src={Minus} alt={'minus'} />
+                  ) : (
+                     <Image src={Plus} alt={'plus'} />
+                  )
+               ) : (
+                  <Image src={Circle} alt={'circle'} />
+               )}
                <span>{node.titleEn}</span>
             </div>
             <div>
@@ -78,7 +85,7 @@ const TreeNode = ({ node }) => {
    )
 }
 
-const CategoriesTree = ({ data }) => {
+const CategoriesTree = ({ data = [] }) => {
    const [isOpened, setIsOpened] = useState(true)
 
    const handleToggleAll = () => {
@@ -89,13 +96,29 @@ const CategoriesTree = ({ data }) => {
       <section className={classes.hk_admin_categories}>
          <h1 className={classes.hk_admin_categories_title}>Categories</h1>
          <h3 onClick={handleToggleAll}>
-            {data.length === 0 ? <Image src={Circle} alt={'circle'} /> : isOpened ? <Image src={Minus} alt={'minus'} /> : <Image src={Plus} alt={'plus'} />}
+            {data.length === 0 ? (
+               <Image src={Circle} alt={'circle'} />
+            ) : isOpened ? (
+               <Image src={Minus} alt={'minus'} />
+            ) : (
+               <Image src={Plus} alt={'plus'} />
+            )}
             All
          </h3>
-         {isOpened ? data.map((rootNode) => <TreeNode key={rootNode.id} node={rootNode} />) : <></>}
+         {isOpened && data.length ? (
+            data?.map((rootNode) => <TreeNode key={rootNode.id} node={rootNode} />)
+         ) : (
+            <></>
+         )}
          <div>
             <Link href={'/admin/category/create'}>
-               <MainButton text={'Add new category'} fontSize={'16px'} width={'218px'} height={'50px'} className={classes.hk_admin_categories_main_button} />
+               <MainButton
+                  text={'Add new category'}
+                  fontSize={'16px'}
+                  width={'218px'}
+                  height={'50px'}
+                  className={classes.hk_admin_categories_main_button}
+               />
             </Link>
          </div>
       </section>

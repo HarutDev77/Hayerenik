@@ -152,15 +152,24 @@ export const BUBBLES_RIGHT = [
 export const BUBBLES_LEFT = [
    {
       img: bigBubble,
-      className: ['hk_home_section_review_bigBubbleImg_img', 'hk_home_section_review_bigBubbleImgLeft_img'],
+      className: [
+         'hk_home_section_review_bigBubbleImg_img',
+         'hk_home_section_review_bigBubbleImgLeft_img',
+      ],
    },
    {
       img: middleBubble,
-      className: ['hk_home_section_review_middleBubbleImg_img', 'hk_home_section_review_middleBubbleImgLeft_img'],
+      className: [
+         'hk_home_section_review_middleBubbleImg_img',
+         'hk_home_section_review_middleBubbleImgLeft_img',
+      ],
    },
    {
       img: smallBubble,
-      className: ['hk_home_section_review_smallBubbleImg_img', 'hk_home_section_review_smallBubbleImgLeft_img'],
+      className: [
+         'hk_home_section_review_smallBubbleImg_img',
+         'hk_home_section_review_smallBubbleImgLeft_img',
+      ],
    },
 ]
 
@@ -252,7 +261,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 1,
       imageUrl: pencil,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 35,
       images: [pencil, pen, bookLion, pencil, bookLion, pens],
       properties: [
@@ -302,7 +312,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 2,
       imageUrl: pens,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 25,
       images: [pencil, pen, bookLion],
       properties: [
@@ -352,7 +363,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 3,
       imageUrl: book,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 17,
       images: [pencil, pen, bookLion],
       properties: [
@@ -402,7 +414,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 4,
       imageUrl: bookLion,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 16,
       images: [pencil, pen, bookLion],
       properties: [
@@ -452,7 +465,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 5,
       imageUrl: pen,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 21,
       images: [pencil, book, bookLion],
       properties: [
@@ -502,7 +516,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 6,
       imageUrl: pencil,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 30,
       images: [pencil, book, bookLion],
       properties: [
@@ -552,7 +567,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 7,
       imageUrl: pens,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 14,
       images: [pencil, book, bookLion],
       properties: [
@@ -602,7 +618,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 8,
       imageUrl: book,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 24,
       images: [pencil, book, bookLion],
       properties: [
@@ -652,7 +669,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 9,
       imageUrl: bookLion,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 27,
       images: [pencil, book, bookLion],
       properties: [
@@ -702,7 +720,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 10,
       imageUrl: pen,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 20,
       properties: [
          {
@@ -751,7 +770,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 11,
       imageUrl: pencil,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 18,
       images: [pencil, book, bookLion],
       properties: [
@@ -801,7 +821,8 @@ export const ALL_ITEMS: IAllItems[] = [
       id: 12,
       imageUrl: pens,
       title: 'Pilot - Pen FriXion LX',
-      description: 'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
+      description:
+         'Pilot Frixion LX with metal body and the erasable Frixion-ink. Comes with blue ink. Eraser tip under the top cap.',
       price: 16,
       images: [pencil, book, bookLion],
       properties: [
@@ -848,3 +869,5 @@ export const ALL_ITEMS: IAllItems[] = [
       ],
    },
 ]
+
+export const PAGINATION_LIMIT = 10
