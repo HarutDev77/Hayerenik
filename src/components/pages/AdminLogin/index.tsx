@@ -58,7 +58,9 @@ const Login: FC = () => {
          <div>
             <div className={classes.hk_login_container_header}>
                <Title className={classes.hk_login_container_title}>Sign in</Title>
-               <Text className={classes.hk_login_container_text}>Welcome back to Hayerenik! Please enter your details below to sign in.</Text>
+               <Text className={classes.hk_login_container_text}>
+                  Welcome back to Hayerenik! Please enter your details below to sign in.
+               </Text>
             </div>
             <Form
                name='normal_login'
@@ -78,7 +80,12 @@ const Login: FC = () => {
                      },
                   ]}
                >
-                  <Input prefix={<MailOutlined />} placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <Input
+                     prefix={<MailOutlined />}
+                     placeholder='Email'
+                     value={email}
+                     onChange={(e) => setEmail(e.target.value)}
+                  />
                </Form.Item>
                <Form.Item
                   name='password'
@@ -89,7 +96,13 @@ const Login: FC = () => {
                      },
                   ]}
                >
-                  <Input.Password prefix={<LockOutlined />} type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <Input.Password
+                     prefix={<LockOutlined />}
+                     type='password'
+                     placeholder='Password'
+                     value={password}
+                     onChange={(e) => setPassword(e.target.value)}
+                  />
                </Form.Item>
                <Form.Item>
                   <Form.Item name='remember' valuePropName='checked' noStyle>
@@ -110,7 +123,10 @@ const Login: FC = () => {
                      Log in
                   </Button>
                   <div className={classes.hk_login_footer}>
-                     <Text className={classes.hk_login_container_text}>{"Don't have an account? "}</Text> <Link href=''>Sign up now</Link>
+                     <Text className={classes.hk_login_container_text}>
+                        {"Don't have an account? "}
+                     </Text>{' '}
+                     <Link href=''>Sign up now</Link>
                   </div>
                </Form.Item>
             </Form>

@@ -39,7 +39,13 @@ const ManageCategory: FC = () => {
    useQuery(
       'manageCategoryPageData',
       () => {
-         return QueryApi.createCategoryPageData(mode === ModeEnum.create ? 'admin/category/create-page-data' : id ? `admin/category/edit-page-data/${id}` : '')
+         return QueryApi.createCategoryPageData(
+            mode === ModeEnum.create
+               ? 'admin/category/create-page-data'
+               : id
+                 ? `admin/category/edit-page-data/${id}`
+                 : '',
+         )
       },
       {
          onSuccess: (data) => {
@@ -48,8 +54,14 @@ const ManageCategory: FC = () => {
                setProperties(data.resData.properties)
             } else {
                const selectedIds = [...data.resData.category.properties.map((item) => item.id)]
-               setCategories(data.resData.categories.filter((category) => category.id !== data?.resData?.category.id))
-               setProperties(data.resData.properties.filter((item) => !selectedIds.includes(item.id)))
+               setCategories(
+                  data.resData.categories.filter(
+                     (category) => category.id !== data?.resData?.category.id,
+                  ),
+               )
+               setProperties(
+                  data.resData.properties.filter((item) => !selectedIds.includes(item.id)),
+               )
                setCategoryForm({
                   parentId: data ? data.resData.category.parentId : null,
                   titleEn: data ? data.resData.category.titleEn : '',
@@ -75,8 +87,17 @@ const ManageCategory: FC = () => {
       },
       {
          onSuccess: () => {
-            // toast.success(mode === ModeEnum.create ? 'Success! Category created' : 'Success! Category edited')
-            setCategoryForm({ parentId: null, titleEn: '', titleAm: null, metaTitle: null, metaDescription: null, isHidden: false, isTop: false, img: null, propertiesIds: [] })
+            setCategoryForm({
+               parentId: null,
+               titleEn: '',
+               titleAm: null,
+               metaTitle: null,
+               metaDescription: null,
+               isHidden: false,
+               isTop: false,
+               img: null,
+               propertiesIds: [],
+            })
             setSelectedValue(null)
             router.push('/admin/category').catch(() => {})
          },
@@ -128,7 +149,9 @@ const ManageCategory: FC = () => {
       const newProperties = propTags.filter((property) => property.id !== id)
       setPropTags([...newProperties])
 
-      const newPropertiesIds = Array.isArray(categoryForm) ? categoryForm.propertiesIds.filter((property) => property !== id) : []
+      const newPropertiesIds = Array.isArray(categoryForm)
+         ? categoryForm.propertiesIds.filter((property) => property !== id)
+         : []
 
       setCategoryForm({ ...categoryForm, propertiesIds: [...newPropertiesIds] })
       setProperties([...properties, prop])
@@ -169,7 +192,11 @@ const ManageCategory: FC = () => {
             <div>
                <h3>Parent category</h3>
                <FormControl fullWidth>
-                  <Select value={selectedValue} onChange={handleChange} className={classes.hk_admin_category_parent_category}>
+                  <Select
+                     value={selectedValue}
+                     onChange={handleChange}
+                     className={classes.hk_admin_category_parent_category}
+                  >
                      {categories.map((prop) => (
                         <MenuItem key={prop.id} data-id={prop.id} value={prop.id}>
                            {prop.titleEn}
@@ -186,7 +213,12 @@ const ManageCategory: FC = () => {
          <div className={classes.hk_admin_category_name_box}>
             <div className={classes.hk_admin_category_name_box_input_container}>
                <h3>Կատեգորիայի անունը</h3>
-               <Input placeholder='Կատեգորիայի անունը' name={'titleAm'} value={categoryForm.titleAm} onChange={(e) => changeTitle(e)} />
+               <Input
+                  placeholder='Կատեգորիայի անունը'
+                  name={'titleAm'}
+                  value={categoryForm.titleAm}
+                  onChange={(e) => changeTitle(e)}
+               />
             </div>
             <div className={classes.hk_admin_category_name_box_switch_top}>
                <h3>Top</h3>
@@ -196,11 +228,21 @@ const ManageCategory: FC = () => {
          <div className={classes.hk_admin_category_name_box}>
             <div className={classes.hk_admin_category_name_box_input_container}>
                <h3>Meta Title</h3>
-               <Input placeholder='Title' name={'metaTitle'} value={categoryForm.metaTitle} onChange={(e) => changeTitle(e)} />
+               <Input
+                  placeholder='Title'
+                  name={'metaTitle'}
+                  value={categoryForm.metaTitle}
+                  onChange={(e) => changeTitle(e)}
+               />
             </div>
             <div className={classes.hk_admin_category_name_box_input_container}>
                <h3>Meta description</h3>
-               <Input name={'metaDescription'} value={categoryForm.metaDescription} onChange={(e) => changeTitle(e)} placeholder='Description' />
+               <Input
+                  name={'metaDescription'}
+                  value={categoryForm.metaDescription}
+                  onChange={(e) => changeTitle(e)}
+                  placeholder='Description'
+               />
             </div>
          </div>
          {categoryForm.isTop && (
@@ -212,12 +254,22 @@ const ManageCategory: FC = () => {
                      <Spin />
                   ) : categoryForm.img ? (
                      // eslint-disable-next-line @next/next/no-img-element
-                     <img src={`${BACKEND_IMAGES_URL}/${categoryForm.img}`} alt={'add image'} width={130} height={130} />
+                     <img
+                        src={`${BACKEND_IMAGES_URL}/${categoryForm.img}`}
+                        alt={'add image'}
+                        width={130}
+                        height={130}
+                     />
                   ) : (
                      <Image src={AddImage} alt={'add image'} />
                   )}
                </label>
-               <input style={{ display: 'none' }} type='file' id='hk_input_attach_file' onChange={handleFileChange} />
+               <input
+                  style={{ display: 'none' }}
+                  type='file'
+                  id='hk_input_attach_file'
+                  onChange={handleFileChange}
+               />
                <div onClick={() => setCategoryForm({ ...categoryForm, img: null })}>
                   <Image src={deleteButton} alt={'delete button'} />
                   Delete
@@ -262,9 +314,19 @@ const ManageCategory: FC = () => {
          </div>
          <div className={classes.hk_admin_category_last_box}>
             {ModeEnum.create === mode ? (
-               <MainButton onClick={createCategory} text={'Add new category'} width={'218px'} fontSize={'16px'} />
+               <MainButton
+                  onClick={createCategory}
+                  text={'Add new category'}
+                  width={'218px'}
+                  fontSize={'16px'}
+               />
             ) : (
-               <MainButton onClick={createCategory} text={'Save'} width={'118px'} fontSize={'16px'} />
+               <MainButton
+                  onClick={createCategory}
+                  text={'Save'}
+                  width={'118px'}
+                  fontSize={'16px'}
+               />
             )}
 
             <Link href={'/admin/category'}>

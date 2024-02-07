@@ -20,3 +20,5 @@ export interface ICategoryData {
    titleAm: string
    subCategories: ICategoryData[]
 }
+
+export interface IPropertyItem {}

@@ -11,7 +11,7 @@ const Categories = () => {
       return QueryApi.getCategories()
    })
 
-   const categoryTreeData = data as ICategoryData[]
+   const categoryTreeData = (data as ICategoryData[]) || []
 
    if (isLoading) {
       return <Spin />

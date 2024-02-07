@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Button, Col, Form, Input, Row, Select, Space } from 'antd'
+import { Button, Col, Form, Input, Row, Select, Space, Spin } from 'antd'
 import classes from './PropertyCreateUpdate.module.scss'
 import { PROPERTY_TYPE_LIST } from '@/constants/selects'
 import { useMutation, useQuery } from 'react-query'
@@ -63,7 +63,7 @@ const PropertyCreateUpdate = () => {
    }
 
    if (isLoading) {
-      return <p>Loading...</p>
+      return <Spin />
    }
 
    return (
