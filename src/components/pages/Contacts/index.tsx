@@ -1,13 +1,17 @@
-import React, {ReactElement} from 'react';
-import MainLayout from "@/layouts";
+import React from 'react';
 import Image from "next/image";
+import { useRouter } from 'next/router';
+import { FormattedMessage } from 'react-intl';
+
 import ImageHouse from "@/assets/images/contactsPageImage.svg";
 import ClaudLeft from "@/assets/images/cloud1.svg";
 import classes from "./Contacts.module.scss";
 
+
 const ContactsPage = () => {
     return (
         <div className={classes.hk_contacts_page}>
+            {/*<FormattedMessage id={'hello'}></FormattedMessage>*/}
             <h1>Contacts</h1>
             <div className={classes.hk_contacts_page_content_box}>
                 <div className={classes.hk_contacts_page_content_box_image_box}>
