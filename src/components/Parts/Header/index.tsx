@@ -1,12 +1,16 @@
+import {useState} from "react";
 import Image from "next/image";
+import Link from "next/link";
+import {FormattedMessage} from "react-intl";
+import {Input} from "antd";
+
+import LanguageSwitcher from "@/components/atoms/LanguageSwitcher";
 import Logo from "@/assets/images/hayerenikLogo.svg";
 import Search from "@/assets/images/search.svg";
 import Cart from "@/assets/images/cart.svg";
 import lang from "@/assets/images/icon _United States_.svg";
 import classes from "./Header.module.scss";
-import Link from "next/link";
-import {Input} from "antd";
-import {useState} from "react";
+
 
 const Header = () => {
 
@@ -23,11 +27,10 @@ const Header = () => {
                     <div className={classes.hk_nav_first_box}>
                         <div>
                             <ul>
-                                <li><a href="#">Main</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Payment and Delivery</a></li>
-                                <li><Link href="/contacts">Contact</Link>
-                                </li>
+                                <li><Link href="/"><FormattedMessage id={'main'} /></Link></li>
+                                <li><Link href="#"><FormattedMessage id={'aboutUs'} /></Link></li>
+                                <li><Link href="#"><FormattedMessage id={'payDelivery'} /></Link></li>
+                                <li><Link href="/contacts"><FormattedMessage id={'contacts'} /></Link></li>
                             </ul>
                         </div>
                     </div>
@@ -44,21 +47,16 @@ const Header = () => {
                         </div>
                         <div>
                             <ul>
-                                <li><a href="#">ALL</a></li>
+                                <li><a href="#"><FormattedMessage id={'all'} /></a></li>
                                 <li><a href="#">Books</a></li>
                                 <li><a href="#">For school</a></li>
                                 <li><a href="#">Games</a></li>
-                                <li><Link href="/contacts">Contacts</Link></li>
+                                <li><Link href="/contacts"><FormattedMessage id={'contacts'} /></Link></li>
                             </ul>
                         </div>
                         <div>
                             <div>
-                                <Image
-                                    src={lang}
-                                    alt="search"
-                                    width={30}
-                                    height={30}
-                                />
+                                <LanguageSwitcher />
                             </div>
                            <div>
                                <Image

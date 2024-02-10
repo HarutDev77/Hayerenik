@@ -5,7 +5,7 @@ import ContactsPage from "@/components/pages/Contacts";
 
 const Contact = () =>{
     return (
-        <ContactsPage/>
+        <ContactsPage />
     )
 }
 

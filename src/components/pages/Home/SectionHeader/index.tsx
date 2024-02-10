@@ -1,4 +1,6 @@
 import Image from "next/image";
+import {FormattedMessage} from "react-intl";
+
 import classes from "./SectionHeader.module.scss";
 import headerImage from "@/assets/images/headerbackgruondimage.svg";
 import Cloud from "@/assets/images/cloud1.svg";
@@ -9,13 +11,10 @@ const SectionHeader = () => {
         <section className={classes.hk_home_section_header}>
             <div className={classes.hk_home_section_header_content}>
                 <div>
-                    <h1>Best for our children</h1>
-                    <p>
-                        HAYERENIK is your one-stop shop for children aged 2 to 10. We offer a curated selection of books,
-                        bags, games, handmade toys, art supplies, and more.
-                    </p>
+                    <h1><FormattedMessage id={'bestForChild'} /></h1>
+                    <p><FormattedMessage id={'hayerenikIs'} /></p>
                     <div>
-                        <button>Explore now</button>
+                        <button><FormattedMessage id={'exploreNow'} /></button>
                     </div>
                 </div>
                 <Image
