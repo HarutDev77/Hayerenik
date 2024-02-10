@@ -28,7 +28,6 @@ const queryClient = new QueryClient({
 const translations = {
    en: enTranslations,
    am: amTranslations,
-   // Add more languages as needed
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {

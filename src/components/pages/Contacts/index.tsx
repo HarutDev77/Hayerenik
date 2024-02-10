@@ -10,7 +10,7 @@ import classes from "./Contacts.module.scss";
 const ContactsPage = () => {
     return (
         <div className={classes.hk_contacts_page}>
-            <h1>Contacts</h1>
+            <h1><FormattedMessage id={'contacts'} /></h1>
             <div className={classes.hk_contacts_page_content_box}>
                 <div className={classes.hk_contacts_page_content_box_image_box}>
                     <Image

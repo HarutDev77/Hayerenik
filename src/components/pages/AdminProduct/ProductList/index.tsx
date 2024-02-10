@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
-import { Input, Modal, Pagination, Table, Select } from 'antd'
-import QueryApi from '@/api/query.api'
-import { ColumnsType } from 'antd/es/table'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { ColumnsType } from 'antd/es/table'
+import { Input, Modal, Pagination, Table, Select } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
-import MainButton from '@/components/Parts/MainButton'
-import AdminApi from '@/api/admin.api'
-import classes from './ProductList.module.scss'
-import { debounce } from '@/helpers/utils'
+
 import { PAGINATION_LIMIT } from '@/constants'
+import QueryApi from '@/api/query.api'
+import AdminApi from '@/api/admin.api'
+import { debounce } from '@/helpers/utils'
+import MainButton from '@/components/Parts/MainButton'
+import classes from './ProductList.module.scss'
+
 
 const AdminProducts = () => {
    const [productData, setProductData] = useState()
@@ -154,7 +156,7 @@ const AdminProducts = () => {
             columns={propertiesTable}
             dataSource={
                (productData &&
-                  productData?.productData.map((item) => ({ ...item, key: item.id }))) ||
+                  productData?.rows.map((item) => ({ ...item, key: item.id }))) ||
                []
             }
             pagination={false}
