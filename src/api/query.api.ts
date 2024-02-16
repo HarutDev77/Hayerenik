@@ -58,12 +58,34 @@ export default class QueryApi {
       return response.data.resData
    }
 
+   static async getOrderEditData(id: number): Promise<AxiosResponse<any>> {
+      const response = await axiosRequest.get(`admin/order/${id}`)
+      return response.data.resData
+   }
+
+   static async changeUserOrderData(key: any, value: any, id: number): Promise<any> {
+      const response = await axiosRequest.patch(`admin/order/${id}`, {
+         key,
+         value,
+      })
+      return response.data.resData
+   }
+
    static async deleteCategory(url): Promise<AxiosResponse<any>> {
       const response = await axiosRequest.delete(url)
 
       return response.data
    }
 
+   static async getOrders(page = 1, status = 0, search = ''): Promise<AxiosResponse<any>> {
+      const response = await axiosRequest.post('admin/order/all', {
+         status,
+         page,
+         limit: PAGINATION_LIMIT,
+         search,
+      })
+      return response.data
+   }
    static async getProducts(
       page = 1,
       categoryId: number | null = null,

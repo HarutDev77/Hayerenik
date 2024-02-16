@@ -347,11 +347,7 @@ const ManageProduct = () => {
                                 <h3>
                                    {property.nameEn} {property.nameEn && ` / ${property.nameAm}`}
                                 </h3>
-                                <Form.Item
-                                   label='Number'
-                                   name={'valEn' + property.id}
-                                   rules={[{ required: true, message: 'Please input!' }]}
-                                >
+                                <Form.Item label='Number' name={'valEn' + property.id}>
                                    <Input
                                       type='number'
                                       onBlur={(event) => changePropDataNum(event, property.id)}
@@ -371,11 +367,7 @@ const ManageProduct = () => {
                                       {property.nameEn} {property.nameEn && ` / ${property.nameAm}`}
                                    </h3>
 
-                                   <Form.Item
-                                      label='English'
-                                      name={'valEn' + property.id}
-                                      rules={[{ required: true, message: 'Please input!' }]}
-                                   >
+                                   <Form.Item label='English' name={'valEn' + property.id}>
                                       <Input
                                          name='valEn'
                                          onBlur={(event) => changePropText(event, property.id)}
@@ -398,11 +390,7 @@ const ManageProduct = () => {
                                 <h3>
                                    {property.nameEn} {property.nameEn && ` / ${property.nameAm}`}
                                 </h3>
-                                <Form.Item
-                                   label='Choose'
-                                   name={'valEn' + property.id}
-                                   rules={[{ required: true, message: 'Please input!' }]}
-                                >
+                                <Form.Item label='Choose' name={'valEn' + property.id}>
                                    <Select
                                       onChange={(value, e) => changePropDataNum(value, e)}
                                       style={{ width: '150px', marginLeft: '10px' }}
@@ -457,11 +445,7 @@ const ManageProduct = () => {
                </Form.Item>
             </div>
             <div>
-               <Form.Item
-                  label='Additional description'
-                  name='descriptionEn'
-                  rules={[{ required: true, message: 'Please input!' }]}
-               >
+               <Form.Item label='Additional description' name='descriptionEn'>
                   <Input.TextArea />
                </Form.Item>
                <Form.Item label='Լրացուցիչ նկարագրություն' name='descriptionAm'>
@@ -479,7 +463,7 @@ const ManageProduct = () => {
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                <Button type='primary' htmlType='submit'>
-                  Submit
+                  {mode === ModeEnum.create ? 'Submit' : 'Save'}
                </Button>
             </Form.Item>
          </Form>

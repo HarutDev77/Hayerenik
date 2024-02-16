@@ -8,9 +8,11 @@ import Link from 'next/link'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import MainButton from '@/components/Parts/MainButton'
 import AdminApi from '@/api/admin.api'
-import classes from './ProductList.module.scss'
-import { debounce } from '@/helpers/utils'
 import { PAGINATION_LIMIT } from '@/constants'
+import Image from 'next/image'
+import Tick from '@/assets/images/tick.svg'
+import { BACKEND_IMAGES_URL } from '@/constants/config'
+import classes from './ProductList.module.scss'
 
 const AdminProducts = () => {
    const [productData, setProductData] = useState()
@@ -36,6 +38,7 @@ const AdminProducts = () => {
    useQuery('getProducts', () => QueryApi.getProducts(), {
       onSuccess: (data) => {
          setProductData(data.resData)
+         console.log(data.resData)
       },
    })
 
@@ -70,7 +73,13 @@ const AdminProducts = () => {
 
    useEffect(() => {
       getProducts()
-   }, [getProducts, searchTerm, parentCategoryId])
+   }, [getProducts, parentCategoryId])
+
+   useEffect(() => {
+      const timerId = setTimeout(getProducts, 500)
+
+      return () => clearTimeout(timerId)
+   }, [getProducts, searchTerm])
 
    const propertiesTable: ColumnsType<any> = [
       {
@@ -80,9 +89,13 @@ const AdminProducts = () => {
       },
       {
          title: 'Preview',
-         dataIndex: 'name',
+         dataIndex: 'preview',
          key: 'name',
-         render: (_, record) => `${record.img ? record.img : ''}`,
+         render: (_, record) => (
+            <div style={{ width: '50px' }}>
+               <img style={{ width: '100%' }} src={`${BACKEND_IMAGES_URL}/${record.preview}`} />
+            </div>
+         ),
       },
       {
          title: 'Product Name',
@@ -108,6 +121,15 @@ const AdminProducts = () => {
          title: 'Bestseller',
          dataIndex: 'isBestseller',
          key: 'BestSeller',
+         render: (_, record) => (
+            <div style={{ paddingLeft: '30px' }}>
+               {record.isBestseller ? (
+                  <Image src={Tick} alt={record.titleEn} width={20} height={20} />
+               ) : (
+                  '---'
+               )}
+            </div>
+         ),
       },
       {
          title: 'Action',
@@ -133,11 +155,7 @@ const AdminProducts = () => {
       <section className={classes.hk_admin_product}>
          <h2 className={classes.hk_admin_product_title}>Products</h2>
          <div className={classes.hk_admin_product_input_box}>
-            <Input
-               placeholder='Type here'
-               value={searchTerm}
-               onChange={debounce((e) => changeSearch(e))}
-            />
+            <Input placeholder='Type here' value={searchTerm} onChange={(e) => changeSearch(e)} />
             <Select
                defaultValue='Choose category'
                style={{ width: '45%' }}
@@ -154,7 +172,11 @@ const AdminProducts = () => {
             columns={propertiesTable}
             dataSource={
                (productData &&
-                  productData?.productData.map((item) => ({ ...item, key: item.id }))) ||
+                  productData?.productData.map((item) => ({
+                     ...item,
+                     key: item.id,
+                     price: item.price + ' $',
+                  }))) ||
                []
             }
             pagination={false}

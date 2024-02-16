@@ -1,0 +1,33 @@
+.admin_order_list{
+  width: 1100px;
+  margin: 68px auto 150px;
+  h1{
+    font-size: 40px;
+    color: #9A97C6;
+  }
+  &_table{
+    margin: 50px 0;
+  }
+  &_status_box{
+    width: 500px;
+    margin: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    h3{
+      font-size: 24px;
+      color: #9A97C6;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    &_active{
+      font-weight: bold!important;
+    }
+  }
+  &_search_box{
+    display: flex;
+    width: 490px;
+    input{
+      margin-right: 15px;
+    }
+  }
+}

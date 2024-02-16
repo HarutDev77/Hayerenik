@@ -15,14 +15,5 @@ export const defaultOptions = {
             type: 'error',
          })
       },
-      onSettled: (success) => {
-         if (success) {
-            toast('Done', {
-               toastId: 'global-success-message',
-               autoClose: 5000,
-               type: 'success',
-            })
-         }
-      },
    },
 }
