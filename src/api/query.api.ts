@@ -4,7 +4,7 @@ import { ICategoryData, ICategoryForm } from '@/types/admin'
 import { PAGINATION_LIMIT } from '@/constants'
 
 export default class QueryApi {
-   static async createCategoryPageData(url: string | ''): Promise<AxiosResponse<any>> {
+   static async createCategoryPageData(url: string | ''): Promise<any> {
       const response = await axiosRequest.get(url)
       return response.data
    }
@@ -13,19 +13,22 @@ export default class QueryApi {
       categoryForm: ICategoryForm,
       id: number | undefined | string,
    ): Promise<boolean> {
-      let method = 'post'
       let url = 'admin/category'
 
       if (id) {
-         method = 'put'
          url += `/${id}`
       }
 
-      await axiosRequest[method](url, { ...categoryForm })
+      if (id){
+         await axiosRequest.put(url, { ...categoryForm })
+      } else {
+         await axiosRequest.post(url, { ...categoryForm })
+      }
+
       return true
    }
 
-   static async saveImage(formData): Promise<AxiosResponse<any>> {
+   static async saveImage(formData: FormData): Promise<any> {
       const response = await axiosRequest.post('file/upload-image', formData, {
          headers: {
             'Content-Type': 'multipart/form-data',
@@ -34,7 +37,7 @@ export default class QueryApi {
 
       return response.data
    }
-   static async saveImages(formData): Promise<AxiosResponse<any>> {
+   static async saveImages(formData: FormData): Promise<any> {
       const response = await axiosRequest.post('file/upload-images', formData, {
          headers: {
             'Content-Type': 'multipart/form-data',
@@ -43,7 +46,7 @@ export default class QueryApi {
       return response.data
    }
 
-   static async deleteImage(imageSrc): Promise<AxiosResponse<any>> {
+   static async deleteImage(imageSrc: string): Promise<any> {
       const response = await axiosRequest.delete(`file`, {
          data: {
             src: imageSrc,
@@ -58,7 +61,7 @@ export default class QueryApi {
       return response.data.resData
    }
 
-   static async deleteCategory(url): Promise<AxiosResponse<any>> {
+   static async deleteCategory(url: string): Promise<any> {
       const response = await axiosRequest.delete(url)
 
       return response.data
@@ -78,7 +81,7 @@ export default class QueryApi {
       return response.data
    }
 
-   static async deleteProduct(url): Promise<AxiosResponse<any>> {
+   static async deleteProduct(url: string): Promise<any> {
       const response = await axiosRequest.delete(url)
 
       return response.data

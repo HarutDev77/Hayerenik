@@ -4,7 +4,7 @@ import classes from "./languageSwitcher.module.scss";
 const LanguageSwitcher = () => {
     const router = useRouter();
 
-    const changeLanguage = (locale) => {
+    const changeLanguage = (locale: 'am' | 'en') => {
         router.push(router.pathname, router.asPath, { locale });
     };
 

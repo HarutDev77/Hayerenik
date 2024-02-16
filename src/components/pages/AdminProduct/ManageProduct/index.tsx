@@ -12,13 +12,13 @@ import deleteButton from '@/assets/images/delete_foto.svg'
 import classes from './ManageProduct.module.scss'
 
 const ManageProduct = () => {
-   const [categoryData, setCategoryData] = useState([])
-   const [categoryDataById, setCategoryDataById] = useState([])
-   const [properties, setProperties] = useState([])
-   const [subProducts, setSubProducts] = useState([])
-   const [subProductsData, setSubProductsData] = useState([])
-   const [subProductsId, setSubProductsId] = useState([])
-   const [saveImages, setSaveImages] = useState([])
+   const [categoryData, setCategoryData] = useState<any[]>([])
+   const [categoryDataById, setCategoryDataById] = useState<any[]>([])
+   const [properties, setProperties] = useState<any[]>([])
+   const [subProducts, setSubProducts] = useState<any[]>([])
+   const [subProductsData, setSubProductsData] = useState<any[]>([])
+   const [subProductsId, setSubProductsId] = useState<any[]>([])
+   const [saveImages, setSaveImages] = useState<string[]>([])
    const router = useRouter()
    const { id, mode } = router.query
    const [form] = Form.useForm()
@@ -39,17 +39,17 @@ const ManageProduct = () => {
                data?.product.categoryId && getCategoryData(data?.product.categoryId)
                setSubProductsData(
                   data.products.filter(
-                     (item) => !data.product.subProducts.some((product) => product.id === item.id),
+                     (item: any) => !data.product.subProducts.some((product: any) => product.id === item.id),
                   ),
                )
                setSubProducts(
-                  data.products.filter((item) =>
-                     data.product.subProducts.some((product) => product.id === item.id),
+                  data.products.filter((item: any) =>
+                     data.product.subProducts.some((product: any) => product.id === item.id),
                   ),
                )
 
-               const propertyNames = {}
-               data?.product?.productProperties?.forEach((productProperty) => {
+               const propertyNames: any = {}
+               data?.product?.productProperties?.forEach((productProperty: any) => {
                   if (productProperty.valEn) {
                      propertyNames['valEn' + productProperty.propertyId] = productProperty.valEn
                   }
@@ -61,7 +61,7 @@ const ManageProduct = () => {
 
                setProperties(data?.product?.productProperties)
 
-               setSaveImages(data.product.images.map((image) => image.src))
+               setSaveImages(data.product.images.map((image: { src: string }) => image.src))
 
                form.setFieldsValue({
                   titleEn: data?.product.titleEn,
@@ -87,7 +87,7 @@ const ManageProduct = () => {
    )
 
    const { mutate: getCategoryInfo } = useMutation({
-      mutationFn: (id) => {
+      mutationFn: (id: number) => {
          return AdminApi.getProductsCategoryData(id)
       },
       onSuccess: (data) => {
@@ -95,7 +95,7 @@ const ManageProduct = () => {
       },
    })
 
-   const getCategoryData = (value) => {
+   const getCategoryData = (value: number) => {
       getCategoryInfo(value)
    }
 
@@ -103,7 +103,7 @@ const ManageProduct = () => {
 
    const { mutate: manageProduct } = useMutation({
       mutationFn: (data) => {
-         return AdminApi.manageProduct(data, +id)
+         return AdminApi.manageProduct(data, id ? +id : null)
       },
       onSuccess: () => {
          router.push('/admin/product')
@@ -122,17 +122,17 @@ const ManageProduct = () => {
       })
    }
 
-   const changePropDataNum = (event, id) => {
+   const changePropDataNum = (event: any, id: any) => {
       if (event.target && !event.target.value.trim()) {
          return
       }
       if (
          properties.length &&
-         properties.some((prop) =>
+         properties.some((prop: any) =>
             event.target ? prop?.propertyId === id : prop?.propertyId === id.propId,
          )
       ) {
-         const newProperties = properties.map((prop) => {
+         const newProperties = properties.map((prop: any) => {
             if (event.target ? prop.propertyId === id : prop.propertyId === id.propId) {
                return { ...prop, valEn: event.target ? event.target.value : id.children }
             }
@@ -150,13 +150,13 @@ const ManageProduct = () => {
       }
    }
 
-   const changePropText = (event, id) => {
+   const changePropText = (event: any, id: any) => {
       const { name, value } = event.target
       // if (!value.trim()) {
       //    return
       // }
-      if (properties.some((prop) => prop?.propertyId === id)) {
-         const newProperties = properties.map((prop) => {
+      if (properties.some((prop: any) => prop?.propertyId === id)) {
+         const newProperties = properties.map((prop: any) => {
             if (prop.propertyId === id) {
                return { ...prop, [name]: value }
             }
@@ -168,13 +168,13 @@ const ManageProduct = () => {
       }
    }
 
-   const addSubProduct = (value, e) => {
-      const newSubProductsData = subProductsData.filter((product) => product.id !== +value)
+   const addSubProduct = (value: string, e: any) => {
+      const newSubProductsData = subProductsData.filter((product: any) => product.id !== +value)
       setSubProductsId([...subProductsId, +value])
       setSubProductsData(newSubProductsData)
       setSubProducts([...subProducts, { id: +value, titleEn: e.children }])
    }
-   const deleteSubProduct = (id) => {
+   const deleteSubProduct = (id: number) => {
       const elementById = subProducts.find((item) => item.id === id)
       setSubProductsData([...subProductsData, elementById])
       const newSubProducts = subProducts.filter((product) => product.id !== id)
@@ -189,13 +189,13 @@ const ManageProduct = () => {
       },
       {
          onSuccess: (data) => {
-            setSaveImages([...saveImages, ...data.resData.map((image) => image.src)])
+            setSaveImages([...saveImages, ...data.resData.map((image: { src: string }) => image.src)])
          },
       },
    )
 
    const { mutate: deleteImage, isLoading: loaderImage } = useMutation(
-      (imageSrc) => {
+      (imageSrc: string) => {
          return QueryApi.deleteImage(imageSrc)
       },
       {
@@ -205,7 +205,7 @@ const ManageProduct = () => {
       },
    )
 
-   const changeImages = (e) => {
+   const changeImages = (e: any) => {
       const files = e.target.files
 
       const formData: FormData = new FormData() as FormData
@@ -226,11 +226,11 @@ const ManageProduct = () => {
       )
    }
 
-   const deleteProductImage = (src) => {
+   const deleteProductImage = (src: string) => {
       if (mode === ModeEnum.create) {
          deleteImage(src)
       } else {
-         setSaveImages(saveImages.filter((image) => image !== src))
+         setSaveImages(saveImages.filter((image: string) => image !== src))
       }
    }
 

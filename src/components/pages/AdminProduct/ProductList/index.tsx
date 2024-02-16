@@ -36,7 +36,7 @@ const AdminProducts = () => {
    )
 
    useQuery('getProducts', () => QueryApi.getProducts(), {
-      onSuccess: (data) => {
+      onSuccess: (data: any) => {
          setProductData(data.resData)
       },
    })
@@ -44,7 +44,7 @@ const AdminProducts = () => {
    const { mutate: getProducts } = useMutation(
       (page: number = 1) => QueryApi.getProducts(page, parentCategoryId, searchTerm),
       {
-         onSuccess: (data) => {
+         onSuccess: (data: any) => {
             setProductData(data.resData)
          },
       },
@@ -59,9 +59,9 @@ const AdminProducts = () => {
       },
    })
    const handleCategoryChange = (value: string) => setParentCategoryId(+value)
-   const changeSearch = (e) => setSearchTerm(e.target.value)
+   const changeSearch = (e: any) => setSearchTerm(e.target.value)
    const handleCancel = () => setIsModalOpen(false)
-   const handleOk = (url) => {
+   const handleOk = (url: string) => {
       deleteProduct(url)
       setIsModalOpen(false)
    }

@@ -105,7 +105,7 @@ const ManageCategory: FC = () => {
    )
 
    const { mutate: mutateImage, isLoading: loader } = useMutation(
-      (formData) => {
+      (formData: FormData) => {
          return QueryApi.saveImage(formData)
       },
       {
