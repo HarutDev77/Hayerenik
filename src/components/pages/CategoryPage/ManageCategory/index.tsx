@@ -83,7 +83,7 @@ const ManageCategory: FC = () => {
 
    const { mutate } = useMutation(
       (categoryForm: ICategoryForm) => {
-         return QueryApi.saveCategory(categoryForm, id)
+         return QueryApi.saveCategory(categoryForm, +id)
       },
       {
          onSuccess: () => {
@@ -202,6 +202,7 @@ const ManageCategory: FC = () => {
                            {prop.titleEn}
                         </MenuItem>
                      ))}
+                     <MenuItem>Not a parent category</MenuItem>
                   </Select>
                </FormControl>
             </div>

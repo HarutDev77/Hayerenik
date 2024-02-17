@@ -123,9 +123,10 @@
     }
     .hk_admin_category_property{
       display: flex;
+      flex-wrap: wrap;
       margin-bottom: 30px;
       p{
-        margin-right: 25px;
+        margin: 0 25px 15px 0;
         display: flex;
         padding: 10px 10px 10px 15px;
         justify-content: center;
