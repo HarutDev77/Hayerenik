@@ -2,13 +2,13 @@ import type { AppProps } from 'next/app'
 import { NextPage } from 'next'
 import { useRouter } from 'next/router';
 import { ReactElement, ReactNode } from 'react'
-import '@/assets/styles/index.scss'
-import 'react-toastify/dist/ReactToastify.css'
 import { defaultOptions } from '@/configs/reaqtQueryConfigs'
 import { ToastContainer } from 'react-toastify'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ConfigProvider } from 'antd'
-import { FormattedMessage, IntlProvider } from 'react-intl';
+import { IntlProvider } from 'react-intl';
+import '@/assets/styles/index.scss'
+import 'react-toastify/dist/ReactToastify.css'
 
 import enTranslations from '@/translations/en.json';
 import amTranslations from '@/translations/am.json';

@@ -49,7 +49,7 @@ const Footer = () => {
                     <span>LA 13152</span>
                 </div>
                 <div>
-                    <h5><FormattedMessage id={'products'} /></h5>
+                    <h5><FormattedMessage id={'topCategories'} /></h5>
                     <p>Methodical manuals</p>
                     <p>Tales</p>
                     <p>Coloring books</p>

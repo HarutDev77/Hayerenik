@@ -1,17 +1,21 @@
 import Image from "next/image";
-import {FormattedMessage} from "react-intl";
+import { useRouter } from "next/router";
+import { FormattedMessage } from "react-intl";
 
 import classes from "./SectionHeader.module.scss";
 import headerImage from "@/assets/images/headerbackgruondimage.svg";
 import Cloud from "@/assets/images/cloud1.svg";
 
 const SectionHeader = () => {
+    const router = useRouter();
+    const { locale } = router;
+
     return (
 
         <section className={classes.hk_home_section_header}>
             <div className={classes.hk_home_section_header_content}>
                 <div>
-                    <h1><FormattedMessage id={'bestForChild'} /></h1>
+                    <h1 style={{ width: locale === 'am' ? '700px' : 'auto'  }}><FormattedMessage id={'bestForChild'} /></h1>
                     <p><FormattedMessage id={'hayerenikIs'} /></p>
                     <div>
                         <button><FormattedMessage id={'exploreNow'} /></button>

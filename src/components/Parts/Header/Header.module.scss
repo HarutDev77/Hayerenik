@@ -4,11 +4,25 @@
         margin: 60px 0 50px 0;
         background-color: #D0E3F9;
         padding: 3px 0;
+        position: relative;
+
+        &_lang_switcher_cont {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 90%;
+            transform: translate(-5%);
+            z-index: 0;
+        }
+
         ul{
             display: flex;
             list-style: none;
             width: max-content;
             margin: 0 auto;
+            position: relative;
+            z-index: 999;
+
             li {
                 margin: 3px 0 3px 0;
             }
@@ -60,11 +74,12 @@
             }
 
         }
-        &>div:last-child{
+        &_search_group_items {
             width: 173px;
             display: flex;
             justify-content: flex-end;
             position: relative;
+
             .hk_nav_second_box_search{
                 position: absolute;
                 left: -150px;
@@ -88,15 +103,12 @@
                 cursor: pointer;
                 font-weight: 400;
             }
-            &>div:first-child{
-                position: absolute;
-                top: -100px;
-                right: 16px;
-            }
-            &>div:last-child{
+
+            &>div {
                 img{
                     cursor: pointer;
                 }
+
                 &>img{
                     margin-right: 13px;
                 }
