@@ -3,6 +3,7 @@ import Image from "next/image";
 import MainButton from "@/components/Parts/MainButton";
 import classes from "./ProductItem.module.scss";
 import Link from "next/link";
+import {BACKEND_IMAGES_URL} from "@/constants/config";
 
 interface ProductItem {
     id: number;
@@ -17,11 +18,8 @@ const ProductItem:FC<ProductItem> = ({id,imageUrl,title,description,price}) => {
     return (
         <div className={classes.hk_product_item_box} key={id}>
             <div>
-                <Image
-                    src={imageUrl}
-                    alt={title}
-                    priority={true}
-                />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`}/>
             </div>
             <div>
                 <h3>{title}</h3>

@@ -5,6 +5,8 @@ import AdminApi from '@/api/admin.api'
 import { useRouter } from 'next/router'
 import { ColumnsType } from 'antd/es/table'
 import { useMemo } from 'react'
+import {PropertyTypeEnum} from "@/enums/common";
+import {getEnumKeyByValue} from "@/helpers/utils";
 
 const PropertiesPage = () => {
    const router = useRouter()
@@ -27,7 +29,7 @@ const PropertiesPage = () => {
       type: string
    }
 
-   const propertiesTabel: ColumnsType<any> = [
+   const propertiesTable: ColumnsType<any> = [
       {
          title: '№',
          dataIndex: 'id',
@@ -43,6 +45,7 @@ const PropertiesPage = () => {
          title: 'Type',
          dataIndex: 'type',
          key: 'type',
+         render: (_, record) => `${getEnumKeyByValue(record.type, PropertyTypeEnum)}`
       },
       {
          title: 'Action',
@@ -56,7 +59,7 @@ const PropertiesPage = () => {
                   type='primary'
                   ghost
                >
-                  Edite
+                  Edit
                </Button>
                <Button
                   onClick={() => {
@@ -80,7 +83,7 @@ const PropertiesPage = () => {
          <h2 className={classes.properties_header}>Properties</h2>
          <Table
             className={classes.properties_tabel}
-            columns={propertiesTabel}
+            columns={propertiesTable}
             dataSource={properties}
             pagination={{ position: ['bottomLeft'] }}
          />

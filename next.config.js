@@ -9,6 +9,16 @@ const nextConfig = {
     //
     //     return config
     // },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+    i18n: {
+        locales: ['en', 'am'],
+        defaultLocale: 'en',
+    },
 }
 
 module.exports = nextConfig

@@ -7,6 +7,7 @@ import CodeMilesLogo from "@/assets/images/CodeMiles.svg";
 import moonImage from "@/assets/images/moon.svg";
 import moonLight from "@/assets/images/moonLight.svg";
 import classes from "./Footer.module.scss";
+import {FormattedMessage} from "react-intl";
 
 const Footer = () => {
     return (
@@ -41,14 +42,14 @@ const Footer = () => {
                 </div>
                 <div>
                     <span><a href="#">support@hayerenik.com</a></span>
-                    <span>Monday - Friday</span>
+                    <span><FormattedMessage id={'monday'} /> - <FormattedMessage id={'friday'} /></span>
                     <span>9am - 5pm Eastern</span>
                     <span>+16655000444777</span>
-                    <span>4407 Jordan RoadSkaneateles,</span>
+                    <span><FormattedMessage id={'theAddress'} /></span>
                     <span>LA 13152</span>
                 </div>
                 <div>
-                    <h5>Products</h5>
+                    <h5><FormattedMessage id={'topCategories'} /></h5>
                     <p>Methodical manuals</p>
                     <p>Tales</p>
                     <p>Coloring books</p>
@@ -57,12 +58,12 @@ const Footer = () => {
                     <p>Bags</p>
                 </div>
                 <div>
-                    <h5>Information</h5>
-                    <p>About us</p>
-                    <p>Contact us</p>
-                    <p>Delivery & payment</p>
-                    <p>Return/refund policy</p>
-                    <p>Privacy policy</p>
+                    <h5><FormattedMessage id={'information'} /></h5>
+                    <p><FormattedMessage id={'aboutUs'} /></p>
+                    <p><FormattedMessage id={'contactUs'} /></p>
+                    <p><FormattedMessage id={'payDelivery'} /></p>
+                    <p><FormattedMessage id={'returnRefund'} /></p>
+                    <p><FormattedMessage id={'privacy'} /></p>
 
                 </div>
                 <div>
@@ -81,10 +82,10 @@ const Footer = () => {
                 </div>
             </div>
             <div className={classes.hk_footer_hk_llc_box}>
-                <h4>©Hayerenik LLC. ALL RIGHTS RESERVED. 2023</h4>
+                <h4><FormattedMessage id={'copy'} /> { new Date().getFullYear()}</h4>
             </div>
             <div className={classes.hk_footer_Code_Miles_box}>
-                <p>created by</p>
+                <p><FormattedMessage id={'createdBy'} /></p>
                 <Image
                     src={CodeMilesLogo}
                     alt={"Code Miles"}

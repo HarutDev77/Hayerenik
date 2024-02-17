@@ -1,4 +1,6 @@
 import {useState} from "react";
+import {FormattedMessage} from "react-intl";
+
 import BigPuzzle from "@/components/pages/Home/TopCategories/BigPuzzle";
 import {PUZZLES} from "@/constants";
 
@@ -20,7 +22,7 @@ const SectionTopCategories = () => {
     return (
         <section className={classes.hk_home_section_top_categories}>
             <div>
-                <h2>Top categories</h2>
+                <h2><FormattedMessage id={'topCategories'} /></h2>
             </div>
             <div className={classes.hk_home_section_top_categories_box}>
                 {PUZZLES.map(puzzle => (

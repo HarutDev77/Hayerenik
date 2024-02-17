@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
-import { Input, Modal, Pagination, Table, Select } from 'antd'
-import QueryApi from '@/api/query.api'
-import { ColumnsType } from 'antd/es/table'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { ColumnsType } from 'antd/es/table'
+import { Input, Modal, Pagination, Table, Select } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
-import MainButton from '@/components/Parts/MainButton'
-import AdminApi from '@/api/admin.api'
 import { PAGINATION_LIMIT } from '@/constants'
+import QueryApi from '@/api/query.api'
+import AdminApi from '@/api/admin.api'
+import MainButton from '@/components/Parts/MainButton'
 import Image from 'next/image'
 import Tick from '@/assets/images/tick.svg'
 import { BACKEND_IMAGES_URL } from '@/constants/config'
@@ -36,7 +36,7 @@ const AdminProducts = () => {
    )
 
    useQuery('getProducts', () => QueryApi.getProducts(), {
-      onSuccess: (data) => {
+      onSuccess: (data: any) => {
          setProductData(data.resData)
          console.log(data.resData)
       },
@@ -45,7 +45,7 @@ const AdminProducts = () => {
    const { mutate: getProducts } = useMutation(
       (page: number = 1) => QueryApi.getProducts(page, parentCategoryId, searchTerm),
       {
-         onSuccess: (data) => {
+         onSuccess: (data: any) => {
             setProductData(data.resData)
          },
       },
@@ -60,9 +60,9 @@ const AdminProducts = () => {
       },
    })
    const handleCategoryChange = (value: string) => setParentCategoryId(+value)
-   const changeSearch = (e) => setSearchTerm(e.target.value)
+   const changeSearch = (e: any) => setSearchTerm(e.target.value)
    const handleCancel = () => setIsModalOpen(false)
-   const handleOk = (url) => {
+   const handleOk = (url: string) => {
       deleteProduct(url)
       setIsModalOpen(false)
    }
@@ -172,7 +172,7 @@ const AdminProducts = () => {
             columns={propertiesTable}
             dataSource={
                (productData &&
-                  productData?.productData.map((item) => ({
+                  productData?.rows.map((item) => ({
                      ...item,
                      key: item.id,
                      price: item.price + ' $',

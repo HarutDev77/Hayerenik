@@ -88,7 +88,7 @@ const PropertyCreateUpdate = () => {
          >
             <Space style={{ display: 'flex', marginBottom: 8 }} align='baseline'>
                <Form.Item
-                  label='Proparty name'
+                  label='Property name'
                   name='nameEn'
                   rules={[{ required: true, message: 'Please input name EN!' }]}
                >
