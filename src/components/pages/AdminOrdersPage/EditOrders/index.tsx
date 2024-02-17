@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useMutation, useQuery } from 'react-query'
 import QueryApi from '@/api/query.api'
@@ -14,7 +14,13 @@ import classes from './EditOrders.module.scss'
 
 const EditOrdersPage = () => {
    const [editData, setEditData] = useState()
-   const [formData, setFormData] = useState({})
+   const [formData, setFormData] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      deliveryStatus: '',
+      fullAddress: '',
+   })
    const [changeUserInfo, setChangeUserInfo] = useState({
       firstName: true,
       lastName: true,
@@ -52,7 +58,15 @@ const EditOrdersPage = () => {
 
    const { mutate, isLoading } = useMutation({
       mutationFn: (key: any) => {
-         return QueryApi.changeUserOrderData(key, formData[key].toString(), +id)
+         return QueryApi.changeUserOrderData(
+            Object.keys(getObjectFromEnum(OrderPaymentStatusEnum)).includes(key)
+               ? 'deliveryStatus'
+               : key,
+            Object.keys(getObjectFromEnum(OrderPaymentStatusEnum)).includes(key)
+               ? key
+               : formData[key].toString(),
+            +id,
+         )
       },
       onSuccess: (data) => {
          toast.success('Info have changed')
@@ -88,13 +102,18 @@ const EditOrdersPage = () => {
       )
    }
 
-   if (isLoading) {
-      return (
-         <div style={{ margin: '150px auto', width: '50px' }}>
-            <Spin size={'large'} />
-         </div>
-      )
+   const changeDeliveryStatus = (value) => {
+      changeUserData(value.toString())
+      setFormData({ ...formData, deliveryStatus: value })
    }
+
+   // if (isLoading) {
+   //    return (
+   //       <div style={{ margin: '150px auto', width: '50px' }}>
+   //          <Spin size={'large'} />
+   //       </div>
+   //    )
+   // }
 
    return (
       <section className={classes.admin_order_egit}>
@@ -232,7 +251,7 @@ const EditOrdersPage = () => {
                   rules={[{ required: true, message: 'Please input!' }]}
                >
                   <Select
-                     onChange={() => changeUserData('deliveryStatus')}
+                     onChange={(value) => changeDeliveryStatus(value)}
                      style={{ width: '200px', textTransform: 'capitalize' }}
                   >
                      {orderPaymentStatus}
