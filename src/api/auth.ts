@@ -11,7 +11,7 @@ export const deleteAuthToken = (): void => deleteCookie('token')
 export const setAuthToken = (token: string) => {
    setCookie('token', token, {
       path: '/',
-      // maxAge: 10 * 60 * 60,
+      maxAge: 860400, // 9 days 23 hours
       sameSite: 'none',
       secure: true,
    })

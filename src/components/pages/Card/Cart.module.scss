@@ -8,7 +8,7 @@
     margin: 16px auto 24px;
   }
   &>div:nth-child(even){
-    background-color: rgba(86, 83, 255, 0.04);
+    background-color: #EEEEFF;
     border-radius: 60px;
   }
   h2{
@@ -68,6 +68,7 @@
           width: 72px;
           height: 42px;
           padding: 5px 0;
+          font-style: normal;
           justify-content: center;
           align-items: center;
           border-radius: 60px;
