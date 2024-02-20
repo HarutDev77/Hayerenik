@@ -169,3 +169,58 @@
     }
   }
 }
+
+//@media screen and (max-width: 1200px){
+//  .hk_home_section_header {
+//    &_content_cloud_left{
+//      left: 70px;
+//      top: 130px;
+//      width: 60px;
+//      @include moveClouds(70px,102px,left,cloudLeft);
+//      animation: cloudLeft 5s linear 0.5s infinite;
+//    }
+//    &_content_cloud_top{
+//      top: 0;
+//      left: 272px;
+//      width: 80px;
+//      @include moveClouds(272px,223px,left,cloudTop);
+//    }
+//    &_content_cloud_bottom{
+//      bottom: -10px;
+//      left: 555px;
+//      width: 130px;
+//      @include moveClouds(555px,620px,left,cloudBottom);
+//      animation: cloudBottom 6s linear 1.4s infinite;
+//    }
+//    &_content_cloud_right_top{
+//      right: 602px;
+//      width: 160px;
+//      @include moveClouds(602px,502px,right,cloudRightTop);
+//    }
+//    &_content_cloud_right{
+//      right: 20px;
+//      width: 130px;
+//      @include moveClouds(20px,80px,right,cloudRight);
+//      animation: cloudRight 6s linear 0.4s infinite;
+//    }
+//
+//    &_content {
+//      padding: 65px 0 0 200px;
+//      h1 {
+//        font-size: 54px;
+//      }
+//
+//      p {
+//        font-size: 12px;
+//        max-width: 533px;
+//        margin-top: 15px;
+//      }
+//      button{
+//        font-size: 15px;
+//        margin-top: 20px;
+//        width: 140px;
+//        height: 36px;
+//      }
+//    }
+//  }
+//}
