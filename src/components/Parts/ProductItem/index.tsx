@@ -16,20 +16,22 @@ interface ProductItem {
 
 const ProductItem:FC<ProductItem> = ({id,imageUrl,title,description,price}) => {
     return (
-        <div className={classes.hk_product_item_box} key={id}>
-            <div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`}/>
+        <Link rel='preload' style={{ textDecoration: 'none', color: 'black' }} href={`/product/${id}`} key={id}>
+            <div className={classes.hk_product_item_box} key={id}>
+                <div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`}/>
+                </div>
+                <div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                </div>
+                <div>
+                    <MainButton text={"Add to card"}/>
+                    <span>{"$" + price}</span>
+                </div>
             </div>
-            <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-            </div>
-            <div>
-                <MainButton text={"Add to card"}/>
-                <span>{"$" + price}</span>
-            </div>
-        </div>
+        </Link>
     );
 };
 

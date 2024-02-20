@@ -1,11 +1,17 @@
 import MainLayout from "@/layouts";
 import {ReactElement} from "react";
 import Home from "@/components/pages/Home";
+import {PAGINATION_LIMIT} from "@/constants";
+import UserApi from "@/api/user.api";
 
-const HomePage = () =>{
-    return (
-        <Home/>
-    )
+export async function getServerSideProps() {
+    const bestsellers = await UserApi.getBestsellers();
+
+    return { props: { bestsellers } };
+}
+
+const HomePage = ({ bestsellers }) =>{
+    return <Home bestsellers={bestsellers} />
 }
 
 HomePage.getLayout = function getLayout(page: ReactElement) {

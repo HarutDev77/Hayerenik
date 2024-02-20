@@ -10,6 +10,7 @@ export async function getServerSideProps(context) {
 
     return { props: { productsData, term, page, limit } };
 }
+
 const SearchResult = ({ productsData, term, page, limit }) => {
     return (
         <SearchResultPage productsData={productsData} term={term} page={page} limit={limit} />
