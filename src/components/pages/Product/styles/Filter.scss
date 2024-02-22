@@ -1,0 +1,30 @@
+.filter-container {
+  width: 240px;
+  max-height: 100%;
+  padding: 10px;
+  margin: 20px 10px;
+}
+
+.filters-header {
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.ant-collapse {
+  border: none;
+  .ant-collapse-item {
+    background-color: #fff;
+    border: none;
+    &.collapse-header {
+      display: grid;
+      border-radius: 0;
+      border: 1px solid black;
+    }
+  }
+
+  .ant-collapse-content-box {
+    display: grid;
+    background-color: #fff;
+    border: none;
+    padding: 16px;
+  }
+}

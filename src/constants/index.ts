@@ -871,3 +871,5 @@ export const ALL_ITEMS: IAllItems[] = [
 ]
 
 export const PAGINATION_LIMIT = 10
+export const PRODUCT_LIST_ITEMS_LIMIT = 12
+export const INPUT_DEBOUNCE_DELAY = 500

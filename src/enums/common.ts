@@ -26,3 +26,9 @@ export enum OrderDeliveryStatusEnum {
    delivered = 2,
    canceled = 3,
 }
+export enum ROUTES {
+   HOME = '/',
+   CART = '/cart',
+   PRODUCT = '/product',
+   CONTACTS = '/contacts',
+}

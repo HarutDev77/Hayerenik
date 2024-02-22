@@ -26,7 +26,7 @@ const Header = () => {
         }
     }
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: any) => {
         if (e.key === 'Enter' && searchTerm){
             setTimeout(() => {
                 setShowSearchInput(false)
