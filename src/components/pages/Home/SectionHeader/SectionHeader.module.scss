@@ -117,6 +117,7 @@
 
 @media screen and (max-width: 1440px){
   .hk_home_section_header {
+    height: calc(100vh - 300px);
     &_content_cloud_left{
       left: 70px;
       top: 130px;
@@ -140,7 +141,7 @@
     &_content_cloud_right_top{
       right: 602px;
       width: 160px;
-      @include moveClouds(602px,502px,right,cloudRightTop);
+      @include moveClouds(550px,450px,right,cloudRightTop);
     }
     &_content_cloud_right{
       right: 20px;
@@ -165,6 +166,110 @@
         margin-top: 20px;
         width: 140px;
         height: 36px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .hk_home_section_header {
+    height: calc(100vh - 350px);
+    &_content_cloud_left{
+      top: 130px;
+      width: 45px;
+      @include moveClouds(10px,40px,left,cloudLeft);
+      animation: cloudLeft 5s linear 0.5s infinite;
+    }
+    &_content_cloud_top{
+      top: 0;
+      width: 73px;
+      @include moveClouds(240px,190px,left,cloudTop);
+    }
+    &_content_cloud_bottom{
+      bottom: -10px;
+      width: 100px;
+      @include moveClouds(300px,367px,left,cloudBottom);
+      animation: cloudBottom 6s linear 1.4s infinite;
+    }
+    &_content_cloud_right_top{
+      width: 120px;
+      @include moveClouds(400px,320px,right,cloudRightTop);
+    }
+    &_content_cloud_right{
+      top: 43px;
+      width: 120px;
+      @include moveClouds(16px,60px,right,cloudRight);
+      animation: cloudRight 6s linear 0.4s infinite;
+    }
+
+    &_content {
+      padding: 33px 0 0 100px;
+      h1 {
+        font-size: 44px;
+      }
+
+      p {
+        font-size: 16px;
+        max-width: 500px;
+        margin-top: 5px;
+      }
+      button{
+        font-size: 15px;
+        margin-top: 5px;
+        width: 140px;
+        height: 36px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px){
+  .hk_home_section_header {
+    height: calc(100vh - 470px);
+    &_content_cloud_left{
+      top: 80px;
+      width: 29px;
+      @include moveClouds(5px,27px,left,cloudLeft);
+      animation: cloudLeft 5s linear 0.5s infinite;
+    }
+    &_content_cloud_top{
+      top: 0;
+      width: 43px;
+      @include moveClouds(200px,170px,left,cloudTop);
+    }
+    &_content_cloud_bottom{
+      bottom: -10px;
+      width: 70px;
+      @include moveClouds(230px,280px,left,cloudBottom);
+      animation: cloudBottom 7s linear 1.4s infinite;
+    }
+    &_content_cloud_right_top{
+      top: -15px;
+      width: 85px;
+      @include moveClouds(300px,250px,right,cloudRightTop);
+    }
+    &_content_cloud_right{
+      top: 20px;
+      width: 85px;
+      @include moveClouds(20px,70px,right,cloudRight);
+      animation: cloudRight 6s linear 0.4s infinite;
+    }
+
+    &_content {
+      padding: 15px 0 0 60px;
+      h1 {
+        font-size: 34px;
+      }
+
+      p {
+        font-size: 12px;
+        max-width: 400px;
+        margin-top: 5px;
+      }
+      button{
+        font-size: 12px;
+        margin-top: 5px;
+        width: 100px;
+        height: 26px;
       }
     }
   }

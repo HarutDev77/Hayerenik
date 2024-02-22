@@ -1,0 +1,44 @@
+.tree_node {
+  margin-left: 5px;
+  padding-left: 5px;
+  position: relative;
+}
+.node_toggle {
+  margin: 2px 0;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  img{
+    width: 22px;
+    height: 22px;
+  }
+  &>span{
+    color: #606060;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 10px 0 0;
+  }
+}
+.child_nodes {
+  margin-left: 5px;
+  list-style: none;
+  padding: 0 0 0 4px!important;
+}
+
+.child_nodes > li {
+  margin: 5px 0;
+  padding: 0!important;
+}
+
+@media screen and (max-width: 992px){
+  .node_toggle {
+    img{
+      width: 18px;
+      height: 18px;
+    }
+    &>span{
+      font-size: 14px;
+    }
+  }
+}

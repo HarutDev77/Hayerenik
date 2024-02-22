@@ -140,6 +140,7 @@ const ManageCategory: FC = () => {
    }
 
    const handleChange = (event) => {
+      console.log(event.target.value)
       setSelectedValue(event.target.value)
       setCategoryForm({ ...categoryForm, parentId: event.target.value })
    }

@@ -47,7 +47,7 @@ const TreeNode = ({ node }) => {
       <div className={classes.tree_node}>
          <div style={{ display: 'flex', alignItems: 'center' }}>
             <div onClick={handleToggle} className={classes.node_toggle}>
-               {node.subCategories.length > 0 ? (
+               {node.subCategories && node.subCategories.length > 0 ? (
                   isExpanded ? (
                      <Image src={Minus} alt={'minus'} />
                   ) : (
