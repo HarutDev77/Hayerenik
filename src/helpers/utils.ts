@@ -9,15 +9,15 @@ export function debounce(func, timeout = 300) {
 }
 
 export function getEnumKeyByValue<T>(value: string, enumObject: T): keyof T | undefined {
-   const indexOfS = Object.values(enumObject).indexOf(value as unknown as T[keyof T]);
+   const indexOfS = Object.values(enumObject).indexOf(value as unknown as T[keyof T])
 
    if (indexOfS !== -1) {
-      const key = Object.keys(enumObject)[indexOfS];
+      const key = Object.keys(enumObject)[indexOfS]
 
-      return key as keyof T;
+      return key as keyof T
    }
 
-   return undefined;
+   return undefined
 }
 
 export function getObjectFromEnum(enumParam: any): { [key: string]: string } {
@@ -33,3 +33,7 @@ export function getObjectFromEnum(enumParam: any): { [key: string]: string } {
 export function getKeyByEnumValue(object, value) {
    return Object.keys(object).find((key) => object[key] == value)
 }
+
+// function getObjectKey<T>(object: T, key: keyof T){
+//    return object[key];
+// }
