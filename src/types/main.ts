@@ -90,7 +90,7 @@ export interface FilterData {
   priceRange?: PriceRange
   age?: number[]
   subCategories?: number[]
-  propertyFilters: PropertyFilter[]
+  propertyFilters?: PropertyFilter[]
 }
 
 export interface FilteredData {

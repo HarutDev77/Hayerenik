@@ -3,9 +3,10 @@ import { useRouter } from 'next/router'
 import QueryApi from '@/api/query.api'
 import { Products, ProductsList as ProductsListType } from '@/types/main'
 import MainLayout from '@/layouts'
-import { Filter, ProductsList } from '@/components/pages/Product'
+import { FilterLayout, ProductsList } from '@/components/pages/Product'
 import { PRODUCT_LIST_ITEMS_LIMIT } from '@/constants'
 import { AxiosResponse } from 'axios'
+import './CategoryProducts.scss'
 
 
 const CategoryProducts: FC = () => {
@@ -19,12 +20,14 @@ const CategoryProducts: FC = () => {
     const fetchCategoryData = async () => {
       try {
         const { categoryId } = router.query
+        if (categoryId) {
           const categoryIdNum = +categoryId!
           setIsLoading(true)
           const productsRes: AxiosResponse<ProductsListType, any> =
             await QueryApi.getProductListData(categoryIdNum, currentPage, PRODUCT_LIST_ITEMS_LIMIT)
           setFilteredData(productsRes?.data?.resData?.products)
           setProductsRes(productsRes.data)
+        }
       } catch (error) {
         console.error('Error fetching category data:', error)
       } finally {
@@ -42,17 +45,19 @@ const CategoryProducts: FC = () => {
 
   return (
     <MainLayout>
-      <Filter
-        data={productsRes}
-        onFilterChange={handleFilterChange}
-        currentPage={currentPage}
-      />
-      <ProductsList
-        data={filteredData}
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
-        isLoading={isLoading}
-      />
+      <div className='categoryProductsContainer'>
+        <FilterLayout
+          data={productsRes}
+          onFilterChange={handleFilterChange}
+          currentPage={currentPage}
+        />
+        <ProductsList
+          data={filteredData}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+          isLoading={isLoading}
+        />
+      </div>
     </MainLayout>
   )
 }

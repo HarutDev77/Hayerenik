@@ -1,30 +1,44 @@
-.filter-container {
-  width: 240px;
-  max-height: 100%;
-  padding: 10px;
-  margin: 20px 10px;
+.filterContainer {
+   width: 240px;
+   min-width: 200px;
+   margin: 0 20px;
+}
+.filtersHeader {
+   font-size: 14px;
+}
+.priceRangeOption {
+   display: flex;
+   align-items: center;
+   gap: 10px;
 }
 
-.filters-header {
-  background-color: #fff;
-  margin-bottom: 10px;
+.ant-collapse-header {
+   display: grid;
+   border-bottom: 1px solid black;
+   border-radius: 0 !important;
+   padding: 10px 0 0 0 !important;
+   font-size: 18px;
 }
-.ant-collapse {
-  border: none;
-  .ant-collapse-item {
-    background-color: #fff;
-    border: none;
-    &.collapse-header {
-      display: grid;
-      border-radius: 0;
-      border: 1px solid black;
-    }
-  }
+.plusIcon {
+   font-size: 18px;
+   color: #8987ff;
+}
+.minusIcon {
+   font-size: 18px;
+   color: #ff3030;
+}
+.priceInput {
+   border-radius: 20px;
+   border-color: black;
+}
 
-  .ant-collapse-content-box {
-    display: grid;
-    background-color: #fff;
-    border: none;
-    padding: 16px;
-  }
+.ant-collapse-content-box {
+   display: grid;
+   padding: 10px !important;
+}
+
+@media screen and (max-width: 768px) {
+   .filtersHeader {
+      display: none;
+   }
 }
