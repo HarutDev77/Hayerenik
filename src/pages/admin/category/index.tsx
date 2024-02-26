@@ -10,7 +10,7 @@ const Categories = () => {
    const { data, isLoading } = useQuery<ICategoryData[]>('getCategories', () => {
       return QueryApi.getCategories()
    })
-
+   console.log(data)
    const categoryTreeData = (data as ICategoryData[]) || []
 
    if (isLoading) {

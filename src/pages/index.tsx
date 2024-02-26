@@ -1,20 +1,21 @@
-import MainLayout from "@/layouts";
-import {ReactElement} from "react";
-import Home from "@/components/pages/Home";
-import {PAGINATION_LIMIT} from "@/constants";
-import UserApi from "@/api/user.api";
+import MainLayout from '@/layouts'
+import { ReactElement } from 'react'
+import Home from '@/components/pages/Home'
+import { PAGINATION_LIMIT } from '@/constants'
+import UserApi from '@/api/user.api'
 
 export async function getServerSideProps() {
-    const bestsellers = await UserApi.getBestsellers();
+   const bestsellers = await UserApi.getBestsellers()
+   // const categories = await UserApi.getCategories()
 
-    return { props: { bestsellers } };
+   return { props: { bestsellers } }
 }
 
-const HomePage = ({ bestsellers }) =>{
-    return <Home bestsellers={bestsellers} />
+const HomePage = ({ bestsellers }) => {
+   return <Home bestsellers={bestsellers} />
 }
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
-    return <MainLayout>{page}</MainLayout>
+   return <MainLayout>{page}</MainLayout>
 }
-export default HomePage;
+export default HomePage
