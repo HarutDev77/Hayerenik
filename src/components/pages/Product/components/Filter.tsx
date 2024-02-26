@@ -1,161 +1,230 @@
 import React, { useEffect, useState } from 'react'
-import { Checkbox, Collapse, Input } from 'antd'
-import { AxiosResponse } from 'axios'
+import { useDispatch } from 'react-redux'
+import { Checkbox, Collapse, InputNumber } from 'antd'
 import { CheckboxChangeEvent } from 'antd/es/checkbox'
-import router from 'next/router'
+import { FormattedMessage, useIntl } from 'react-intl'
 import {
-   FilterData,
-   FilteredData,
+   Category,
+   FilterState,
    Products,
    ProductsList,
    PropertyData,
-   PropertyFilter,
+   PropertyOption,
 } from '@/types/main'
-import QueryApi from '@/api/query.api'
-import { useDebounce } from '@/hooks'
-import { AGE_OPTIONS, INPUT_DEBOUNCE_DELAY, PRODUCT_LIST_ITEMS_LIMIT } from '@/constants'
-import '../styles/Filter.scss'
+import { useRouter } from 'next/router'
+import { AGE_OPTIONS, PRODUCT_LIST_ITEMS_LIMIT } from '@/constants'
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons'
+import { setFilterData } from '@/slices/filterSlice'
+import '../styles/Filter.scss'
+import { LANGUAGES } from '@/enums/common'
 
 export interface FilterProps {
    data: ProductsList | null
+   setAnyFilterSet: (anyFilterSet: boolean) => void
    onFilterChange: (filteredData: Products) => void
    currentPage: number
 }
 
-export const Filter: React.FC<FilterProps> = ({ data, onFilterChange, currentPage }) => {
-   const [formFilters, setFormFilters] = useState<any>({})
-   const [fromPrice, setFromPrice] = useState<number | undefined>()
-   const [toPrice, setToPrice] = useState<number | undefined>()
-   const debouncedFromPrice = useDebounce(fromPrice, INPUT_DEBOUNCE_DELAY)
-   const debouncedToPrice = useDebounce(toPrice, INPUT_DEBOUNCE_DELAY)
+export const Filter: React.FC<FilterProps> = ({
+   data,
+   onFilterChange,
+   setAnyFilterSet,
+   currentPage,
+}) => {
+   const router = useRouter()
+   const dispatch = useDispatch()
+   const [fromPrice, setFromPrice] = useState<number | null>(null)
+   const [toPrice, setToPrice] = useState<number | null>(null)
+   const isLanguageAm = router.locale === LANGUAGES.ARMENIAN
+   const intl = useIntl()
+   const [formFilters, setFormFilters] = useState<FilterState>({
+      fromPrice: null,
+      toPrice: null,
+      subcategories: [],
+      age: [],
+      propertyFilters: [],
+   })
 
-   const handlePriceChange = (key: 'from' | 'to') => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = parseFloat(e.target.value)
-      if (key === 'from') {
-         setFromPrice(value)
-      } else {
-         setToPrice(value)
-      }
-   }
-
-   const handleCheckboxChange = (filterItem: string) => (e: CheckboxChangeEvent) => {
-      const updatedFilters: any = { ...formFilters }
-      updatedFilters[filterItem] = e.target.checked
-      setFormFilters(updatedFilters)
-   }
-   const getSelectedAges = (): number[] => {
-      return AGE_OPTIONS.filter(age => formFilters[`Age-${age}`]);
-   };
-   const getSelectedSubcategories = (): number[] => {
-      return data?.resData?.subCategories
-         ?.filter(subcategory => formFilters[subcategory.titleEn])
-         .map(subcategory => subcategory.id) || [];
-   };
-
-   const getSelectedPropertyFilters = (): PropertyFilter[] => {
-      const propertyFilters: PropertyFilter[] = []
-
-      data?.resData?.properties.forEach((property: PropertyData) => {
-         if (formFilters[property.nameEn]) {
-            const selectedOptions: (number | string)[] = formFilters[property.nameEn]
-
-            const selectedProperty: PropertyFilter = {
-               propertyId: property.id,
-               values: selectedOptions,
-            }
-
-            propertyFilters.push(selectedProperty)
-         }
-      })
-
-      return propertyFilters
-   }
+   useEffect(() => {
+      fetchFilteredData()
+   }, [currentPage, data, fromPrice, toPrice, formFilters])
 
    const fetchFilteredData = async () => {
       const { categoryId } = router.query
-
-      try {
-         const filterData: FilterData = {
-            categoryId: +categoryId!,
-            limit: PRODUCT_LIST_ITEMS_LIMIT,
-            page: currentPage,
-            priceRange: { from: debouncedFromPrice, to: debouncedToPrice },
-            age: getSelectedAges(),
-            subCategories: getSelectedSubcategories(),
-            propertyFilters: getSelectedPropertyFilters(),
+      if (categoryId) {
+         const anyFilterSet =
+            fromPrice !== null ||
+            toPrice !== null ||
+            formFilters.age.length > 0 ||
+            formFilters.subcategories.length > 0 ||
+            formFilters.propertyFilters.length > 0
+         if (anyFilterSet) {
+            try {
+               const filterData = {
+                  categoryId: +categoryId,
+                  limit: PRODUCT_LIST_ITEMS_LIMIT,
+                  page: currentPage,
+                  priceRange:
+                     fromPrice !== null && toPrice !== null && (fromPrice !== 0 || toPrice !== 0)
+                        ? {
+                             from: fromPrice !== null ? fromPrice : undefined,
+                             to: toPrice !== null ? toPrice : undefined,
+                          }
+                        : undefined,
+                  age: formFilters.age,
+                  subCategories: formFilters.subcategories,
+                  propertyFilters: formFilters.propertyFilters,
+               }
+               setAnyFilterSet(anyFilterSet)
+               dispatch(setFilterData(filterData))
+            } catch (error) {
+               onFilterChange({} as Products)
+            }
+         } else {
+            data?.resData?.products && onFilterChange(data.resData.products)
          }
-
-         const filterRes: AxiosResponse<FilteredData, any> =
-            await QueryApi.filteredProductList(filterData)
-
-         onFilterChange(filterRes.data.resData)
-      } catch (error) {
-         console.error('Error filtering data:', error)
       }
    }
 
-   useEffect(() => {
-      const isFilterSet =
-         debouncedFromPrice !== undefined ||
-         debouncedToPrice !== undefined ||
-         Object.values(formFilters).some((filter) => filter !== undefined && filter !== false)
-      isFilterSet && fetchFilteredData()
-   }, [currentPage, data, debouncedFromPrice, debouncedToPrice, formFilters])
+   const handlePriceBlur = (key: 'from' | 'to') => (event: React.FocusEvent<HTMLInputElement>) => {
+      const numericValue = +event.target.value
+      if (!isNaN(numericValue)) {
+         if (key === 'from') {
+            setFromPrice(numericValue)
+         } else {
+            setToPrice(numericValue)
+         }
+      }
+   }
+
+   const handleCheckboxChange = (filterItem: 'subcategories' | 'age') => (value: number) => {
+      setFormFilters((prevFilters) => {
+         const updatedFilters = { ...prevFilters }
+
+         if (updatedFilters[filterItem].includes(value)) {
+            updatedFilters[filterItem] = updatedFilters[filterItem].filter(
+               (item: number) => item !== value,
+            )
+         } else {
+            updatedFilters[filterItem] = [...updatedFilters[filterItem], value]
+         }
+
+         return updatedFilters
+      })
+   }
+
+   const handlePropertyValueChange =
+      (propertyId: number, value: string | number) => (e: CheckboxChangeEvent) => {
+         setFormFilters((prevFilters: any) => {
+            const updatedFilters = { ...prevFilters }
+
+            const filterIndex = updatedFilters?.propertyFilters?.findIndex(
+               (filter: any) => filter.propertyId === propertyId,
+            )
+
+            if (filterIndex !== undefined && filterIndex !== -1) {
+               const values = updatedFilters?.propertyFilters?.[filterIndex]?.values || []
+               const updatedValues = e.target.checked
+                  ? [...values, value]
+                  : values.filter((val: any) => val !== value)
+
+               const updatedValuesArray = Array.from(new Set(updatedValues))
+               if (updatedValuesArray.length === 0) {
+                  updatedFilters.propertyFilters = [
+                     ...updatedFilters.propertyFilters.slice(0, filterIndex),
+                     ...updatedFilters.propertyFilters.slice(filterIndex + 1),
+                  ]
+               } else {
+                  updatedFilters.propertyFilters = [
+                     ...updatedFilters.propertyFilters.slice(0, filterIndex),
+                     { ...updatedFilters.propertyFilters[filterIndex], values: updatedValuesArray },
+                     ...updatedFilters.propertyFilters.slice(filterIndex + 1),
+                  ]
+               }
+            } else {
+               updatedFilters.propertyFilters = [
+                  ...updatedFilters.propertyFilters,
+                  { propertyId, values: [value] },
+               ]
+            }
+
+            return updatedFilters
+         })
+      }
 
    const CustomExpandIcon: React.FC<{ isActive: boolean | undefined }> = ({ isActive }) => (
       <span className={isActive ? 'minusIcon' : 'plusIcon'}>
          {isActive ? <MinusOutlined /> : <PlusOutlined />}
       </span>
    )
+
    return (
       <div className='filterContainer'>
-         <div className='filtersHeader'>Filters</div>
+         <div className='filtersHeader'>
+            <FormattedMessage id='filters' />
+         </div>
          <Collapse
             expandIconPosition='end'
             expandIcon={({ isActive }) => <CustomExpandIcon isActive={isActive} />}
             ghost
          >
-            <Collapse.Panel header='PRICE' key='price'>
+            <Collapse.Panel header={<FormattedMessage id='price' />} key='price'>
                <div className='priceRangeOption'>
-                  <Input
+                  <InputNumber
                      type='number'
-                     placeholder='From'
-                     onChange={handlePriceChange('from')}
-                     className='priceInput'
+                     min={0}
+                     placeholder={intl.formatMessage({ id: 'from', defaultMessage: 'from' })}
+                     onBlur={handlePriceBlur('from')}
                   />
-                  <Input
+                  <InputNumber
                      type='number'
-                     placeholder='To'
-                     onChange={handlePriceChange('to')}
-                     className='priceInput'
+                     min={1}
+                     placeholder={intl.formatMessage({ id: 'to', defaultMessage: 'to' })}
+                     onBlur={handlePriceBlur('to')}
                   />
                </div>
             </Collapse.Panel>
-            <Collapse.Panel header='AGE' key='age'>
-               {AGE_OPTIONS.map((age) => (
-                  <Checkbox key={age} onChange={handleCheckboxChange(`Age-${age}`)}>
-                     {age}
+            <Collapse.Panel header={<FormattedMessage id='age' />} key='age'>
+               {AGE_OPTIONS.map((ageOption: number) => (
+                  <Checkbox key={ageOption} onChange={() => handleCheckboxChange('age')(ageOption)}>
+                     {ageOption}
                   </Checkbox>
                ))}
             </Collapse.Panel>
             {data?.resData?.subCategories && data?.resData?.subCategories?.length > 0 && (
-               <Collapse.Panel header='SUBCATEGORIES' key='subcategories'>
-                  {data.resData.subCategories.map((subcategory) => (
+               <Collapse.Panel header={<FormattedMessage id='productType' />} key='subcategories'>
+                  {data.resData.subCategories.map((subcategory: Category) => (
                      <Checkbox
                         key={subcategory.id}
-                        onChange={handleCheckboxChange(subcategory.titleEn)}
+                        onChange={() => handleCheckboxChange('subcategories')(subcategory.id)}
                      >
-                        {subcategory.titleEn}
+                        {isLanguageAm && subcategory.titleAm
+                           ? subcategory.titleAm
+                           : subcategory.titleEn}
                      </Checkbox>
                   ))}
                </Collapse.Panel>
             )}
-            {data?.resData?.properties.map((property) => (
-               <Collapse.Panel header={property.nameEn.toUpperCase()} key={property.id}>
-                  <Checkbox onChange={handleCheckboxChange(property.nameEn)}>
-                     {property.nameEn}
-                  </Checkbox>
+            {data?.resData?.properties?.map((property: PropertyData) => (
+               <Collapse.Panel
+                  header={
+                     isLanguageAm && property.nameAm
+                        ? property?.nameAm.toUpperCase()
+                        : property?.nameEn.toUpperCase()
+                  }
+                  key={property.id}
+               >
+                  {property?.propertyOptions?.map((option: PropertyOption) => (
+                     <Checkbox
+                        key={isLanguageAm && option.valueAm ? option.valueAm : option?.valueEn}
+                        onChange={handlePropertyValueChange(
+                           property.id,
+                           isLanguageAm && option.valueAm ? option.valueAm : option.valueEn,
+                        )}
+                     >
+                        {isLanguageAm && option.valueAm ? option.valueAm : option.valueEn}
+                     </Checkbox>
+                  ))}
                </Collapse.Panel>
             ))}
          </Collapse>

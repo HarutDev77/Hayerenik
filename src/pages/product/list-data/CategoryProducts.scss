@@ -1,13 +1,19 @@
 .categoryProductsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   margin: 20px;
 }
 
-@media screen and (max-width: 768px){
-  .categoryProductsContainer {
-    display: grid;
+.categoryHeader {
+   text-align: center;
+   font-size: 24px;
+   font-weight: bold;
+   color: #384480;
+}
 
-  }
+@media screen and (max-width: 768px) {
+   .categoryProductsContainer {
+      display: grid;
+   }
 }

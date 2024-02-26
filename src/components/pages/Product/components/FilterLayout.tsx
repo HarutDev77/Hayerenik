@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Drawer } from 'antd'
+import { FormattedMessage } from 'react-intl'
 import { Filter, FilterProps } from './Filter'
 import { useMediaQuery } from 'react-responsive'
 import { MOBILE_SCREEN_SIZE } from '@/constants'
@@ -17,10 +18,10 @@ export const FilterLayout: React.FC<FilterProps> = (props) => {
    return isMobile ? (
       <>
          <Link href='#' onClick={toggleDrawer} className='filterButton'>
-            Filters
+            <FormattedMessage id={'filters'} />
          </Link>
          <Drawer
-            title='Filters'
+            title={<FormattedMessage id={'filters'} />}
             placement='left'
             onClose={() => setDrawerVisible(false)}
             open={drawerVisible}

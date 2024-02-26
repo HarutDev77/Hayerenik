@@ -20,7 +20,7 @@ export default class QueryApi {
          url += `/${id}`
       }
 
-      if (id){
+      if (id) {
          await axiosRequest.put(url, { ...categoryForm })
       } else {
          await axiosRequest.post(url, { ...categoryForm })
@@ -110,15 +110,19 @@ export default class QueryApi {
       return response.data
    }
 
-   static async getProductListData(categoryId: number, page: number, limit: number): Promise<AxiosResponse<ProductsList>> {
+   static async getProductListData(
+      categoryId: number,
+      page: number,
+      limit: number,
+   ): Promise<AxiosResponse<ProductsList>> {
       const response = await axiosRequest.get(`/product/list-data/${categoryId}`, {
          params: { limit, page },
-      });
-      return response;
+      })
+      return response
    }
 
    static async filteredProductList(filterData: FilterData): Promise<AxiosResponse<FilteredData>> {
-      const response = await axiosRequest.post('/product/filter-list', filterData);
-      return response;
+      const response = await axiosRequest.post('/product/filter-list', filterData)
+      return response
    }
 }

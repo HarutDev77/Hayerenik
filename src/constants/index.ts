@@ -875,5 +875,3 @@ export const PRODUCT_LIST_ITEMS_LIMIT = 12
 export const INPUT_DEBOUNCE_DELAY = 500
 export const AGE_OPTIONS = [1, 2, 3, 4, 5, 6]
 export const MOBILE_SCREEN_SIZE = 768
-
-

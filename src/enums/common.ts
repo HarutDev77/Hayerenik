@@ -32,3 +32,8 @@ export enum ROUTES {
    PRODUCT = '/product',
    CONTACTS = '/contacts',
 }
+
+export enum LANGUAGES {
+   ENGLISH = 'en',
+   ARMENIAN = 'am',
+}
