@@ -1,67 +1,82 @@
 import React, { FC } from 'react'
-import { Row, Col, Pagination, Spin, Empty } from 'antd'
-import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 import Link from 'next/link'
+import { FormattedMessage } from 'react-intl'
+import { Row, Col, Pagination, Spin, Empty } from 'antd'
 import ProductItem from '@/components/Parts/ProductItem'
+import { ROUTES } from '@/enums/common'
+import { RootState } from '@/store/store'
 import { PRODUCT_LIST_ITEMS_LIMIT } from '@/constants'
-import { Products } from '@/types/main'
-import { LANGUAGES, ROUTES } from '@/enums/common'
 import '../styles/ProductsList.scss'
 
-interface ProductsListProps {
-   data: Products | undefined
+interface IProductsListProps {
    currentPage: number
+   isLanguageAm: boolean
    isLoading: boolean
    onPageChange: (page: number) => void
 }
 
-export const ProductsList: FC<ProductsListProps> = ({
-   data,
+export const ProductsList: FC<IProductsListProps> = ({
    currentPage,
+   isLanguageAm,
    isLoading,
    onPageChange,
 }) => {
-   const router = useRouter()
-   const isLanguageAm = router.locale === LANGUAGES.ARMENIAN
-   const products = data?.rows
-   if (products && !(products.length > 0)) {
-      return <Empty />
-   }
-   if (isLoading) {
-      return <Spin />
-   }
+   const categoryProducts = useSelector((state: RootState) => state.products.products)
 
    return (
       <div className='productListContainer'>
-         <Row gutter={[16, 16]} align='middle' justify='center'>
-            {products?.map((item) => (
-               <Col flex='none' key={item.id} xs={24} sm={12}>
-                  <Link href={`${ROUTES.PRODUCT}/${item.id}`} passHref>
-                     <ProductItem
-                        id={item.id}
-                        imageUrl={item.imageUrl || ''}
-                        title={isLanguageAm && item.titleAm ? item.titleAm : item.titleEn || ''}
-                        description={
-                           isLanguageAm && item.descriptionAm
-                              ? item.descriptionAm
-                              : item.descriptionEn || ''
-                        }
-                        price={item.price}
-                     />
-                  </Link>
-               </Col>
-            ))}
-         </Row>
-         <div className='paginationContainer'>
-            <Pagination
-               current={currentPage}
-               total={data?.count}
-               defaultPageSize={PRODUCT_LIST_ITEMS_LIMIT}
-               onChange={(page: number) => onPageChange(page)}
-               hideOnSinglePage
-               responsive
+         {isLoading ? (
+            <Spin />
+         ) : categoryProducts?.rows?.length > 0 ? (
+            <>
+               <Row gutter={[16, 16]} align='middle' justify='center'>
+                  {categoryProducts?.rows?.map((item) => (
+                     <Col key={item.id} xs={12} sm={12} md={8} lg={6} xl={6}>
+                        <Link href={`${ROUTES.PRODUCT}/${item.id}`} passHref>
+                           <ProductItem
+                              id={item.id}
+                              imageUrl={'http://localhost:3000/assets/images/stationary.jpg'}
+                              title={
+                                 isLanguageAm && item.titleAm ? item.titleAm : item.titleEn || ''
+                              }
+                              description={
+                                 isLanguageAm && item.descriptionAm
+                                    ? item.descriptionAm
+                                    : item.descriptionEn || ''
+                              }
+                              price={item.price}
+                              className={'ProductItem'}
+                           />
+                        </Link>
+                     </Col>
+                  ))}
+               </Row>
+               <div className='paginationContainer'>
+                  <Pagination
+                     current={currentPage}
+                     total={categoryProducts?.count}
+                     defaultPageSize={PRODUCT_LIST_ITEMS_LIMIT}
+                     onChange={(page: number) => onPageChange(page)}
+                     hideOnSinglePage
+                     responsive
+                  />
+               </div>
+            </>
+         ) : (
+            <Empty
+               description={
+                  <div className='emptyContainer'>
+                     <h1>
+                        <FormattedMessage id='noResultsTitle' />
+                     </h1>
+                     <p>
+                        <FormattedMessage id='noResultsDesc' />
+                     </p>
+                  </div>
+               }
             />
-         </div>
+         )}
       </div>
    )
 }

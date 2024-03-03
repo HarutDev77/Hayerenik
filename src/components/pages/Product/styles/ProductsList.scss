@@ -1,13 +1,45 @@
 .paginationContainer {
-  display: flex;
-  justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .productListContainer {
-  display: grid;
-  gap: 10px;
+   width: 100%;
+   max-width: 1920px;
+   display: grid;
+   gap: 10px;
 }
 
 .ant-pagination-options {
-  display: none !important;
+   display: none !important;
+}
+
+.ProductItem {
+   width: 100%;
+   min-width: 138px;
+   div {
+      width: 100%;
+      height: 100%;
+      img {
+         object-fit: cover;
+         object-position: center;
+         width: 100%;
+         border-radius: 19.5px;
+         height: 160px;
+      }
+   }
+}
+
+.emptyContainer {
+   display: grid;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+   .productListContainer {
+      width: 100%;
+      max-width: 768px;
+   }
 }

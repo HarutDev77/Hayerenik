@@ -33,8 +33,8 @@ export interface Category {
    parentId?: number
    metaTitle?: string
    metaDescription?: string
-   isHidden: boolean
-   isTop: boolean
+   isHidden?: boolean
+   isTop?: boolean
    img?: string
 }
 
@@ -108,5 +108,3 @@ export interface FilteredData {
    }
    message: string
 }
-
-

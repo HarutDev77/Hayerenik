@@ -1,5 +1,5 @@
 import { FilterData } from '@/types/main'
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 interface FilterState {
    filterData: FilterData
@@ -12,7 +12,7 @@ const filterSlice = createSlice({
    name: 'filter',
    initialState,
    reducers: {
-      setFilterData: (state, action) => {
+      setFilterData: (state, action: PayloadAction<FilterData>) => {
          state.filterData = action.payload
       },
    },

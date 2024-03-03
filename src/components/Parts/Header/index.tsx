@@ -37,11 +37,9 @@ const Header = () => {
             setShowSearchInput(false)
          }, 300)
 
-    const handleKeyDown = (e: any) => {
-        if (e.key === 'Enter' && searchTerm){
-            setTimeout(() => {
-                setShowSearchInput(false)
-            }, 300)
+         router.push(`/search-result?term=${searchTerm}`)
+      }
+   }
 
    const getCategories = async () => {
       const response = await UserApi.getCategories()

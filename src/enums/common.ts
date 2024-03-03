@@ -28,8 +28,10 @@ export enum OrderDeliveryStatusEnum {
 }
 export enum ROUTES {
    HOME = '/',
+   ALL = '/all', // Change with existing route
    CART = '/cart',
    PRODUCT = '/product',
+   LIST_DATA = '/list-data',
    CONTACTS = '/contacts',
 }
 

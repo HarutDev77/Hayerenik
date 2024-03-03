@@ -1,14 +1,19 @@
 .filterContainer {
-   width: 240px;
-   min-width: 200px;
+   min-width: 250px;
    margin: 0 20px;
 }
 .filtersHeader {
-   font-size: 14px;
+   font-size: 15pt;
+   display: flex;
+   justify-content: space-between;
+   div {
+      cursor: pointer;
+   }
 }
 .priceRangeOption {
    display: flex;
    align-items: center;
+   justify-content: space-between;
    gap: 10px;
 }
 
@@ -17,25 +22,25 @@
    border-bottom: 1px solid black;
    border-radius: 0 !important;
    padding: 10px 0 0 0 !important;
-   font-size: 18px;
+   font-size: 24pt;
 }
 
 .ant-collapse-header {
    text-transform: uppercase;
 }
 
-.plusIcon {
-   font-size: 18px;
-   color: #8987ff;
-}
-.minusIcon {
-   font-size: 18px;
-   color: #ff3030;
-}
-
 .ant-collapse-content-box {
    display: grid;
    padding: 10px !important;
+   span {
+      font-size: 15pt;
+   }
+}
+.ant-collapse-expand-icon {
+   height: 50px !important;
+   display: flex !important;
+   align-items: center !important;
+   justify-content: center !important;
 }
 
 .ant-input-number {
@@ -53,5 +58,6 @@
    }
    .filterContainer {
       margin: 0 10px;
+      padding-bottom: 30px;
    }
 }

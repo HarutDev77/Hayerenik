@@ -1,0 +1,22 @@
+.breadcrumbContainer {
+   font-size: 15pt;
+   padding-bottom: 10px;
+}
+
+.breadcrumbContainer a {
+   color: black;
+}
+
+.breadcrumbContainer svg {
+   margin: 0 5px 2px 5px;
+}
+.breadcrumbContainer a.lastItem {
+   text-decoration: none;
+   pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+   .breadcrumbContainer {
+      font-size: 12pt;
+   }
+}

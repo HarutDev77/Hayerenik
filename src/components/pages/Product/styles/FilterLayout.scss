@@ -9,4 +9,15 @@
    color: black;
    text-decoration: none;
    margin-bottom: 10px;
+   cursor: pointer;
+}
+
+.filtersLayoutHeader {
+   padding-right: 5px;
+   font-size: 15pt;
+   display: flex;
+   justify-content: space-between;
+   div {
+      cursor: pointer;
+   }
 }
