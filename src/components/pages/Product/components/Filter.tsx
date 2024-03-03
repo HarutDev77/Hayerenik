@@ -68,8 +68,6 @@ export const Filter: React.FC<IFilterProps> = ({
             (localFilterData.subCategories && localFilterData.subCategories.length > 0) ||
             (localFilterData.propertyFilters && localFilterData.propertyFilters.length > 0)
 
-         if (anyFilterSet) {
-            try {
                const newFilterData: FilterData = {
                   categoryId: +categoryId,
                   limit: PRODUCT_LIST_ITEMS_LIMIT,
@@ -98,12 +96,8 @@ export const Filter: React.FC<IFilterProps> = ({
                   propertyFilters: localFilterData.propertyFilters || [],
                }
 
-               setAnyFilterSet(anyFilterSet)
+               anyFilterSet && setAnyFilterSet(anyFilterSet)
                dispatch(setFilterData(newFilterData))
-            } catch (error) {
-               dispatch(setProducts({} as Products))
-            }
-         }
       }
    }
 
