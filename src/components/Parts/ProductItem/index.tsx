@@ -3,8 +3,10 @@ import Image from 'next/image'
 import MainButton from '@/components/Parts/MainButton'
 import classes from './ProductItem.module.scss'
 import Link from 'next/link'
+import classNames from 'classnames';
 import { BACKEND_IMAGES_URL } from '@/constants/config'
 import { JSXElement } from '@babel/types'
+import image from '@/assets/images/stationary.jpg'
 
 interface ProductItem {
    id: number
@@ -12,9 +14,10 @@ interface ProductItem {
    title: string | unknown
    description: string | unknown
    price: number
+   className?: string
 }
 
-const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price }) => {
+const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price, className }) => {
    return (
       <Link
          rel='preload'
@@ -22,10 +25,10 @@ const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price 
          href={`/product/${id}`}
          key={id}
       >
-         <div className={classes.hk_product_item_box} key={id}>
+         <div className={classNames(classes.hk_product_item_box, className)} key={id}>
             <div>
                {/* eslint-disable-next-line @next/next/no-img-element */}
-               <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`} />
+               <Image src={image} alt={`${title}`} />
             </div>
             <div>
                <h3>{title}</h3>

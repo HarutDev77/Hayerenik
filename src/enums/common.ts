@@ -26,3 +26,16 @@ export enum OrderDeliveryStatusEnum {
    delivered = 2,
    canceled = 3,
 }
+export enum ROUTES {
+   HOME = '/',
+   ALL = '/all', // Change with existing route
+   CART = '/cart',
+   PRODUCT = '/product',
+   LIST_DATA = '/list-data',
+   CONTACTS = '/contacts',
+}
+
+export enum LANGUAGES {
+   ENGLISH = 'en',
+   ARMENIAN = 'am',
+}

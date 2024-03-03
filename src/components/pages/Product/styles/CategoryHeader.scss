@@ -1,0 +1,17 @@
+.categoryHeaderContainer {
+   margin-left: 310px;
+   p {
+      font-size: 48pt;
+      font-weight: bold;
+      color: #384480;
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .categoryHeaderContainer {
+      margin-left: 20px;
+      p {
+         font-size: 28pt;
+      }
+   }
+}
