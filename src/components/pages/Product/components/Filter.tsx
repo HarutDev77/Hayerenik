@@ -6,7 +6,6 @@ import { FormattedMessage, useIntl } from 'react-intl'
 import {
    Category,
    FilterData,
-   Products,
    ProductsList,
    PropertyData,
    PropertyOption,
@@ -20,7 +19,6 @@ import { PlusIcon } from '@/components/atoms/icons/PlusIcon'
 import { MinusIcon } from '@/components/atoms/icons/MinusIcon'
 import { AGE_OPTIONS, PRODUCT_LIST_ITEMS_LIMIT } from '@/constants'
 import '../styles/Filter.scss'
-import { setProducts } from '@/slices/productsSlice'
 
 export interface IFilterProps {
    categoryProducts: ProductsList
