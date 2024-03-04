@@ -2,9 +2,8 @@ import ProductItem from '@/components/Parts/ProductItem'
 import { FC } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useRouter } from 'next/router'
-import classes from './Bestsellers.module.scss'
-import { setT } from '@/helpers/utils'
 import DynamicMessage from '@/components/atoms/DynamicMessage'
+import classes from './Bestsellers.module.scss'
 
 interface ISectionBestsellers {
    margin?: string

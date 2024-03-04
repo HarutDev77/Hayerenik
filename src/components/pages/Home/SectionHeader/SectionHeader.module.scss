@@ -274,3 +274,110 @@
     }
   }
 }
+
+@media screen and (max-width: 767px){
+  .hk_home_section_header {
+    height: 800px;
+    margin-bottom: 100px;
+    &_img_wrapper{
+      margin-top: 160px;
+    }
+    &_content_cloud_left{
+      top: 255px;
+      width: 100px;
+      @include moveClouds(20px,40px,left,cloudLeft);
+      animation: cloudLeft 5s linear 0.5s infinite;
+    }
+    &_content_cloud_top{
+      display: none;
+    }
+    &_content_cloud_bottom{
+      bottom: -77px;
+      width: 70px;
+      @include moveClouds(250px,200px,left,cloudBottom);
+      animation: cloudBottom 7s linear 1.4s infinite;
+    }
+    &_content_cloud_right_top{
+      display: none;
+    }
+    &_content_cloud_right{
+      top: 221px;
+      width: 100px;
+      @include moveClouds(50px,130px,right,cloudRight);
+      animation: cloudRight 8s linear 0.4s infinite;
+    }
+
+    &_content {
+      padding: 0 15px;
+      h1 {
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 16px;
+        max-width: 400px;
+        margin-top: 5px;
+      }
+      button{
+        font-size: 12px;
+        margin-top: 15px;
+        width: 112px;
+        height: 29px;
+        background-color: #FFFFFF;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px){
+  .hk_home_section_header{
+    height: 650px;
+    &_content_cloud_bottom{
+      bottom: -60px;
+      width: 70px;
+      @include moveClouds(170px,125px,left,cloudBottom);
+      animation: cloudBottom 7s linear 1.4s infinite;
+    }
+    &_content_cloud_right{
+      top: 204px;
+      width: 80px;
+      @include moveClouds(50px,100px,right,cloudRight);
+      animation: cloudRight 8s linear 0.4s infinite;
+    }
+    &_content_cloud_left{
+      top: 220px;
+      width: 80px;
+      @include moveClouds(20px,40px,left,cloudLeft);
+      animation: cloudLeft 5s linear 0.5s infinite;
+    }
+  }
+}
+
+@media screen and (max-width: 445px){
+  .hk_home_section_header{
+    height: 500px;
+    &_img_wrapper{
+      &_image{
+        margin-top: 200px;
+      }
+    }
+    &_content_cloud_bottom{
+      bottom: -46px;
+      width: 60px;
+      @include moveClouds(150px,125px,left,cloudBottom);
+      animation: cloudBottom 7s linear 1.4s infinite;
+    }
+    &_content_cloud_right{
+      top: 265px;
+      width: 75px;
+      @include moveClouds(50px,100px,right,cloudRight);
+      animation: cloudRight 8s linear 0.4s infinite;
+    }
+    &_content_cloud_left{
+      top: 273px;
+      width: 65px;
+      @include moveClouds(20px,40px,left,cloudLeft);
+      animation: cloudLeft 5s linear 0.5s infinite;
+    }
+  }
+}

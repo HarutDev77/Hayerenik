@@ -60,3 +60,75 @@
     }
   }
 }
+
+@media screen and (max-width: 1199px){
+  .hk_home_section_different_ages{
+    max-width: 824px;
+    margin: 0 auto 160px;
+    &_title{
+      font-size: 34px;
+      margin-bottom: 30px;
+    }
+    &_container{
+      margin-left: 0;
+      &_boxes{
+        img{
+          width: 66px;
+          height: 66px;
+        }
+        &_titles{
+          font-size: 45px;
+          margin-bottom: 11px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 990px){
+  .hk_home_section_different_ages{
+    max-width: 638px;
+    margin: 0 auto 120px;
+    &_title{
+      font-size: 33px;
+      margin-bottom: 15px;
+    }
+    &_container{
+      &_boxes{
+        img{
+          width: 47px;
+          height: 47px;
+        }
+        &_titles{
+          font-size: 37px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .hk_home_section_different_ages{
+    max-width: 300px;
+    margin: 0 auto 120px;
+    &_title{
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+    &_container{
+      flex-wrap: wrap;
+      gap: 10px;
+      &_boxes{
+        img{
+          width: 75px;
+          height: 75px;
+        }
+        &_titles{
+          font-size: 45px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

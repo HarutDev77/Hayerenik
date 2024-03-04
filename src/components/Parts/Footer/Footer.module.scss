@@ -180,3 +180,199 @@
     }
   }
 }
+
+@media screen and (max-width: 1199px){
+  .hk_footer{
+    height: 350px;
+    .hk_footer_image_clouds{
+      top: -60px;
+    }
+    .hk_footer_content_box{
+      max-width: 800px;
+      padding-top: 100px;
+      justify-content: space-between;
+      gap: 40px;
+      &_Logo_box{
+        &>div:first-child{
+          width: 144px;
+          height: 58px;
+          img{
+            width: 100%;
+          }
+        }
+        &>div:last-child{
+          width: 52px;
+          margin: 10px auto;
+        }
+      }
+      &>div{
+        font-size: 12px;
+        max-width: 130px;
+        gap: 3px;
+        h5{
+          font-size: 12px;
+        }
+      }
+      &_moon_image{
+        position: relative;
+        width: 93px;
+        height: 93px;
+        right: 12px;
+        top: 16px;
+      }
+      &_moonlight_image{
+        width: 280px;
+        height: 280px;
+        right: -83px;
+        top: 30px;
+      }
+    }
+    &_hk_llc_box{
+      margin: 50px 0 0 10px;
+      &>h4{
+        font-size: 10px;
+      }
+    }
+    &_Code_Miles_box{
+      p{
+        margin-right: 15px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 990px){
+  .hk_footer{
+    height: 310px;
+    .hk_footer_image_clouds{
+      top: -45px;
+    }
+    .hk_footer_content_box{
+      max-width: 670px;
+      padding-top: 95px;
+      gap: 20px;
+      &_Logo_box{
+        &>div:first-child{
+          width: 110px;
+          height: 50px;
+          img{
+            width: 100%;
+          }
+        }
+        &>div:last-child{
+          width: 52px;
+          margin: 10px auto;
+        }
+      }
+      &>div{
+        font-size: 10px;
+        max-width: 130px;
+        gap: 3px;
+        h5{
+          font-size: 12px;
+        }
+      }
+      &_moon_image{
+        position: relative;
+        width: 93px;
+        height: 93px;
+        right: 12px;
+        top: 16px;
+      }
+      &_moonlight_image{
+        display: none;
+      }
+    }
+    &_hk_llc_box{
+      margin: 50px 0 0 10px;
+      &>h4{
+        font-size: 10px;
+      }
+    }
+    &_Code_Miles_box{
+      p{
+        margin-right: 15px;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .hk_footer{
+    height: 930px;
+    .hk_footer_image_clouds{
+      top: -45px;
+    }
+    .hk_footer_content_box{
+      flex-direction: column;
+      align-items: center;
+      max-width: 280px;
+      padding-top: 50px;
+      gap: 25px;
+      &_Logo_box{
+        &>div:first-child{
+          width: 110px;
+          height: 50px;
+          img{
+            width: 100%;
+          }
+        }
+        &>div:last-child{
+          width: 52px;
+          margin: 10px auto;
+        }
+      }
+      &>div{
+        font-size: 16px;
+        max-width: 200px;
+        align-items: center;
+        h5{
+          font-size: 16px;
+        }
+      }
+      &>div:nth-child(1){
+        order: 3;
+      }
+      &>div:nth-child(2){
+        order: 4;
+        max-width: 280px;
+        p{
+          text-align: center;
+        }
+      }
+      &>div:nth-child(3){
+        order: 1;
+      }
+      &>div:nth-child(4){
+        order: 2;
+      }
+      &>div:nth-child(5){
+        order: 5;
+      }
+      &_moon_image{
+        position: relative;
+        width: 110px;
+        height: 110px;
+        right: 12px;
+        top: 16px;
+      }
+      //&_moonlight_image{
+      //  display: none;
+      //}
+    }
+    &_hk_llc_box{
+      margin: 50px 0 15px 10px;
+      &>h4{
+        font-size: 10px;
+      }
+    }
+    &_Code_Miles_box{
+      p{
+        margin-right: 15px;
+        font-size: 10px;
+      }
+    }
+  }
+}

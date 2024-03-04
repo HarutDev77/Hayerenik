@@ -108,18 +108,18 @@ export const REVIEWS_IMAGES = [
       img: imagePuzzles,
       className: ['hk_home_section_review_puzzles_img'],
    },
-   {
-      img: imageSea,
-      className: ['hk_home_section_review_sea_img'],
-   },
-   {
-      img: waveTop,
-      className: ['hk_home_section_review_waveTop_img'],
-   },
-   {
-      img: waveBottom,
-      className: ['hk_home_section_review_waveBottom_img'],
-   },
+   // {
+   //    img: imageSea,
+   //    className: ['hk_home_section_review_sea_img'],
+   // },
+   // {
+   //    img: waveTop,
+   //    className: ['hk_home_section_review_waveTop_img'],
+   // },
+   // {
+   //    img: waveBottom,
+   //    className: ['hk_home_section_review_waveBottom_img'],
+   // },
    {
       img: boatImag,
       className: ['hk_home_section_review_boat_img'],
@@ -128,10 +128,10 @@ export const REVIEWS_IMAGES = [
       img: anchor,
       className: ['hk_home_section_review_cable_img'],
    },
-   {
-      img: sandImg,
-      className: ['hk_home_section_review_sandImg_img'],
-   },
+   // {
+   //    img: sandImg,
+   //    className: ['hk_home_section_review_sandImg_img'],
+   // },
 ]
 
 export const BUBBLES_RIGHT = [

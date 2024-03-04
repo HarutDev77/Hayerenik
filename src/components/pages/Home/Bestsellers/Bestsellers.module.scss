@@ -23,12 +23,68 @@
 @media screen and (max-width: 1440px){
 
   .hk_home_section_bestsellers {
-    width: 992px;
-    margin: 150px auto 80px;
+    width: 990px;
+    margin: 200px auto 80px!important;
 
     &_title {
       color: $main-blue;
       margin-bottom: 28px;
+      font-size: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px){
+
+  .hk_home_section_bestsellers {
+    width: 824px;
+    margin: 150px auto 80px!important;
+
+    &_title {
+      color: $main-blue;
+      margin-bottom: 20px;
+      font-size: 34px;
+    }
+    &_items_container {
+      gap: 16px;
+      padding-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 990px){
+
+  .hk_home_section_bestsellers {
+    width: 605px;
+    margin: 100px auto 50px!important;
+
+    &_title {
+      color: $main-blue;
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+    &_items_container {
+      gap: 10px;
+      padding-left: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+
+  .hk_home_section_bestsellers {
+    width: 280px;
+    margin: 20px auto 35px!important;
+
+    &_title {
+      color: $main-blue;
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+    &_items_container {
+      gap: 7px;
+      padding-left: 0;
+      justify-content: center;
     }
   }
 }

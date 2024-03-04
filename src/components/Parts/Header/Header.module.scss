@@ -1,5 +1,8 @@
 .hk_nav {
     margin: 10px 0 0;
+    .hk_mobile_menu{
+        display: none;
+    }
     .hk_nav_first_box{
         margin: 0 0 50px 0;
         background-color: #D0E3F9;
@@ -324,7 +327,7 @@
                     font-size: 14px;
                 }
                 li:hover{
-                    outline: 2px solid #3533B0;
+                    outline: none;
                     border-radius: 15px;
                     transform: scale(1);
                 }
@@ -334,6 +337,46 @@
                     top: -92px;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hk_nav{
+        .hk_mobile_menu{
+            .mob_menu_search_box{
+                position: relative;
+                &>img:first-child{
+                    margin-right: 10px;
+                }
+                .hk_card_count{
+                    position: absolute;
+                    bottom: -5px;
+                    right: -5px;
+                    width: 15px;
+                    height: 15px;
+                    font-size: 13px;
+                    font-family: Arial, sans-serif;
+                    background-color: #00D46F;
+                    color: #FFFFFF;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%
+                }
+            }
+            padding: 10px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .hk_nav_first_box{
+            display: none;
+        }
+        .hk_nav_second_box{
+            display: none;
         }
     }
 }

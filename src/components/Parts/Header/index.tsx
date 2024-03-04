@@ -10,7 +10,7 @@ import Cart from '@/assets/images/cart.svg'
 import { useRouter } from 'next/router'
 import UserApi from '@/api/user.api'
 import Tree from '@/components/Parts/Tree'
-
+import MenuIcon from '@/assets/images/MenuOutlined.svg'
 import classes from './Header.module.scss'
 
 const Header = () => {
@@ -167,6 +167,19 @@ const Header = () => {
                            />
                         ) : null}
                      </div>
+                  </div>
+               </div>
+               <div className={classes.hk_mobile_menu}>
+                  <div>
+                     <Image width={20} height={20} src={MenuIcon} alt={'Burger menu'} />
+                  </div>
+                  <div>
+                     <Image width={100} height={40} src={Logo} alt={'Logo'} />
+                  </div>
+                  <div className={classes.mob_menu_search_box}>
+                     <Image width={17} height={20} src={Search} alt={'Search'} />
+                     <Image width={17} height={20} src={Cart} alt={'Card'} />
+                     <div className={classes.hk_card_count}>0</div>
                   </div>
                </div>
             </nav>
