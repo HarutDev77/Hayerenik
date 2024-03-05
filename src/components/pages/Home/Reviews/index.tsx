@@ -10,10 +10,12 @@ import SeaImage from '@/assets/images/sea_image.svg'
 import WaveTop from '@/assets/images/waveTop.svg'
 import WaveBottom from '@/assets/images/waveBottom.svg'
 import Send from '@/assets/images/sandImage.svg'
+import { useRouter } from 'next/router'
 import classes from './Reviews.module.scss'
 
 const SectionReviews = () => {
    const [screenPhoto, setScreenPhoto] = useState(SeaImage)
+   const { locale } = useRouter()
 
    useEffect(() => {
       function handleResize() {
@@ -73,13 +75,13 @@ const SectionReviews = () => {
          <div className={classes.hk_home_section_review_under_water_container_top}>
             <div>
                <Image src={startsImage} alt='stars image' priority={true} />
-               <p>
+               <p style={locale === 'am' ? { fontSize: '13px' } : {}}>
                   <FormattedMessage id={'review1'} />
                </p>
             </div>
             <div>
                <Image src={startsImage} alt='stars image' priority={true} />
-               <p>
+               <p style={locale === 'am' ? { fontSize: '13px' } : {}}>
                   <FormattedMessage id={'review2'} />
                </p>
             </div>
@@ -104,13 +106,13 @@ const SectionReviews = () => {
          <div className={classes.hk_home_section_review_under_water_container_bottom}>
             <div>
                <Image src={startsImage} alt='stars image' priority={true} />
-               <p>
+               <p style={locale === 'am' ? { fontSize: '13px' } : {}}>
                   <FormattedMessage id={'review3'} />
                </p>
             </div>
             <div>
                <Image src={startsImage} alt='stars image' priority={true} />
-               <p>
+               <p style={locale === 'am' ? { fontSize: '13px' } : {}}>
                   <FormattedMessage id={'review4'} />
                </p>
             </div>

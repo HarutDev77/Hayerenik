@@ -1,7 +1,33 @@
 .hk_nav {
     margin: 10px 0 0;
     .hk_mobile_menu{
+        position: relative;
         display: none;
+        .mob_menu{
+            width: 93%;
+            position: absolute;
+            left: 50%;
+            top: 55px;
+            transform: translate(-50%);
+            z-index: 500;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            background-color: #FFFFFF;
+            border: 2px solid #3533B0;
+            ul{
+                list-style: none;
+                li{
+                    cursor: pointer;
+                    font-size: 16px;
+                    color: #606060;
+                }
+            }
+            a{
+                text-decoration: none;
+                color: #606060;
+            }
+        }
     }
     .hk_nav_first_box{
         margin: 0 0 50px 0;
@@ -344,8 +370,20 @@
 @media screen and (max-width: 767px) {
     .hk_nav{
         .hk_mobile_menu{
+
             .mob_menu_search_box{
                 position: relative;
+                &>img{
+                    cursor: pointer;
+                }
+                .hk_nav_second_box_search{
+                    position: absolute;
+                    left: -77px;
+                    bottom: -27px;
+                    width: 126px;
+                    height: 20px;
+                    border-radius: 15px;
+                }
                 &>img:first-child{
                     margin-right: 10px;
                 }

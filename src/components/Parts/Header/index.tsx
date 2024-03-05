@@ -18,7 +18,9 @@ const Header = () => {
    const [searchTerm, setSearchTerm] = useState<string>('')
    const [isOpened, setIsOpened] = useState<boolean>(false)
    const [categories, setCategories] = useState<any>([])
+   const [isOpenedMobMenu, setIsOpenedMobMenu] = useState(false)
    const modalRef = useRef<any>()
+   const modalRefMob = useRef<any>()
 
    const router = useRouter()
 
@@ -62,6 +64,15 @@ const Header = () => {
             event.target.id !== 'list_all_a'
          ) {
             setIsOpened(false)
+         }
+         if (
+            modalRefMob.current &&
+            !modalRefMob.current.contains(event.target as Node) &&
+            event.target.id !== 'list_all' &&
+            event.target.id !== 'list_all_a' &&
+            event.target.id !== 'burgerMenu'
+         ) {
+            setIsOpenedMobMenu(false)
          }
       }
       document.addEventListener('mousedown', handleClickOutside)
@@ -171,15 +182,80 @@ const Header = () => {
                </div>
                <div className={classes.hk_mobile_menu}>
                   <div>
-                     <Image width={20} height={20} src={MenuIcon} alt={'Burger menu'} />
+                     <Image
+                        style={{ cursor: 'pointer' }}
+                        id={'burgerMenu'}
+                        width={20}
+                        height={20}
+                        src={MenuIcon}
+                        alt={'Burger menu'}
+                        onClick={() => setIsOpenedMobMenu((prevState) => !prevState)}
+                     />
+                     {isOpenedMobMenu && (
+                        <div ref={modalRefMob} className={classes.mob_menu}>
+                           <LanguageSwitcher />
+                           <ul>
+                              <li id={'list_all'} onClick={() => setIsOpened(!isOpened)}>
+                                 <a id={'list_all_a'} href='#'>
+                                    {<FormattedMessage id={'all'} />}
+                                 </a>
+                              </li>
+                              {isOpened && (
+                                 <div ref={modalRef} className={classes.categories_container}>
+                                    {categories.map((rootNode) => (
+                                       <Tree key={rootNode.id} node={rootNode} />
+                                    ))}
+                                 </div>
+                              )}
+                              <li>Books</li>
+                              <li>For school</li>
+                              <li>Games</li>
+                              <li>
+                                 <Link href='#'>
+                                    <FormattedMessage id={'aboutUs'} />
+                                 </Link>
+                              </li>
+                              <li onClick={() => setIsOpenedMobMenu((prevState) => !prevState)}>
+                                 <Link href='/contacts'>
+                                    <FormattedMessage id={'contacts'} />
+                                 </Link>
+                              </li>
+                              <li>
+                                 <Link href='#'>
+                                    <FormattedMessage id={'payDelivery'} />
+                                 </Link>
+                              </li>
+                              <li>Privacy policy</li>
+                              <li>Return/refund policy</li>
+                           </ul>
+                        </div>
+                     )}
                   </div>
                   <div>
-                     <Image width={100} height={40} src={Logo} alt={'Logo'} />
+                     <Link href='/'>
+                        <Image width={100} height={40} src={Logo} alt={'Logo'} />
+                     </Link>
                   </div>
                   <div className={classes.mob_menu_search_box}>
-                     <Image width={17} height={20} src={Search} alt={'Search'} />
-                     <Image width={17} height={20} src={Cart} alt={'Card'} />
+                     <Image
+                        width={17}
+                        height={20}
+                        src={Search}
+                        alt={'Search'}
+                        onClick={searchItem}
+                     />
+                     <Link href={'/cart'}>
+                        <Image width={17} height={20} src={Cart} alt={'Card'} />
+                     </Link>
                      <div className={classes.hk_card_count}>0</div>
+                     {showSearchInput ? (
+                        <Input
+                           onChange={({ target }) => setSearchTerm(target.value)}
+                           onKeyDown={(e) => handleKeyDown(e)}
+                           className={classes.hk_nav_second_box_search}
+                           placeholder='Search'
+                        />
+                     ) : null}
                   </div>
                </div>
             </nav>
