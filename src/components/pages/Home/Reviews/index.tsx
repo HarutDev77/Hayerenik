@@ -44,28 +44,24 @@ const SectionReviews = () => {
             />
          ))}
          <Image
-            key={100}
             className={classes.hk_home_section_review_sea_img}
             src={screenPhoto as any}
             alt='sea image'
             priority={true}
          />
          <Image
-            key={102}
             className={classes.hk_home_section_review_waveTop_img}
             src={WaveTop}
             alt='wave image'
             priority={true}
          />
          <Image
-            key={101}
             className={classes.hk_home_section_review_waveBottom_img}
             src={WaveBottom}
             alt='wave image'
             priority={true}
          />
          <Image
-            key={100}
             className={classes.hk_home_section_review_sandImg_img}
             src={Send}
             alt='sand image'
