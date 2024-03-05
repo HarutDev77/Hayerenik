@@ -24,3 +24,41 @@
     }
   }
 }
+
+@media screen and (max-width: 1199px){
+  .hk_home_section_top_categories{
+    width: 918px;
+    margin: 0 auto 95px;
+    h2{
+      font-size: 34px;
+      margin-bottom: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 990px){
+  .hk_home_section_top_categories{
+    width: 654px;
+    margin: 0 auto 46px;
+    h2{
+      font-size: 26px;
+      margin-bottom: 80px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .hk_home_section_top_categories{
+    width: 250px;
+    margin: 0 auto 30px;
+    h2{
+      font-size: 36px;
+      margin-bottom: 100px;
+    }
+    .hk_home_section_top_categories_box{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
