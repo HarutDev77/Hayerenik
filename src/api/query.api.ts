@@ -2,6 +2,7 @@ import axiosRequest from '@/api/axiosRequest'
 import { AxiosResponse } from 'axios'
 import { ICategoryData, ICategoryForm } from '@/types/admin'
 import { PAGINATION_LIMIT } from '@/constants'
+import { FilterData, FilteredData, ProductsList } from '@/types/main'
 
 export default class QueryApi {
    static async createCategoryPageData(url: string | ''): Promise<any> {
@@ -19,7 +20,7 @@ export default class QueryApi {
          url += `/${id}`
       }
 
-      if (id){
+      if (id) {
          await axiosRequest.put(url, { ...categoryForm })
       } else {
          await axiosRequest.post(url, { ...categoryForm })
@@ -107,5 +108,21 @@ export default class QueryApi {
       const response = await axiosRequest.delete(url)
 
       return response.data
+   }
+
+   static async getProductListData(
+      categoryId: number,
+      page: number,
+      limit: number,
+   ): Promise<AxiosResponse<ProductsList>> {
+      const response = await axiosRequest.get(`/product/list-data/${categoryId}`, {
+         params: { limit, page },
+      })
+      return response
+   }
+
+   static async filteredProductList(filterData: FilterData): Promise<AxiosResponse<FilteredData>> {
+      const response = await axiosRequest.post('/product/filter-list', filterData)
+      return response
    }
 }

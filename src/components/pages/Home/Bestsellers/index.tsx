@@ -1,7 +1,9 @@
 import { FC } from 'react';
+import { useRouter } from 'next/router'
+import { FormattedMessage } from 'react-intl'
+
 import ProductItem from '@/components/Parts/ProductItem';
 import DynamicMessage from '@/components/atoms/DynamicMessage';
-import { FormattedMessage } from 'react-intl';
 import { Bestseller } from '@/types/bestseller';
 import classes from './Bestsellers.module.scss';
 

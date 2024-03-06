@@ -108,18 +108,18 @@ export const REVIEWS_IMAGES = [
       img: imagePuzzles,
       className: ['hk_home_section_review_puzzles_img'],
    },
-   {
-      img: imageSea,
-      className: ['hk_home_section_review_sea_img'],
-   },
-   {
-      img: waveTop,
-      className: ['hk_home_section_review_waveTop_img'],
-   },
-   {
-      img: waveBottom,
-      className: ['hk_home_section_review_waveBottom_img'],
-   },
+   // {
+   //    img: imageSea,
+   //    className: ['hk_home_section_review_sea_img'],
+   // },
+   // {
+   //    img: waveTop,
+   //    className: ['hk_home_section_review_waveTop_img'],
+   // },
+   // {
+   //    img: waveBottom,
+   //    className: ['hk_home_section_review_waveBottom_img'],
+   // },
    {
       img: boatImag,
       className: ['hk_home_section_review_boat_img'],
@@ -128,11 +128,11 @@ export const REVIEWS_IMAGES = [
       img: anchor,
       className: ['hk_home_section_review_cable_img'],
    },
-   {
-      img: sandImg,
-      className: ['hk_home_section_review_sandImg_img'],
-   },
-];
+   // {
+   //    img: sandImg,
+   //    className: ['hk_home_section_review_sandImg_img'],
+   // },
+]
 
 export const BUBBLES_RIGHT = [
    {
@@ -870,6 +870,9 @@ export const ALL_ITEMS: IAllItems[] = [
    },
 ];
 
-export const PAGINATION_LIMIT = 10;
-
+export const PAGINATION_LIMIT = 10
+export const PRODUCT_LIST_ITEMS_LIMIT = 12
+export const INPUT_DEBOUNCE_DELAY = 500
+export const AGE_OPTIONS = [1, 2, 3, 4, 5, 6]
+export const MOBILE_SCREEN_SIZE = 768
 export const PUZZLE_COLORS = ['red', 'yellow', 'green'];

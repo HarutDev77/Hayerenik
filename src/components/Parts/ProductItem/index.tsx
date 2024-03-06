@@ -1,10 +1,16 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { JSXElement } from '@babel/types'
 import { BACKEND_IMAGES_URL } from '@/constants/config';
 import MainButton from '@/components/Parts/MainButton';
 import NoImageAvailable from '@/assets/images/no_product_image.png';
+import image from '@/assets/images/stationary.jpg'
 import classes from './ProductItem.module.scss';
-import Image from 'next/image';
+
+import classNames from 'classnames';
+
+
 
 interface ProductItem {
    id: number;
@@ -12,9 +18,10 @@ interface ProductItem {
    title: string | React.ReactNode;
    description: string | React.ReactNode;
    price: number;
+   className?: string
 }
 
-const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price }) => {
+const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price, className }) => {
    return (
       <Link
          rel='preload'
@@ -22,7 +29,7 @@ const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price 
          href={`/product/${id}`}
          key={id}
       >
-         <div className={classes.hk_product_item_box} key={id}>
+         <div className={classNames(classes.hk_product_item_box, className)} key={id}>
             <div>
                {imageUrl ? (
                   <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`} />

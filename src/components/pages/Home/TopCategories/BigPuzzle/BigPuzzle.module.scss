@@ -113,3 +113,129 @@
     }
   }
 }
+
+@media screen and (max-width: 1199px){
+  .hk_home_section_top_categories_box_content_box {
+    width: 200px;
+    height: 200px;
+
+    h3 {
+      top: 12px;
+      left: 12px;
+      font-size: 24px;
+    }
+
+    .hk_puzzle_1_red {
+      width: 70px;
+      height: 45px;
+      top: -45px;
+      left: 65px;
+    }
+
+    .hk_puzzle_2_red {
+      width: 45px;
+      height: 70px;
+      top: 65px;
+      left: -45px;
+    }
+
+    .hk_puzzle_3_white {
+      width: 45px;
+      height: 70px;
+      right: -2px;
+      top: 65px;
+    }
+
+    .hk_puzzle_4_white {
+      width: 70px;
+      height: 45px;
+      bottom: -2px;
+      left: 65px;
+    }
+  }
+}
+
+@media screen and (max-width: 990px){
+  .hk_home_section_top_categories_box_content_box {
+    width: 157px;
+    height: 157px;
+
+    h3 {
+      top: 8px;
+      left: 8px;
+      font-size: 19px;
+    }
+
+    .hk_puzzle_1_red {
+      width: 53px;
+      height: 34px;
+      top: -34px;
+      left: 53px;
+    }
+
+    .hk_puzzle_2_red {
+      width: 34px;
+      height: 53px;
+      top: 53px;
+      left: -34px;
+    }
+
+    .hk_puzzle_3_white {
+      width: 34px;
+      height: 53px;
+      right: -2px;
+      top: 53px;
+    }
+
+    .hk_puzzle_4_white {
+      width: 53px;
+      height: 34px;
+      bottom: -2px;
+      left: 53px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .hk_home_section_top_categories_box_content_box:not(:last-child){
+    margin-bottom: 100px;
+  }
+  .hk_home_section_top_categories_box_content_box {
+    width: 182px;
+    height: 182px;
+
+    h3 {
+      top: 12px;
+      left: 12px;
+      font-size: 22px;
+    }
+
+    .hk_puzzle_1_red {
+      width: 62px;
+      height: 40px;
+      top: -40px;
+      left: 62px;
+    }
+
+    .hk_puzzle_2_red {
+      width: 40px;
+      height: 62px;
+      top: 62px;
+      left: -40px;
+    }
+
+    .hk_puzzle_3_white {
+      width: 40px;
+      height: 62px;
+      right: -2px;
+      top: 62px;
+    }
+
+    .hk_puzzle_4_white {
+      width: 62px;
+      height: 40px;
+      bottom: -2px;
+      left: 62px;
+    }
+  }
+}
