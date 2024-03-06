@@ -5,7 +5,7 @@
   "importOrder": ["^src/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "semi": false,
+  "semi": true,
   "printWidth": 100,
   "tabWidth": 3
 }

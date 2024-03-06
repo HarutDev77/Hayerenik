@@ -1,17 +1,17 @@
-import React, { FC } from 'react'
-import Image from 'next/image'
-import MainButton from '@/components/Parts/MainButton'
-import classes from './ProductItem.module.scss'
-import Link from 'next/link'
-import { BACKEND_IMAGES_URL } from '@/constants/config'
-import { JSXElement } from '@babel/types'
+import React, { FC } from 'react';
+import Link from 'next/link';
+import { BACKEND_IMAGES_URL } from '@/constants/config';
+import MainButton from '@/components/Parts/MainButton';
+import NoImageAvailable from '@/assets/images/no_product_image.png';
+import classes from './ProductItem.module.scss';
+import Image from 'next/image';
 
 interface ProductItem {
-   id: number
-   imageUrl: string
-   title: string | unknown
-   description: string | unknown
-   price: number
+   id: number;
+   imageUrl?: string;
+   title: string | React.ReactNode;
+   description: string | React.ReactNode;
+   price: number;
 }
 
 const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price }) => {
@@ -24,8 +24,11 @@ const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price 
       >
          <div className={classes.hk_product_item_box} key={id}>
             <div>
-               {/* eslint-disable-next-line @next/next/no-img-element */}
-               <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`} />
+               {imageUrl ? (
+                  <img src={`${BACKEND_IMAGES_URL}/${imageUrl}`} alt={`${title}`} />
+               ) : (
+                  <Image src={NoImageAvailable} alt={'no image available'} priority={true} />
+               )}
             </div>
             <div>
                <h3>{title}</h3>
@@ -37,7 +40,7 @@ const ProductItem: FC<ProductItem> = ({ id, imageUrl, title, description, price 
             </div>
          </div>
       </Link>
-   )
-}
+   );
+};
 
-export default ProductItem
+export default ProductItem;

@@ -1,18 +1,17 @@
-import React, { FC, useState } from 'react'
-import { Button, Checkbox, Form, Input, Typography } from 'antd'
-import { LockOutlined, MailOutlined } from '@ant-design/icons'
-import classes from './Login.module.scss'
-import { useRouter } from 'next/router'
-import { setAuthToken } from '@/api/auth'
-import { getCookie } from 'cookies-next'
-import { useMutation } from 'react-query'
-import AuthApi from '@/api/auth.api'
-import { ILoginData } from '@/types/admin'
+import React, { FC, useState } from 'react';
+import { Button, Checkbox, Form, Input, Typography } from 'antd';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/router';
+import { useMutation } from 'react-query';
+import { getCookie } from 'cookies-next';
+import { setAuthToken } from '@/api/auth';
+import { LoginData } from '@/types/login-data';
+import AuthApi from '@/api/auth.api';
+import classes from './Login.module.scss';
 
-const { Text, Title, Link } = Typography
-
+const { Text, Title, Link } = Typography;
 export async function getServerSideProps(context: any) {
-   const { req, res } = context
+   const { req, res } = context;
 
    const token = getCookie('token', {
       req,
@@ -20,7 +19,7 @@ export async function getServerSideProps(context: any) {
       httpOnly: false,
       secure: true,
       sameSite: 'none',
-   })
+   });
 
    if (token) {
       return {
@@ -28,30 +27,30 @@ export async function getServerSideProps(context: any) {
             destination: '/admin',
             permanent: false,
          },
-      }
+      };
    }
 
    return {
       props: {},
-   }
+   };
 }
 
 const Login: FC = () => {
-   const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
-   const router = useRouter()
+   const [email, setEmail] = useState('');
+   const [password, setPassword] = useState('');
+   const router = useRouter();
 
    const { mutate } = useMutation(
-      (data: ILoginData) => {
-         return AuthApi.login(data)
+      (data: LoginData) => {
+         return AuthApi.login(data);
       },
       {
          onSuccess: (data) => {
-            setAuthToken(data.data.resData)
-            router.push('/admin')
+            setAuthToken(data.data.resData);
+            router.push('/admin');
          },
       },
-   )
+   );
 
    return (
       <section className={classes.hk_login_container}>
@@ -117,7 +116,7 @@ const Login: FC = () => {
                      type='primary'
                      htmlType='submit'
                      onClick={() => {
-                        mutate({ email, password })
+                        mutate({ email, password });
                      }}
                   >
                      Log in
@@ -132,7 +131,7 @@ const Login: FC = () => {
             </Form>
          </div>
       </section>
-   )
-}
+   );
+};
 
-export default Login
+export default Login;

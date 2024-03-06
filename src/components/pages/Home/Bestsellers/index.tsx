@@ -1,20 +1,18 @@
-import ProductItem from '@/components/Parts/ProductItem'
-import { FC } from 'react'
-import { FormattedMessage } from 'react-intl'
-import { useRouter } from 'next/router'
-import classes from './Bestsellers.module.scss'
-import { setT } from '@/helpers/utils'
-import DynamicMessage from '@/components/atoms/DynamicMessage'
+import { FC } from 'react';
+import ProductItem from '@/components/Parts/ProductItem';
+import DynamicMessage from '@/components/atoms/DynamicMessage';
+import { FormattedMessage } from 'react-intl';
+import { Bestseller } from '@/types/bestseller';
+import classes from './Bestsellers.module.scss';
 
 interface ISectionBestsellers {
-   margin?: string
+   bestsellers: Bestseller[];
+   margin?: string;
 }
 const SectionBestsellers: FC<ISectionBestsellers> = ({
    bestsellers,
    margin = '350px auto 45px',
-}) => {
-   const { locale } = useRouter()
-
+}: ISectionBestsellers) => {
    return (
       <section style={{ margin }} className={classes.hk_home_section_bestsellers}>
          <div>
@@ -35,7 +33,7 @@ const SectionBestsellers: FC<ISectionBestsellers> = ({
             </div>
          </div>
       </section>
-   )
-}
+   );
+};
 
-export default SectionBestsellers
+export default SectionBestsellers;

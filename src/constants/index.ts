@@ -1,24 +1,24 @@
-import pencil from '@/assets/images/pencil.svg'
-import pens from '@/assets/images/pens.svg'
-import book from '@/assets/images/book.svg'
-import bookLion from '@/assets/images/bookLion.svg'
-import pen from '@/assets/images/pen.svg'
-import imagePuzzles from '@/assets/images/puzzles.svg'
-import imageSea from '@/assets/images/sea_image.svg'
-import waveTop from '@/assets/images/waveTop.svg'
-import waveBottom from '@/assets/images/waveBottom.svg'
-import boatImag from '@/assets/images/boat.svg'
-import sandImg from '@/assets/images/sandImage.svg'
-import anchor from '@/assets/images/anchor.svg'
-import imageBooks from '@/assets/images/booksjpg.jpg'
-import imageKub from '@/assets/images/kub.jpg'
-import imageStationary from '@/assets/images/stationary.jpg'
-import bigBubble from '@/assets/images/bigBubble.svg'
-import middleBubble from '@/assets/images/middleBubble.svg'
-import smallBubble from '@/assets/images/smallBubble.svg'
-import redSquare from '@/assets/images/redSquare.svg'
-import blueSquare from '@/assets/images/blueSquare.svg'
-import circleImg from '@/assets/images/circleImg.svg'
+import pencil from '@/assets/images/pencil.svg';
+import pens from '@/assets/images/pens.svg';
+import book from '@/assets/images/book.svg';
+import bookLion from '@/assets/images/bookLion.svg';
+import pen from '@/assets/images/pen.svg';
+import imagePuzzles from '@/assets/images/puzzles.svg';
+import imageSea from '@/assets/images/sea_image.svg';
+import waveTop from '@/assets/images/waveTop.svg';
+import waveBottom from '@/assets/images/waveBottom.svg';
+import boatImag from '@/assets/images/boat.svg';
+import sandImg from '@/assets/images/sandImage.svg';
+import anchor from '@/assets/images/anchor.svg';
+import imageBooks from '@/assets/images/booksjpg.jpg';
+import imageKub from '@/assets/images/kub.jpg';
+import imageStationary from '@/assets/images/stationary.jpg';
+import bigBubble from '@/assets/images/bigBubble.svg';
+import middleBubble from '@/assets/images/middleBubble.svg';
+import smallBubble from '@/assets/images/smallBubble.svg';
+import redSquare from '@/assets/images/redSquare.svg';
+import blueSquare from '@/assets/images/blueSquare.svg';
+import circleImg from '@/assets/images/circleImg.svg';
 
 export const CHOSE_ITEMS = [
    {
@@ -28,7 +28,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 35,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -38,7 +38,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 35,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -48,7 +48,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 27,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -58,7 +58,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 11,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -68,7 +68,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 35,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -78,7 +78,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 31,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -88,7 +88,7 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 26,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
    {
@@ -98,10 +98,10 @@ export const CHOSE_ITEMS = [
       amount: 1,
       price: 42,
       totalPrice: function () {
-         return this.amount * this.price
+         return this.amount * this.price;
       },
    },
-]
+];
 
 export const REVIEWS_IMAGES = [
    {
@@ -132,7 +132,7 @@ export const REVIEWS_IMAGES = [
       img: sandImg,
       className: ['hk_home_section_review_sandImg_img'],
    },
-]
+];
 
 export const BUBBLES_RIGHT = [
    {
@@ -147,7 +147,7 @@ export const BUBBLES_RIGHT = [
       img: smallBubble,
       className: ['hk_home_section_review_smallBubbleImg_img'],
    },
-]
+];
 
 export const BUBBLES_LEFT = [
    {
@@ -171,7 +171,7 @@ export const BUBBLES_LEFT = [
          'hk_home_section_review_smallBubbleImgLeft_img',
       ],
    },
-]
+];
 
 export const PUZZLES = [
    {
@@ -192,7 +192,7 @@ export const PUZZLES = [
       src: imageStationary,
       title: 'Stationary',
    },
-]
+];
 
 export const AGES = [
    {
@@ -231,30 +231,30 @@ export const AGES = [
       title: '8+',
       src: blueSquare,
    },
-]
+];
 
 export interface IAllItems {
-   id: number
-   title: string
-   description: string
-   price: number
-   imageUrl: string
-   images?: string[]
-   properties?: IProperty[]
-   subProducts?: ISubProduct[]
+   id: number;
+   title: string;
+   description: string;
+   price: number;
+   imageUrl: string;
+   images?: string[];
+   properties?: IProperty[];
+   subProducts?: ISubProduct[];
 }
 
 export type IProperty = {
-   name: string
-   value: string
-}
+   name: string;
+   value: string;
+};
 
 export type ISubProduct = {
-   id: number
-   title: string
-   price: number
-   imageUrl: string
-}
+   id: number;
+   title: string;
+   price: number;
+   imageUrl: string;
+};
 
 export const ALL_ITEMS: IAllItems[] = [
    {
@@ -868,6 +868,8 @@ export const ALL_ITEMS: IAllItems[] = [
          },
       ],
    },
-]
+];
 
-export const PAGINATION_LIMIT = 10
+export const PAGINATION_LIMIT = 10;
+
+export const PUZZLE_COLORS = ['red', 'yellow', 'green'];

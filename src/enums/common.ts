@@ -26,3 +26,8 @@ export enum OrderDeliveryStatusEnum {
    delivered = 2,
    canceled = 3,
 }
+
+export enum SiteLanguageEnum {
+   en = 'en',
+   am = 'am',
+}

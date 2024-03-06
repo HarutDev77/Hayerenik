@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
-import Image from 'next/image'
-import Close from '@/assets/images/subClosed.svg'
-import Open from '@/assets/images/subOpen.svg'
-import { ICategoryData } from '@/types/admin'
-import classes from './Tree.module.scss'
+import React, { FC, useState } from 'react';
+import Image from 'next/image';
+import Close from '@/assets/images/subClosed.svg';
+import Open from '@/assets/images/subOpen.svg';
+import { ICategoryData } from '@/types/admin';
+import { Category } from '@/types/category';
+import classes from './Tree.module.scss';
 
-const Tree = ({ node }) => {
-   const [isExpanded, setIsExpanded] = useState(false)
+const Tree: FC<{ node: Category }> = ({ node }) => {
+   const [isExpanded, setIsExpanded] = useState(false);
 
    const handleToggle = () => {
-      setIsExpanded(!isExpanded)
-   }
+      setIsExpanded(!isExpanded);
+   };
 
    return (
       <div className={classes.tree_node}>
@@ -37,7 +38,7 @@ const Tree = ({ node }) => {
             </ul>
          )}
       </div>
-   )
-}
+   );
+};
 
-export default Tree
+export default Tree;

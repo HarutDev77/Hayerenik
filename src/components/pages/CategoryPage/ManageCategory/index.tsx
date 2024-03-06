@@ -1,27 +1,27 @@
-import { Input, Select as AntSelect, Spin, Switch } from 'antd'
-import Image from 'next/image'
-import AddImage from '@/assets/images/icon_image_plus_.svg'
-import { FC, useState } from 'react'
-import deleteButton from '@/assets/images/delete_foto.svg'
-import Link from 'next/link'
-import Plus from '@/assets/images/plusImg.svg'
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import MainButton from '@/components/Parts/MainButton'
-import QueryApi from '@/api/query.api'
-import { useMutation, useQuery } from 'react-query'
-import { useRouter } from 'next/router'
-import { FolderEnum, ModeEnum } from '@/enums/common'
-import { BACKEND_IMAGES_URL } from '@/constants/config'
-import { ICategoryForm } from '@/types/admin'
-import classes from './ManageCategory.module.scss'
+import { Input, Select as AntSelect, Spin, Switch } from 'antd';
+import Image from 'next/image';
+import AddImage from '@/assets/images/icon_image_plus_.svg';
+import { FC, useState } from 'react';
+import deleteButton from '@/assets/images/delete_foto.svg';
+import Link from 'next/link';
+import Plus from '@/assets/images/plusImg.svg';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import MainButton from '@/components/Parts/MainButton';
+import QueryApi from '@/api/query.api';
+import { useMutation, useQuery } from 'react-query';
+import { useRouter } from 'next/router';
+import { FolderEnum, ModeEnum } from '@/enums/common';
+import { BACKEND_IMAGES_URL } from '@/constants/config';
+import { ICategoryForm } from '@/types/admin';
+import classes from './ManageCategory.module.scss';
 
 const ManageCategory: FC = () => {
-   const [categories, setCategories] = useState([])
-   const router = useRouter()
-   const { id, mode } = router.query
-   const [properties, setProperties] = useState([])
-   const [selectedValue, setSelectedValue] = useState<number | null>(null)
-   const [selectedValueProps, setSelectedValueProps] = useState<any>('')
+   const [categories, setCategories] = useState([]);
+   const router = useRouter();
+   const { id, mode } = router.query;
+   const [properties, setProperties] = useState([]);
+   const [selectedValue, setSelectedValue] = useState<number | null>(null);
+   const [selectedValueProps, setSelectedValueProps] = useState<any>('');
    const [categoryForm, setCategoryForm] = useState<ICategoryForm>({
       parentId: null,
       titleEn: '',
@@ -32,9 +32,9 @@ const ManageCategory: FC = () => {
       isTop: false,
       img: null,
       propertiesIds: [],
-   })
-   const [propTags, setPropTags] = useState([])
-   const [showRequired, setShowRequired] = useState<boolean>(false)
+   });
+   const [propTags, setPropTags] = useState([]);
+   const [showRequired, setShowRequired] = useState<boolean>(false);
 
    useQuery(
       'manageCategoryPageData',
@@ -45,23 +45,23 @@ const ManageCategory: FC = () => {
                : id
                  ? `admin/category/edit-page-data/${id}`
                  : '',
-         )
+         );
       },
       {
          onSuccess: (data) => {
             if (mode === ModeEnum.create) {
-               setCategories(data.resData.categories)
-               setProperties(data.resData.properties)
+               setCategories(data.resData.categories);
+               setProperties(data.resData.properties);
             } else {
-               const selectedIds = [...data.resData.category.properties.map((item) => item.id)]
+               const selectedIds = [...data.resData.category.properties.map((item) => item.id)];
                setCategories(
                   data.resData.categories.filter(
                      (category) => category.id !== data?.resData?.category.id,
                   ),
-               )
+               );
                setProperties(
                   data.resData.properties.filter((item) => !selectedIds.includes(item.id)),
-               )
+               );
                setCategoryForm({
                   parentId: data ? data.resData.category.parentId : null,
                   titleEn: data ? data.resData.category.titleEn : '',
@@ -72,18 +72,18 @@ const ManageCategory: FC = () => {
                   isTop: data ? data.resData.category.isTop : false,
                   img: data ? data?.resData.category.img : null,
                   propertiesIds: data ? selectedIds : [],
-               })
-               setSelectedValue(data?.resData?.category?.parentId)
-               setPropTags(data.resData.category.properties)
+               });
+               setSelectedValue(data?.resData?.category?.parentId);
+               setPropTags(data.resData.category.properties);
             }
          },
          enabled: !!id || mode === ModeEnum.create,
       },
-   )
+   );
 
    const { mutate } = useMutation(
       (categoryForm: ICategoryForm) => {
-         return QueryApi.saveCategory(categoryForm, +id)
+         return QueryApi.saveCategory(categoryForm, +id);
       },
       {
          onSuccess: () => {
@@ -97,80 +97,80 @@ const ManageCategory: FC = () => {
                isTop: false,
                img: null,
                propertiesIds: [],
-            })
-            setSelectedValue(null)
-            router.push('/admin/category').catch(() => {})
+            });
+            setSelectedValue(null);
+            router.push('/admin/category').catch(() => {});
          },
       },
-   )
+   );
 
    const { mutate: mutateImage, isLoading: loader } = useMutation(
       (formData: FormData) => {
-         return QueryApi.saveImage(formData)
+         return QueryApi.saveImage(formData);
       },
       {
          onSuccess: (data) => {
-            setCategoryForm({ ...categoryForm, img: data['resData'].path })
+            setCategoryForm({ ...categoryForm, img: data['resData'].src });
          },
       },
-   )
+   );
    const onChange = () => {
-      setCategoryForm({ ...categoryForm, isTop: !categoryForm.isTop })
-   }
+      setCategoryForm({ ...categoryForm, isTop: !categoryForm.isTop });
+   };
 
    const toggleParentCategory = () => {
-      setCategoryForm({ ...categoryForm, isHidden: !categoryForm.isHidden })
-   }
+      setCategoryForm({ ...categoryForm, isHidden: !categoryForm.isHidden });
+   };
 
    const handleFileChange = (event) => {
-      const file = event.target.files[0]
+      const file = event.target.files[0];
 
-      const formData = new FormData() as any
+      const formData = new FormData() as any;
 
-      formData.append('image', file)
-      formData.append('folder', FolderEnum.category)
+      formData.append('image', file);
+      formData.append('folder', FolderEnum.category);
 
-      mutateImage(formData)
-   }
+      mutateImage(formData);
+   };
 
    const changeTitle = (e) => {
-      const { name, value } = e.target
-      setCategoryForm({ ...categoryForm, [name]: value })
-      setShowRequired(false)
-   }
+      const { name, value } = e.target;
+      setCategoryForm({ ...categoryForm, [name]: value });
+      setShowRequired(false);
+   };
 
    const handleChange = (event) => {
-      console.log(event.target.value)
-      setSelectedValue(event.target.value)
-      setCategoryForm({ ...categoryForm, parentId: event.target.value })
-   }
+      console.log(event.target.value);
+      setSelectedValue(event.target.value);
+      setCategoryForm({ ...categoryForm, parentId: event.target.value });
+   };
 
    const deleteProperty = (prop) => {
-      const id = prop.id
-      const newProperties = propTags.filter((property) => property.id !== id)
-      setPropTags([...newProperties])
+      const id = prop.id;
+      const newProperties = propTags.filter((property) => property.id !== id);
+      setPropTags([...newProperties]);
 
       const newPropertiesIds = Array.isArray(categoryForm)
          ? categoryForm.propertiesIds.filter((property) => property !== id)
-         : []
+         : [];
 
-      setCategoryForm({ ...categoryForm, propertiesIds: [...newPropertiesIds] })
-      setProperties([...properties, prop])
-   }
+      setCategoryForm({ ...categoryForm, propertiesIds: [...newPropertiesIds] });
+      setProperties([...properties, prop]);
+   };
 
    const addProperties = (prop) => {
-      const id = prop.id
-      setProperties(properties.filter((property) => property.id !== id))
-      setCategoryForm({ ...categoryForm, propertiesIds: [...categoryForm.propertiesIds, id] })
-      setPropTags([...propTags, prop])
-   }
+      const id = prop.id;
+      setProperties(properties.filter((property) => property.id !== id));
+      setCategoryForm({ ...categoryForm, propertiesIds: [...categoryForm.propertiesIds, id] });
+      setPropTags([...propTags, prop]);
+   };
 
    const createCategory = () => {
       if (categoryForm.titleEn.trim()) {
-         mutate(categoryForm)
+         mutate(categoryForm);
       }
-      setShowRequired(true)
-   }
+      setShowRequired(true);
+   };
 
    // noinspection TypeScriptValidateTypes
    return (
@@ -251,7 +251,6 @@ const ManageCategory: FC = () => {
             <div className={classes.hk_admin_category_attach_file_box}>
                <h3>Photo</h3>
                <label htmlFor='hk_input_attach_file'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   {loader ? (
                      <Spin />
                   ) : categoryForm.img ? (
@@ -289,7 +288,6 @@ const ManageCategory: FC = () => {
                {propTags.map((prop) => (
                   <p key={prop.id}>
                      {prop['nameEn']}
-                     {/* eslint-disable-next-line @next/next/no-img-element */}
                      <img onClick={() => deleteProperty(prop)} src='/x.svg' alt='x' />
                   </p>
                ))}
@@ -337,6 +335,6 @@ const ManageCategory: FC = () => {
             {/*<AntSelect defaultValue='lucy' style={{ width: 120 }} onChange={handleChange} options={[{ value: 'arman', label: 'test' }]} />*/}
          </div>
       </section>
-   )
-}
-export default ManageCategory
+   );
+};
+export default ManageCategory;

@@ -1,12 +1,4 @@
 .hk_item_page_main_section{
-  &_route{
-    max-width: 1156px;
-    margin: 40px auto;
-    & span,img{
-      margin-right: 10px;
-    }
-  }
-
   &_main_box {
     display: flex;
     justify-content: space-between;
@@ -61,9 +53,10 @@
 
       &_product_container{
         display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         align-items: center;
-        width: 380px;
+        width: auto;
+        gap: 25px;
         margin: 25px 0;
         &>div{
           width: 70px;

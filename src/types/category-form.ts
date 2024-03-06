@@ -1,4 +1,4 @@
-export interface ICategoryForm {
+export interface CategoryForm {
    parentId?: number | null;
    titleEn: string;
    titleAm?: string | null;
@@ -8,10 +8,4 @@ export interface ICategoryForm {
    isTop?: boolean;
    img?: string | null;
    propertiesIds?: number[];
-}
-export interface ICategoryData {
-   id: number;
-   titleEn: string;
-   titleAm: string;
-   subCategories: ICategoryData[];
 }

@@ -1,9 +1,8 @@
-import axiosRequest from "@/api/axiosRequest";
-import {ILoginData} from "@/types/admin";
-import {AxiosResponse} from "axios";
+import axiosRequest from '@/api/axiosRequest';
+import { LoginData } from '@/types/login-data';
 
 export default class AuthApi {
-    static async login (data:ILoginData):Promise<any>{
-        return await axiosRequest.post("admin/login", data)
-    }
+   static async login(data: LoginData): Promise<any> {
+      return axiosRequest.post('admin/login', data);
+   }
 }

@@ -1,55 +1,46 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { CHOSE_ITEMS } from '@/constants'
-import ImageMinus from '@/assets/images/MinusImg.svg'
-import ImagePlus from '@/assets/images/plusImg.svg'
-import Image from 'next/image'
-import XImage from '@/assets/images/VectorX.svg'
-import classes from './Cart.module.scss'
-import MainButton from '@/components/Parts/MainButton'
-
-// interface ICartItem {
-//     id: number,
-//     price: number,
-//     imageUrl: string,
-//     title: string,
-//     amount: number,
-//     totalPrice: ()=> number
-// }
+import React, { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
+import { CHOSE_ITEMS } from '@/constants';
+import MainButton from '@/components/Parts/MainButton';
+import ImageMinus from '@/assets/images/MinusImg.svg';
+import ImagePlus from '@/assets/images/plusImg.svg';
+import XImage from '@/assets/images/VectorX.svg';
+import classes from './Cart.module.scss';
 
 const CartPage = () => {
-   const [items, setItems] = useState(CHOSE_ITEMS)
-   const [allPrice, setAllPrice] = useState(0)
+   const [items, setItems] = useState(CHOSE_ITEMS);
+   const [allPrice, setAllPrice] = useState(0);
 
-   const calculatePrice = (changeAmount, id) => {
+   const calculatePrice = (changeAmount: 'plus' | 'minus', id: number) => {
       if (changeAmount === 'plus') {
          const newItems = items.map((item) => {
             if (item.id === id) {
-               item.amount += 1
+               item.amount += 1;
             }
-            return item
-         })
-         setItems(newItems)
+            return item;
+         });
+         setItems(newItems);
       } else {
          const newItems = items.map((item) => {
             if (item.id === id && item.amount >= 2) {
-               item.amount -= 1
+               item.amount -= 1;
             }
-            return item
-         })
-         setItems(newItems)
+            return item;
+         });
+         setItems(newItems);
       }
-   }
+   };
 
    const calculateTotalPrice = useCallback(
       () => items.reduce((accum, item) => accum + item.totalPrice(), 0),
       [items],
-   )
+   );
 
-   const deleteItem = (id) => setItems(items.filter((item) => item.id !== id))
+   const deleteItem = (id: number) => setItems(items.filter((item) => item.id !== id));
 
    useEffect(() => {
-      setAllPrice(calculateTotalPrice())
-   }, [calculateTotalPrice])
+      setAllPrice(calculateTotalPrice());
+   }, [calculateTotalPrice]);
 
    return (
       <div>
@@ -115,7 +106,7 @@ const CartPage = () => {
             />
          </div>
       </div>
-   )
-}
+   );
+};
 
-export default CartPage
+export default CartPage;

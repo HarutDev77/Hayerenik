@@ -1,7 +1,7 @@
 // api.js
-import axios from 'axios'
-import { deleteAuthToken, getAuthToken } from './auth'
-import { BACKEND_API_URL } from '@/constants/config'
+import axios from 'axios';
+import { deleteAuthToken, getAuthToken } from './auth';
+import { BACKEND_API_URL } from '@/constants/config';
 
 const axiosRequest = axios.create({
    baseURL: `${BACKEND_API_URL}/api`,
@@ -9,33 +9,33 @@ const axiosRequest = axios.create({
    headers: {
       'Content-Type': 'application/json',
    },
-})
+});
 
 axiosRequest.interceptors.request.use(
    (config) => {
-      const token = getAuthToken()
+      const token = getAuthToken();
       if (token) {
-         config.headers.Authorization = `Bearer ${token}`
+         config.headers.Authorization = `Bearer ${token}`;
       }
-      return config
+      return config;
    },
    (error) => {
-      return Promise.reject(error)
+      return Promise.reject(error);
    },
-)
+);
 
 axiosRequest.interceptors.response.use(
    async (res) => {
-      if (res.data.status === 401) {
-         deleteAuthToken()
-         window.location.href = '/'
-      }
-
-      return res
+      return res;
    },
    async (error) => {
-      return Promise.reject(error?.response?.data)
-   },
-)
+      if (error.response.data.status === 403) {
+         deleteAuthToken();
+         window.location.href = '/admin';
+      }
 
-export default axiosRequest
+      return Promise.reject(error?.response?.data);
+   },
+);
+
+export default axiosRequest;

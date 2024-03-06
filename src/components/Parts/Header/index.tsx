@@ -1,75 +1,83 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FormattedMessage } from 'react-intl'
-import { Input } from 'antd'
-import LanguageSwitcher from '@/components/atoms/LanguageSwitcher'
-import Logo from '@/assets/images/hayerenikLogo.svg'
-import Search from '@/assets/images/search.svg'
-import Cart from '@/assets/images/cart.svg'
-import { useRouter } from 'next/router'
-import UserApi from '@/api/user.api'
-import Tree from '@/components/Parts/Tree'
+import React, { FC, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FormattedMessage } from 'react-intl';
+import { Input } from 'antd';
+import LanguageSwitcher from '@/components/atoms/LanguageSwitcher';
+import Logo from '@/assets/images/hayerenikLogo.svg';
+import Search from '@/assets/images/search.svg';
+import Cart from '@/assets/images/cart.svg';
+import { useRouter } from 'next/router';
+import UserApi from '@/api/user.api';
+import Tree from '@/components/Parts/Tree';
 
-import classes from './Header.module.scss'
+import { Category, TopCategory } from '@/types/category';
+import classes from './Header.module.scss';
+import DynamicMessage from '@/components/atoms/DynamicMessage';
 
 const Header = () => {
-   const [showSearchInput, setShowSearchInput] = useState<boolean>(false)
-   const [searchTerm, setSearchTerm] = useState<string>('')
-   const [isOpened, setIsOpened] = useState<boolean>(false)
-   const [categories, setCategories] = useState<any>([])
-   const modalRef = useRef<any>()
+   const [showSearchInput, setShowSearchInput] = useState<boolean>(false);
+   const [searchTerm, setSearchTerm] = useState<string>('');
+   const [isOpened, setIsOpened] = useState<boolean>(false);
+   const [categories, setCategories] = useState<Category[]>([]);
+   const [topCategories, setTopCategories] = useState<TopCategory[]>([]);
+   const modalRef = useRef<any>();
 
-   const router = useRouter()
+   const router = useRouter();
 
    const searchItem = () => {
-      setShowSearchInput((prevState) => !prevState)
+      setShowSearchInput((prevState) => !prevState);
 
       if (showSearchInput && searchTerm) {
-         setShowSearchInput(false)
-         router.push(`/search-result?term=${searchTerm}`)
+         setShowSearchInput(false);
+         router.push(`/search-result?term=${searchTerm}`);
       }
-   }
+   };
 
-   const handleKeyDown = (e) => {
+   const handleKeyDown = (e: any) => {
       if (e.key === 'Enter' && searchTerm) {
          setTimeout(() => {
-            setShowSearchInput(false)
-         }, 300)
+            setShowSearchInput(false);
+         }, 300);
 
-         router.push(`/search-result?term=${searchTerm}`)
+         router.push(`/search-result?term=${searchTerm}`);
       }
-   }
+   };
 
    const getCategories = async () => {
-      const response = await UserApi.getCategories()
-      console.log(response)
-      setCategories(response)
-   }
+      const response = await UserApi.getCategories();
+      setCategories(response);
+   };
+
+   const getTopCategories = async () => {
+      const response = await UserApi.getTopCategories(2);
+      setTopCategories(response);
+   };
 
    useEffect(() => {
-      ;(async () => {
-         await getCategories()
-      })()
-   }, [])
+      (async () => {
+         await getCategories();
+         await getTopCategories();
+      })();
+   }, []);
 
    useEffect(() => {
       function handleClickOutside(event: MouseEvent): void {
          if (
             modalRef.current &&
             !modalRef.current.contains(event.target as Node) &&
-            event.target.id !== 'list_all' &&
-            event.target.id !== 'list_all_a'
+            event.target?.id !== 'list_all' &&
+            event.target?.id !== 'list_all_a'
          ) {
-            setIsOpened(false)
+            setIsOpened(false);
          }
       }
-      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('mousedown', handleClickOutside);
 
       return () => {
-         document.removeEventListener('mousedown', handleClickOutside)
-      }
-   }, [modalRef])
+         document.removeEventListener('mousedown', handleClickOutside);
+      };
+   }, [modalRef]);
 
    return (
       <>
@@ -118,20 +126,18 @@ const Header = () => {
                                  {<FormattedMessage id={'all'} />}
                               </a>
                            </li>
-                           <li>
-                              <a href='#'>Books</a>
-                           </li>
-                           <li>
-                              <a href='#'>For school</a>
-                           </li>
-                           <li>
-                              <a href='#'>Games</a>
-                           </li>
+                           {topCategories.map((topCategory: TopCategory) => (
+                              <li key={topCategory.id}>
+                                 <Link href='#'>
+                                    <DynamicMessage data={topCategory} prop={'title'} />
+                                 </Link>
+                              </li>
+                           ))}
                         </ul>
                      </div>
                      {isOpened && (
                         <div ref={modalRef} className={classes.categories_container}>
-                           {categories.map((rootNode) => (
+                           {categories.map((rootNode: Category) => (
                               <Tree key={rootNode.id} node={rootNode} />
                            ))}
                         </div>
@@ -172,7 +178,7 @@ const Header = () => {
             </nav>
          </header>
       </>
-   )
-}
+   );
+};
 
-export default Header
+export default Header;
