@@ -1,19 +1,21 @@
-import React, { FC } from 'react'
-import { useSelector } from 'react-redux'
-import Link from 'next/link'
-import { FormattedMessage } from 'react-intl'
-import { Row, Col, Pagination, Spin, Empty } from 'antd'
-import ProductItem from '@/components/Parts/ProductItem'
-import { ROUTES } from '@/enums/common'
-import { RootState } from '@/store/store'
-import { PRODUCT_LIST_ITEMS_LIMIT } from '@/constants'
-import '../styles/ProductsList.scss'
+import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
+import Link from 'next/link';
+import { FormattedMessage } from 'react-intl';
+import { Row, Col, Pagination, Spin, Empty } from 'antd';
+import ProductItem from '@/components/Parts/ProductItem';
+import { ROUTES } from '@/enums/common';
+import { RootState } from '@/store/store';
+import { PRODUCT_LIST_ITEMS_LIMIT } from '@/constants';
+import { BACKEND_IMAGES_URL } from '@/constants/config';
+import { Product } from '@/types/product';
+import '../styles/ProductsList.scss';
 
 interface IProductsListProps {
-   currentPage: number
-   isLanguageAm: boolean
-   isLoading: boolean
-   onPageChange: (page: number) => void
+   currentPage: number;
+   isLanguageAm: boolean;
+   isLoading: boolean;
+   onPageChange: (page: number) => void;
 }
 
 export const ProductsList: FC<IProductsListProps> = ({
@@ -22,7 +24,7 @@ export const ProductsList: FC<IProductsListProps> = ({
    isLoading,
    onPageChange,
 }) => {
-   const categoryProducts = useSelector((state: RootState) => state.products.products)
+   const categoryProducts = useSelector((state: RootState) => state.products.products);
 
    return (
       <div className='productListContainer'>
@@ -36,7 +38,7 @@ export const ProductsList: FC<IProductsListProps> = ({
                         <Link href={`${ROUTES.PRODUCT}/${item.id}`} passHref>
                            <ProductItem
                               id={item.id}
-                              imageUrl={'http://localhost:3000/assets/images/stationary.jpg'}
+                              imageUrl={item.image}
                               title={
                                  isLanguageAm && item.titleAm ? item.titleAm : item.titleEn || ''
                               }
@@ -78,5 +80,5 @@ export const ProductsList: FC<IProductsListProps> = ({
             />
          )}
       </div>
-   )
-}
+   );
+};
