@@ -86,9 +86,10 @@ const CategoryProducts: FC = () => {
                   />
                   <ProductsList
                      currentPage={currentPage}
-                     onPageChange={setCurrentPage}
                      isLanguageAm={isLanguageAm}
                      isLoading={isLoading}
+                     onPageChange={setCurrentPage}
+                     setAnyFilterSet={setAnyFilterSet}
                   />
                </div>
             </>

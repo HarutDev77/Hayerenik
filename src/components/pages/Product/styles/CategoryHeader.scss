@@ -1,9 +1,37 @@
 .categoryHeaderContainer {
-   margin-left: 310px;
+   margin-left: 364px;
    p {
-      font-size: 48pt;
+      font-size: 48px;
       font-weight: bold;
       color: #384480;
+      padding-bottom: 8px;
+   }
+}
+
+@media screen and (max-width: 1440px) {
+   .categoryHeaderContainer {
+      p {
+         font-size: 40px;
+      }
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .categoryHeaderContainer {
+      p {
+         font-size: 34px;
+      }
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .categoryHeaderContainer {
+      margin-left: 315px;
+   }
+   .categoryHeaderContainer {
+      p {
+         font-size: 32px;
+      }
    }
 }
 
@@ -11,7 +39,7 @@
    .categoryHeaderContainer {
       margin-left: 20px;
       p {
-         font-size: 28pt;
+         font-size: 28px;
       }
    }
 }

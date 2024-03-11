@@ -1,6 +1,6 @@
 .breadcrumbContainer {
-   font-size: 15pt;
-   padding-bottom: 10px;
+   font-size: 15px;
+   padding-bottom: 30px;
 }
 
 .breadcrumbContainer a {
@@ -15,8 +15,14 @@
    pointer-events: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1440px) {
    .breadcrumbContainer {
-      font-size: 12pt;
+      font-size: 14px;
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .breadcrumbContainer {
+      font-size: 12px;
    }
 }
