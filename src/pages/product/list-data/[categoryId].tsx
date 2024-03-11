@@ -31,7 +31,7 @@ const CategoryProducts: FC = () => {
       if (anyFilterSet) {
          fetchFilteredDataWithFilters(filterData)
       } else if (categoryProductsRes) {
-         dispatch(setProducts(categoryProductsRes.resData.products))
+         dispatch(setProducts(categoryProductsRes.resData))
       } else {
          fetchCategoryData()
       }
@@ -49,7 +49,9 @@ const CategoryProducts: FC = () => {
                   currentPage,
                   PRODUCT_LIST_ITEMS_LIMIT,
                )
+            // noinspection TypeScriptValidateTypes
             dispatch(setCategoryProducts(productsRes.data))
+            // noinspection TypeScriptValidateTypes
             dispatch(setProducts(productsRes.data.resData.products))
             setCategoryProductsRes(productsRes?.data)
          }

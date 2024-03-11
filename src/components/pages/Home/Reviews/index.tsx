@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
-import { FormattedMessage } from 'react-intl'
-import { BUBBLES_LEFT, BUBBLES_RIGHT, REVIEWS_IMAGES } from '@/constants'
-import startsImage from '@/assets/images/stars.svg'
-import greenFishImg from '@/assets/images/grinFish.svg'
-import yellowFishImg from '@/assets/images/yellowFishsvg.svg'
-import WaveMobile from '@/assets/images/mobileWave.svg'
-import SeaImage from '@/assets/images/sea_image.svg'
-import WaveTop from '@/assets/images/waveTop.svg'
-import WaveBottom from '@/assets/images/waveBottom.svg'
-import Send from '@/assets/images/sandImage.svg'
-import { useRouter } from 'next/router'
-import classes from './Reviews.module.scss'
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { FormattedMessage } from 'react-intl';
+
+import { BUBBLES_LEFT, BUBBLES_RIGHT, REVIEWS_IMAGES } from '@/constants';
+import startsImage from '@/assets/images/stars.svg';
+import greenFishImg from '@/assets/images/grinFish.svg';
+import yellowFishImg from '@/assets/images/yellowFishsvg.svg';
+import SeaImageMobile from '@/assets/images/mobileWave.svg';
+import SeaImage from '@/assets/images/sea_image.svg';
+import WaveTop from '@/assets/images/waveTop.svg';
+import WaveBottom from '@/assets/images/waveBottom.svg';
+import Send from '@/assets/images/sandImage.svg';
+import classes from './Reviews.module.scss';
 
 const SectionReviews = () => {
-   const [screenPhoto, setScreenPhoto] = useState(SeaImage)
-   const { locale } = useRouter()
+   const [screenPhoto, setScreenPhoto] = useState(SeaImage);
+   const { locale } = useRouter();
 
    useEffect(() => {
       function handleResize() {
-         const screenWidth = window?.innerWidth
+         const screenWidth = window?.innerWidth;
 
          if (screenWidth && screenWidth < 767) {
-            setScreenPhoto(WaveMobile)
+            setScreenPhoto(SeaImageMobile);
+         } else {
+            setScreenPhoto(SeaImage);
          }
       }
-      window.addEventListener('resize', handleResize)
-      handleResize()
-      return () => window.removeEventListener('resize', handleResize)
-   }, [])
+      window.addEventListener('resize', handleResize);
+      handleResize();
+      return () => window.removeEventListener('resize', handleResize);
+   }, []);
 
    return (
       <section className={classes.hk_home_section_review}>
@@ -131,7 +134,7 @@ const SectionReviews = () => {
             </div>
          </div>
       </section>
-   )
-}
+   );
+};
 
-export default SectionReviews
+export default SectionReviews;

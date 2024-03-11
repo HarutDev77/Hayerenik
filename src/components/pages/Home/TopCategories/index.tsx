@@ -21,11 +21,7 @@ const SectionTopCategories: FC<{ topCategories: TopCategory[] }> = ({ topCategor
 
    return (
       <section className={classes.hk_home_section_top_categories}>
-         <div>
-            <h2>
-               <FormattedMessage id={'topCategories'} />
-            </h2>
-         </div>
+         <div>{!!topCategories.length && <h2>{<FormattedMessage id={'topCategories'} />}</h2>}</div>
          <div className={classes.hk_home_section_top_categories_box}>
             {topCategories.slice(0, 3).map((category: TopCategory, index: number) => (
                <BigPuzzle

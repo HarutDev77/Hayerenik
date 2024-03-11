@@ -1,30 +1,35 @@
-import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { FormattedMessage } from 'react-intl'
-import HeaderImageMobile from '@/assets/images/headerImageMobile.svg'
-import headerImage from '@/assets/images/headerbackgruondimage.svg'
-import Cloud from '@/assets/images/cloud1.svg'
-import { useEffect, useState } from 'react'
-import classes from './SectionHeader.module.scss'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+
+import HeaderImageMobile from '@/assets/images/headerImageMobile.svg';
+import HeaderImage from '@/assets/images/headerbackgruondimage.svg';
+import Cloud from '@/assets/images/cloud1.svg';
+import classes from './SectionHeader.module.scss';
 
 const SectionHeader = () => {
-   const [screenPhoto, setScreenPhoto] = useState(headerImage)
+   const [screenPhoto, setScreenPhoto] = useState(HeaderImage);
 
-   const router = useRouter()
-   const { locale } = router
+   const router = useRouter();
+   const { locale } = router;
 
    useEffect(() => {
       function handleResize() {
-         const screenWidth = window?.innerWidth
+         const screenWidth = window?.innerWidth;
 
          if (screenWidth && screenWidth < 767) {
-            setScreenPhoto(HeaderImageMobile)
+            setScreenPhoto(HeaderImageMobile);
+         } else {
+            setScreenPhoto(HeaderImage);
          }
       }
-      window.addEventListener('resize', handleResize)
-      handleResize()
-      return () => window.removeEventListener('resize', handleResize)
-   }, [])
+
+      window.addEventListener('resize', handleResize);
+      handleResize();
+
+      return () => window.removeEventListener('resize', handleResize);
+   }, []);
 
    return (
       <section className={classes.hk_home_section_header}>
@@ -82,7 +87,7 @@ const SectionHeader = () => {
             />
          </div>
       </section>
-   )
-}
+   );
+};
 
-export default SectionHeader
+export default SectionHeader;

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { useRouter } from 'next/router'
-import { FormattedMessage } from 'react-intl'
+import { useRouter } from 'next/router';
+import { FormattedMessage } from 'react-intl';
 
 import ProductItem from '@/components/Parts/ProductItem';
 import DynamicMessage from '@/components/atoms/DynamicMessage';
@@ -18,9 +18,11 @@ const SectionBestsellers: FC<ISectionBestsellers> = ({
    return (
       <section style={{ margin }} className={classes.hk_home_section_bestsellers}>
          <div>
-            <h2 className={classes.hk_home_section_bestsellers_title}>
-               <FormattedMessage id={'bestsellers'} />
-            </h2>
+            {!!bestsellers.length && (
+               <h2 className={classes.hk_home_section_bestsellers_title}>
+                  <FormattedMessage id={'bestsellers'} />
+               </h2>
+            )}
             <div className={classes.hk_home_section_bestsellers_items_container}>
                {bestsellers?.map((item) => (
                   <ProductItem

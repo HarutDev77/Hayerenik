@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+   // transpilePackages: [
+   //    'rc-util',
+   //    '@ant-design',
+   //    'kitchen-flow-editor',
+   //    '@ant-design/pro-editor',
+   //    'zustand',
+   //    'leva',
+   //    'antd',
+   //    'rc-pagination',
+   //    'rc-picker',
+   // ],
    // webpack(config) {
    //     config.module.rules.push({
    //         test: /\.svg$/i,

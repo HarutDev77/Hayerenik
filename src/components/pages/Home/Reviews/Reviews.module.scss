@@ -172,6 +172,9 @@
   left: -153px;
 }
 
+.hk_green_fish_container{}
+
+.hk_green_yellow_fish_container{}
 
 @keyframes wave {
   0% {
@@ -212,6 +215,20 @@
 
   60%, 100% {
     opacity: 0;
+  }
+}
+
+@keyframes waveMobile {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  50% {
+    transform: translateX(-500px);
+  }
+
+  100% {
+    transform: translateX(-300px);
   }
 }
 
@@ -668,19 +685,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  @keyframes waveMobile {
-    0% {
-      transform: translateX(-300px);
-    }
-
-    50% {
-      transform: translateX(-500px);
-    }
-
-    100% {
-      transform: translateX(-300px);
-    }
-  }
   .hk_home_section_review {
     height: 2200px;
     h2{

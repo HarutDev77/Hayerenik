@@ -4,11 +4,7 @@ import book from '@/assets/images/book.svg';
 import bookLion from '@/assets/images/bookLion.svg';
 import pen from '@/assets/images/pen.svg';
 import imagePuzzles from '@/assets/images/puzzles.svg';
-import imageSea from '@/assets/images/sea_image.svg';
-import waveTop from '@/assets/images/waveTop.svg';
-import waveBottom from '@/assets/images/waveBottom.svg';
 import boatImag from '@/assets/images/boat.svg';
-import sandImg from '@/assets/images/sandImage.svg';
 import anchor from '@/assets/images/anchor.svg';
 import imageBooks from '@/assets/images/booksjpg.jpg';
 import imageKub from '@/assets/images/kub.jpg';
@@ -25,11 +21,12 @@ export const CHOSE_ITEMS = [
       id: Math.random(),
       imageUrl: bookLion,
       title: 'Pilot - Pen FriXion LX',
-      amount: 1,
+      amount: 2,
       price: 35,
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 4,
    },
    {
       id: Math.random(),
@@ -40,26 +37,29 @@ export const CHOSE_ITEMS = [
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 7,
    },
    {
       id: Math.random(),
       imageUrl: pens,
       title: 'Pilot - Pen FriXion LX',
-      amount: 1,
+      amount: 2,
       price: 27,
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 3,
    },
    {
       id: Math.random(),
       imageUrl: pen,
       title: 'Pilot - Pen FriXion LX',
-      amount: 1,
+      amount: 4,
       price: 11,
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 10,
    },
    {
       id: Math.random(),
@@ -70,6 +70,7 @@ export const CHOSE_ITEMS = [
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 8,
    },
    {
       id: Math.random(),
@@ -80,6 +81,7 @@ export const CHOSE_ITEMS = [
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 6,
    },
    {
       id: Math.random(),
@@ -90,6 +92,7 @@ export const CHOSE_ITEMS = [
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 4,
    },
    {
       id: Math.random(),
@@ -100,6 +103,7 @@ export const CHOSE_ITEMS = [
       totalPrice: function () {
          return this.amount * this.price;
       },
+      delivery: 7,
    },
 ];
 
@@ -132,7 +136,7 @@ export const REVIEWS_IMAGES = [
    //    img: sandImg,
    //    className: ['hk_home_section_review_sandImg_img'],
    // },
-]
+];
 
 export const BUBBLES_RIGHT = [
    {
@@ -870,9 +874,9 @@ export const ALL_ITEMS: IAllItems[] = [
    },
 ];
 
-export const PAGINATION_LIMIT = 10
-export const PRODUCT_LIST_ITEMS_LIMIT = 12
-export const INPUT_DEBOUNCE_DELAY = 500
-export const AGE_OPTIONS = [1, 2, 3, 4, 5, 6]
-export const MOBILE_SCREEN_SIZE = 768
+export const PAGINATION_LIMIT = 10;
+export const PRODUCT_LIST_ITEMS_LIMIT = 12;
+export const INPUT_DEBOUNCE_DELAY = 500;
+export const AGE_OPTIONS = [1, 2, 3, 4, 5, 6];
+export const MOBILE_SCREEN_SIZE = 768;
 export const PUZZLE_COLORS = ['red', 'yellow', 'green'];
