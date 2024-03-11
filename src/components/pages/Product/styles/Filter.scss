@@ -1,15 +1,17 @@
 .filterContainer {
    min-width: 250px;
-   margin: 0 20px;
+   margin: 0 74px 0 20px;
 }
+
 .filtersHeader {
-   font-size: 15pt;
+   font-size: 15px;
    display: flex;
    justify-content: space-between;
    div {
       cursor: pointer;
    }
 }
+
 .priceRangeOption {
    display: flex;
    align-items: center;
@@ -19,13 +21,11 @@
 
 .ant-collapse-header {
    display: grid;
+   align-items: center !important;
    border-bottom: 1px solid black;
    border-radius: 0 !important;
    padding: 10px 0 0 0 !important;
-   font-size: 24pt;
-}
-
-.ant-collapse-header {
+   font-size: 24px;
    text-transform: uppercase;
 }
 
@@ -33,12 +33,10 @@
    display: grid;
    padding: 10px !important;
    span {
-      font-size: 15pt;
+      font-size: 15px;
    }
 }
 .ant-collapse-expand-icon {
-   height: 50px !important;
-   display: flex !important;
    align-items: center !important;
    justify-content: center !important;
 }
@@ -52,6 +50,51 @@
    display: none !important;
 }
 
+@media screen and (max-width: 1440px) {
+   .ant-collapse-header {
+      font-size: 20px;
+   }
+   .filtersHeader {
+      font-size: 14px;
+   }
+   .ant-collapse-content-box {
+      span {
+         font-size: 14px;
+      }
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .ant-collapse-header {
+      font-size: 18px;
+   }
+   .filtersHeader {
+      font-size: 14px;
+   }
+   .ant-collapse-content-box {
+      span {
+         font-size: 14px;
+      }
+   }
+}
+
+@media screen and (max-width: 992px) {
+   .filterContainer {
+      margin-right: 25px;
+   }
+   .ant-collapse-header {
+      font-size: 14px;
+   }
+   .filtersHeader {
+      font-size: 12px;
+   }
+   .ant-collapse-content-box {
+      span {
+         font-size: 12px;
+      }
+   }
+}
+
 @media screen and (max-width: 768px) {
    .filtersHeader {
       display: none;
@@ -59,5 +102,16 @@
    .filterContainer {
       margin: 0 10px;
       padding-bottom: 30px;
+   }
+   .ant-collapse-header {
+      font-size: 24px;
+   }
+   .filtersHeader {
+      font-size: 15px;
+   }
+   .ant-collapse-content-box {
+      span {
+         font-size: 15px;
+      }
    }
 }

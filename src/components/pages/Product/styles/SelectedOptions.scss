@@ -1,9 +1,9 @@
 .ant-tag {
-   font-size: 12pt;
+   font-size: 16px;
    background-color: white;
    border: 2px solid #d0e3f9;
    border-radius: 15px;
-   margin-bottom: 6px;
+   margin-bottom: 30px;
    margin-right: 6px;
    span {
       margin-top: 3px;
@@ -11,5 +11,17 @@
          height: 16px;
          width: 16px;
       }
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .ant-tag {
+      font-size: 14px;
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .ant-tag {
+      font-size: 12px;
    }
 }
