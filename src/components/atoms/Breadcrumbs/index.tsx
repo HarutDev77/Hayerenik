@@ -14,7 +14,7 @@ const Breadcrumbs: FC<IBreadcrumbs> = ({ breadcrumbs }: IBreadcrumbs) => {
       <>
          <div className={classes.breadcrumb}>
             <span>All</span>
-            {breadcrumbs.map((breadcrumb: Breadcrumb) => (
+            {breadcrumbs?.map((breadcrumb: Breadcrumb) => (
                <div key={breadcrumb.id} className={classes.breadcrumb_item_cont}>
                   <Image src={ArrowImage} alt='Arrow Image' priority={true} />
                   <span>
