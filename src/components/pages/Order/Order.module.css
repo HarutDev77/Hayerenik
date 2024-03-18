@@ -1,0 +1,191 @@
+.hk_user_order {
+  max-width: 1128px;
+  margin: 30px auto 150px;
+}
+.hk_user_order h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #384480;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+.hk_user_order .hk_user_order_content {
+  display: flex;
+  justify-content: space-between;
+}
+.hk_user_order .hk_user_order_content h3 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 400;
+  color: #384480;
+  margin-bottom: 10px;
+}
+.hk_user_order .hk_user_order_content input {
+  border-radius: 19px;
+  border: 2px solid #606060;
+}
+.hk_user_order .hk_user_order_content .hk_user_order_delivery_form {
+  width: 480px;
+}
+.hk_user_order .hk_user_order_content .hk_user_order_delivery_form > div:not(:first-child) {
+  margin-top: 24px;
+}
+.hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box {
+  display: flex;
+  justify-content: space-between;
+}
+.hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:first-child {
+  width: 178px;
+}
+.hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:last-child {
+  width: 270px;
+}
+.hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_nodes textarea {
+  height: 90px;
+  border-radius: 19px;
+  border: 2px solid #606060;
+}
+.hk_user_order .hk_user_order_total {
+  padding: 10px 40px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.hk_user_order .hk_user_order_total p {
+  font-size: 24px;
+}
+.hk_user_order .hk_user_order_total span {
+  font-size: 16px;
+  margin-right: 10px;
+}
+.hk_user_order .hk_order_basket {
+  display: flex;
+  align-items: center;
+  border-radius: 45px;
+  color: #5F5F5F;
+  background-color: #EEEEFF;
+  height: 40px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.hk_user_order .hk_order_basket img {
+  margin-right: 20px;
+}
+.hk_user_order .hk_user_order_button_box button {
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 20px !important;
+}
+.hk_user_order .hk_user_order_button_box > button:nth-child(2) {
+  border: 4px solid #D3D3D3;
+  color: #D3D3D3;
+}
+.hk_user_order .hk_user_order_button_box > button:nth-child(2):hover {
+  border: 4px solid #7D849C;
+  color: #7D849C;
+  background-color: #FFFFFF;
+}
+
+@media screen and (max-width: 1440px) {
+  .hk_user_order {
+    max-width: 1082px;
+  }
+  .hk_user_order .hk_user_order_content h3 {
+    margin-bottom: 12px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form {
+    width: 442px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:first-child {
+    width: 170px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:last-child {
+    width: 262px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .hk_user_order {
+    max-width: 880px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form {
+    width: 420px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form > div:not(:first-child) {
+    margin-top: 18px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:last-child {
+    width: 240px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_button_box button {
+    height: 52px !important;
+  }
+}
+@media screen and (max-width: 990px) {
+  .hk_user_order {
+    max-width: 464px;
+  }
+  .hk_user_order h1 {
+    font-size: 34px;
+  }
+  .hk_user_order .hk_user_order_content {
+    flex-direction: column;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form {
+    width: 464px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:first-child {
+    width: 178px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:last-child {
+    width: 270px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_button_box button {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hk_user_order {
+    max-width: 288px;
+    margin: 22px auto 150px;
+  }
+  .hk_user_order h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form {
+    width: 288px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box {
+    flex-direction: column;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:first-child {
+    width: 178px;
+    margin-bottom: 12px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_user_name_box > input:last-child {
+    width: 270px;
+  }
+  .hk_user_order .hk_user_order_content .hk_user_order_delivery_form .hk_user_order_button_box button {
+    display: none;
+  }
+  .hk_user_order .hk_user_order_total {
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+  .hk_user_order .hk_user_order_total button {
+    font-family: sans-serif;
+  }
+  .hk_user_order .hk_user_order_total div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    padding-right: 25px;
+  }
+  .hk_user_order .hk_user_order_total div:first-child {
+    width: 288px;
+    display: flex;
+  }
+  .hk_user_order .hk_user_order_total div:first-child button:first-child {
+    margin-left: 10px;
+  }
+}/*# sourceMappingURL=Order.module.css.map */

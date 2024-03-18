@@ -1,0 +1,28 @@
+.breadcrumbContainer {
+  font-size: 15px;
+  padding-bottom: 30px;
+}
+
+.breadcrumbContainer a {
+  color: black;
+}
+
+.breadcrumbContainer svg {
+  margin: 0 5px 2px 5px;
+}
+
+.breadcrumbContainer a.lastItem {
+  text-decoration: none;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1440px) {
+  .breadcrumbContainer {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .breadcrumbContainer {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=CategoryBreadcrumbs.css.map */

@@ -1,0 +1,140 @@
+.admin_order_egit {
+  width: 1100px;
+  margin: 68px auto 100px;
+}
+.admin_order_egit h1 {
+  font-size: 40px;
+  color: #9A97C6;
+  margin-bottom: 40px;
+}
+.admin_order_egit h1 span {
+  color: #808080;
+}
+.admin_order_egit_total_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin_order_egit_total_container > div:nth-child(1) {
+  width: 76%;
+}
+.admin_order_egit_total_container_total_price {
+  display: flex;
+  width: 230px;
+  justify-content: center;
+}
+.admin_order_egit_total_container_total_price div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin_order_egit_total_container_total_price div h4 {
+  font-weight: normal;
+  font-size: 16px;
+}
+.admin_order_egit_total_container_total_price div p {
+  font-weight: bold;
+  font-size: 31px;
+  margin-bottom: 16px;
+}
+.admin_order_egit_table {
+  margin-top: 42px;
+}
+.admin_order_egit_table > div:nth-child(odd) {
+  background-color: #EEEEFF;
+  border-radius: 60px;
+}
+.admin_order_egit_table h2 {
+  color: #384480;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 45px 0;
+}
+.admin_order_egit_table_row {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 10px 25px;
+}
+.admin_order_egit_table_row_first_box {
+  display: flex;
+  justify-content: center;
+}
+.admin_order_egit_table_row_first_box > div:last-child {
+  margin-left: 10px;
+  height: 75%;
+}
+.admin_order_egit_table_row_first_box > div:first-child {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+}
+.admin_order_egit_table_row_first_box > div:first-child img {
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+.admin_order_egit_table_row_first_box_image {
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_order_egit_table_row_first_box_image img {
+  width: 57px;
+  height: 57px;
+}
+.admin_order_egit_table_row_second_box {
+  display: flex;
+}
+.admin_order_egit_table_row_second_box > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 51px;
+}
+.admin_order_egit_table_row_second_box > div:first-child p {
+  color: #3D3188;
+  font-size: 22px;
+  font-weight: 400;
+}
+.admin_order_egit_table_row_second_box > div:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 35px;
+  font-weight: 400;
+  font-size: 24px;
+  width: 51px;
+}
+.admin_order_egit_table_row_second_box_image {
+  cursor: pointer;
+}
+.admin_order_egit_form {
+  display: flex;
+  justify-content: space-between;
+}
+.admin_order_egit_form > div {
+  margin-right: 15px;
+}
+.admin_order_egit .admin_copy_icon {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.admin_order_egit .admin_edit_icon {
+  cursor: pointer;
+  color: #0E3175;
+  margin-right: 10px;
+}
+.admin_order_egit_main_button {
+  margin: 60px 0 40px 0;
+  border-radius: 30px;
+}/*# sourceMappingURL=EditOrders.module.css.map */

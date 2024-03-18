@@ -1,77 +1,1203 @@
 @import "@/assets/styles/veariables.scss";
 
-.hk_contacts_page{
-  h1{
+.hk_contacts_page {
+  h1 {
     text-align: center;
     margin: 45px 0;
     color: #384480;
     font-size: 48px;
     font-weight: 700;
   }
-  .hk_contacts_page_content_box{
+  .hk_contacts_page_content_box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1128px;
     margin: 0 auto 136px;
     gap: 32px;
-    .hk_contacts_page_content_box_image_box{
+    .hk_contacts_page_content_box_image_box {
       position: relative;
-      .hk_contacts_page_content_box_cloudLeft{
+      img {
+        width: 548px;
+      }
+      .hk_contacts_page_content_box_cloudLeft {
         position: absolute;
         top: 170px;
         left: 30px;
         width: 80px;
         height: 40px;
-        @include moveClouds(30px,75px,left,cloudLeft);
+        @include moveClouds(30px, 75px, left, cloudLeft);
         animation: cloudLeft 5s linear 0.5s infinite;
       }
-      .hk_contacts_page_content_box_cloudTop{
+      .hk_contacts_page_content_box_cloudTop {
         position: absolute;
         top: 52px;
         left: 124px;
         width: 130px;
         height: 65px;
-        @include moveClouds(124px,190px,left,cloudTop);
+        @include moveClouds(124px, 190px, left, cloudTop);
         animation: cloudTop 6s linear 0.5s infinite;
       }
-      .hk_contacts_page_content_box_cloudRight{
+      .hk_contacts_page_content_box_cloudRight {
         position: absolute;
         top: 168px;
         right: 30px;
         width: 120px;
         height: 54px;
-        @include moveClouds(30px,70px,right,cloudRight);
+        @include moveClouds(30px, 70px, right, cloudRight);
         animation: cloudRight 6s linear 0.5s infinite;
       }
     }
-    p{
+    p {
       color: #606060;
       margin-bottom: 5px;
     }
-    .hk_contacts_page_content_box_tell{
+    .hk_contacts_page_content_box_tell {
       text-align: center;
       font-size: 60px;
       font-weight: 600;
     }
-    .hk_contacts_page_content_box_address{
+    .hk_contacts_page_content_box_address {
       text-align: center;
       font-size: 25px;
       font-weight: 700;
     }
-    .hk_contacts_page_content_box_mail{
+    .hk_contacts_page_content_box_mail {
       text-align: center;
       font-size: 30px;
       font-weight: 400;
       text-decoration-line: underline;
-      a{
+      a {
         color: #606060;
       }
     }
-    .hk_contacts_page_content_box_timeLine{
+    .hk_contacts_page_content_box_timeLine {
       text-align: center;
       font-size: 30px;
       font-weight: 400;
     }
   }
 }
+
+@media screen and (max-width: 1440px) and (max-width: 1920px) {
+  .hk_contacts_page {
+    h1 {
+      text-align: center;
+      margin: 45px 0;
+      color: #384480;
+      font-size: 48px;
+      font-weight: 700;
+    }
+    .hk_contacts_page_content_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1128px;
+      margin: 0 auto 136px;
+      gap: 32px;
+      .hk_contacts_page_content_box_image_box {
+        position: relative;
+        img {
+          width: 548px;
+          height: 548px;
+        }
+        .hk_contacts_page_content_box_cloudLeft {
+          position: absolute;
+          top: 170px;
+          left: 30px;
+          width: 80px;
+          height: 40px;
+          @include moveClouds(30px, 75px, left, cloudLeft);
+          animation: cloudLeft 5s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudTop {
+          position: absolute;
+          top: 52px;
+          left: 124px;
+          width: 130px;
+          height: 65px;
+          @include moveClouds(124px, 190px, left, cloudTop);
+          animation: cloudTop 6s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudRight {
+          position: absolute;
+          top: 168px;
+          right: 30px;
+          width: 120px;
+          height: 54px;
+          @include moveClouds(30px, 70px, right, cloudRight);
+          animation: cloudRight 6s linear 0.5s infinite;
+        }
+      }
+      p {
+        color: #606060;
+        margin-bottom: 5px;
+      }
+      .hk_contacts_page_content_box_tell {
+        text-align: center;
+        font-size: 60px;
+        font-weight: 600;
+      }
+      .hk_contacts_page_content_box_address {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 700;
+      }
+      .hk_contacts_page_content_box_mail {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 400;
+        text-decoration-line: underline;
+        a {
+          color: #606060;
+        }
+      }
+      .hk_contacts_page_content_box_timeLine {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) and (max-width: 1440px) {
+  .hk_contacts_page {
+    h1 {
+      text-align: center;
+      margin: 45px 0;
+      color: #384480;
+      font-size: 48px;
+      font-weight: 700;
+    }
+    .hk_contacts_page_content_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 994px;
+      margin: 25px 50px;
+      gap: 32px;
+      .hk_contacts_page_content_box_image_box {
+        position: relative;
+        img {
+          width: 482px;
+          height: 482px;
+        }
+        .hk_contacts_page_content_box_cloudLeft {
+          position: absolute;
+          top: 170px;
+          left: 30px;
+          width: 60px;
+          height: 30px;
+          @include moveClouds(30px, 39px, left, cloudLeft);
+          animation: cloudLeft 5s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudTop {
+          position: absolute;
+          top: 52px;
+          left: 124px;
+          width: 95px;
+          height: 45px;
+          @include moveClouds(124px, 190px, left, cloudTop);
+          animation: cloudTop 6s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudRight {
+          position: absolute;
+          top: 168px;
+          right: 30px;
+          width: 95px;
+          height: 45px;
+          @include moveClouds(30px, 62px, right, cloudRight);
+          animation: cloudRight 6s linear 0.5s infinite;
+        }
+      }
+      p {
+        color: #606060;
+        margin-bottom: 5px;
+      }
+      .hk_contacts_page_content_box_tell {
+        text-align: center;
+        font-size: 52px;
+        font-weight: 600;
+      }
+      .hk_contacts_page_content_box_address {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .hk_contacts_page_content_box_mail {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 400;
+        text-decoration-line: underline;
+        a {
+          color: #606060;
+        }
+      }
+      .hk_contacts_page_content_box_timeLine {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) and (max-width: 1200px) {
+  .hk_contacts_page {
+    h1 {
+      text-align: center;
+      margin: 45px 0;
+      color: #384480;
+      font-size: 48px;
+      font-weight: 700;
+    }
+    .hk_contacts_page_content_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 840px;
+      margin: 0 auto 136px;
+      gap: 32px;
+      .hk_contacts_page_content_box_image_box {
+        position: relative;
+        img {
+          width: 408px;
+          height: 408px;
+        }
+        .hk_contacts_page_content_box_cloudLeft {
+          position: absolute;
+          top: 140px;
+          left: 30px;
+          width: 50px;
+          height: 25px;
+          @include moveClouds(30px, 60px, left, cloudLeft);
+          animation: cloudLeft 5s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudTop {
+          position: absolute;
+          top: 52px;
+          left: 124px;
+          width: 78px;
+          height: 38px;
+          @include moveClouds(124px, 190px, left, cloudTop);
+          animation: cloudTop 6s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudRight {
+          position: absolute;
+          top: 138px;
+          right: 30px;
+          width: 78px;
+          height: 38px;
+          @include moveClouds(30px, 70px, right, cloudRight);
+          animation: cloudRight 6s linear 0.5s infinite;
+        }
+      }
+      p {
+        color: #606060;
+        margin-bottom: 5px;
+      }
+      .hk_contacts_page_content_box_tell {
+        text-align: center;
+        font-size: 44px;
+        font-weight: 600;
+      }
+      .hk_contacts_page_content_box_address {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .hk_contacts_page_content_box_mail {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 400;
+        text-decoration-line: underline;
+        a {
+          color: #606060;
+        }
+      }
+      .hk_contacts_page_content_box_timeLine {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (max-width: 992px) {
+  .hk_contacts_page {
+    h1 {
+      text-align: center;
+      margin: 45px 0;
+      color: #384480;
+      font-size: 48px;
+      font-weight: 700;
+    }
+    .hk_contacts_page_content_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      max-width: 638px;
+      margin: 0 auto 136px;
+      gap: 32px;
+      .hk_contacts_page_content_box_image_box {
+        position: relative;
+        img {
+          width: 309px;
+          height: 309px;
+        }
+        .hk_contacts_page_content_box_cloudLeft {
+          position: absolute;
+          top: 100px;
+          left: 30px;
+          width: 37px;
+          height: 18px;
+          @include moveClouds(30px, 25px, left, cloudLeft);
+          animation: cloudLeft 5s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudTop {
+          position: absolute;
+          top: 52px;
+          left: 124px;
+          width: 60px;
+          height: 30px;
+          @include moveClouds(100px, 60px, left, cloudTop);
+          animation: cloudTop 6s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudRight {
+          position: absolute;
+          top: 100px;
+          right: 25px;
+          width: 60px;
+          height: 30px;
+          @include moveClouds(25px, 41px, right, cloudRight);
+          animation: cloudRight 6s linear 0.5s infinite;
+        }
+      }
+      p {
+        color: #606060;
+        margin-bottom: 5px;
+      }
+      .hk_contacts_page_content_box_tell {
+        text-align: center;
+        font-size: 34px;
+        font-weight: 600;
+      }
+      .hk_contacts_page_content_box_address {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .hk_contacts_page_content_box_mail {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        text-decoration-line: underline;
+        a {
+          color: #606060;
+        }
+      }
+      .hk_contacts_page_content_box_timeLine {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) and (max-width: 768px) {
+  .hk_contacts_page {
+    h1 {
+      text-align: center;
+      margin: 45px 0;
+      color: #384480;
+      font-size: 48px;
+      font-weight: 700;
+    }
+    .hk_contacts_page_content_box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      max-width: 240px;
+      margin: 0 auto 136px;
+      gap: 32px;
+      .hk_contacts_page_content_box_image_box {
+        position: relative;
+        img {
+          width: 240px;
+          height: 240px;
+        }
+        .hk_contacts_page_content_box_cloudLeft {
+          position: absolute;
+          top: 90px;
+          left: 9px;
+          width: 38px;
+          height: 18px;
+          @include moveClouds(9px, 20px, left, cloudLeft);
+          animation: cloudLeft 5s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudTop {
+          position: absolute;
+          top: 35px;
+          left: 50px;
+          width: 60px;
+          height: 30px;
+          @include moveClouds(50px, 80px, left, cloudTop);
+          animation: cloudTop 6s linear 0.5s infinite;
+        }
+        .hk_contacts_page_content_box_cloudRight {
+          position: absolute;
+          top: 70px;
+          right: 20px;
+          width: 60px;
+          height: 30px;
+          @include moveClouds(20px, 31px, right, cloudRight);
+          animation: cloudRight 6s linear 0.5s infinite;
+        }
+      }
+      p {
+        color: #606060;
+        margin-bottom: 5px;
+      }
+      .hk_contacts_page_content_box_tell {
+        text-align: center;
+        font-size: 34px;
+        font-weight: 600;
+      }
+      .hk_contacts_page_content_box_address {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .hk_contacts_page_content_box_mail {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        text-decoration-line: underline;
+        a {
+          color: #606060;
+        }
+      }
+      .hk_contacts_page_content_box_timeLine {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 320px) {
+//   .hk_contacts_page {
+//     h1 {
+//       text-align: center;
+//       margin: 45px 0;
+//       color: #384480;
+//       font-size: 48px;
+//       font-weight: 700;
+//     }
+//     .hk_contacts_page_content_box {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       max-width: 240px !important;
+//       margin: 0 auto 136px;
+//       gap: 32px;
+//       .hk_contacts_page_content_box_image_box {
+//         position: relative;
+//         .hk_contacts_page_content_box_cloudLeft {
+//           position: absolute;
+//           top: 170px;
+//           left: 30px;
+//           width: 80px;
+//           height: 40px;
+//           @include moveClouds(30px, 18px, left, cloudLeft);
+//           animation: cloudLeft 5s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudTop {
+//           position: absolute;
+//           top: 52px;
+//           left: 124px;
+//           width: 130px;
+//           height: 65px;
+//           @include moveClouds(124px, 29px, left, cloudTop);
+//           animation: cloudTop 6s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudRight {
+//           position: absolute;
+//           top: 168px;
+//           right: 30px;
+//           width: 120px;
+//           height: 54px;
+//           @include moveClouds(30px, 23px, right, cloudRight);
+//           animation: cloudRight 6s linear 0.5s infinite;
+//         }
+//       }
+//       p {
+//         color: #606060;
+//         margin-bottom: 5px;
+//       }
+//       .hk_contacts_page_content_box_tell {
+//         text-align: center;
+//         font-size: 34px !important;
+//         font-weight: 600;
+//       }
+//       .hk_contacts_page_content_box_address {
+//         text-align: center;
+//         font-size: 18px !important;
+//         font-weight: 700;
+//       }
+//       .hk_contacts_page_content_box_mail {
+//         text-align: center;
+//         font-size: 18px !important;
+//         font-weight: 400;
+//         text-decoration-line: underline;
+//         a {
+//           color: #606060;
+//         }
+//       }
+//       .hk_contacts_page_content_box_timeLine {
+//         text-align: center;
+//         font-size: 16px !important;
+//         font-weight: 400;
+//       }
+//     }
+//   }
+//   // .hk_contacts_page_content_box {
+//   //   display: flex;
+//   //   justify-content: space-between;
+//   //   align-items: center;
+//   //   flex-direction: column;
+//   //   max-width: 240px;
+//   //   margin: 0 auto 13px;
+//   //   gap: 32px;
+//   //   .hk_contacts_page_content_box_image_box {
+//   //     position: relative;
+//   //     .hk_contacts_page_content_box_cloudLeft {
+//   //       position: absolute;
+//   //       top: 170px;
+//   //       left: 30px;
+//   //       width: 80px;
+//   //       height: 40px;
+//   //       @include moveClouds(30px, 18px, left, cloudLeft);
+//   //       animation: cloudLeft 5s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudTop {
+//   //       position: absolute;
+//   //       top: 52px;
+//   //       left: 124px;
+//   //       width: 130px;
+//   //       height: 65px;
+//   //       @include moveClouds(124px, 29px, left, cloudTop);
+//   //       animation: cloudTop 6s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudRight {
+//   //       position: absolute;
+//   //       top: 168px;
+//   //       right: 30px;
+//   //       width: 120px;
+//   //       height: 54px;
+//   //       @include moveClouds(30px, 23px, right, cloudRight);
+//   //       animation: cloudRight 6s linear 0.5s infinite;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_tell {
+//   //     text-align: center;
+//   //     font-size: 34px;
+//   //     font-weight: 600;
+//   //   }
+//   //   .hk_contacts_page_content_box_address {
+//   //     text-align: center;
+//   //     font-size: 18px;
+//   //     font-weight: 700;
+//   //   }
+//   //   .hk_contacts_page_content_box_mail {
+//   //     text-align: center;
+//   //     font-size: 18px;
+//   //     font-weight: 400;
+//   //     text-decoration-line: underline;
+//   //     a {
+//   //       color: #606060;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_timeLine {
+//   //     text-align: center;
+//   //     font-size: 16px;
+//   //     font-weight: 400;
+//   //   }
+//   // }
+// }
+
+// @media screen and (max-width: 768px) {
+//   .hk_contacts_page {
+//     h1 {
+//       text-align: center;
+//       margin: 45px 0;
+//       color: #384480;
+//       font-size: 48px;
+//       font-weight: 700;
+//     }
+//     .hk_contacts_page_content_box {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       max-width: 240px !important;
+//       margin: 0 auto 136px;
+//       gap: 10px;
+//       .hk_contacts_page_content_box_image_box {
+//         position: relative;
+
+//         width: 309px;
+//         .hk_contacts_page_content_box_cloudLeft {
+//           position: absolute;
+//           top: 170px;
+//           left: 30px;
+//           width: 80px;
+//           height: 40px;
+//           @include moveClouds(30px, 18px, left, cloudLeft);
+//           animation: cloudLeft 5s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudTop {
+//           position: absolute;
+//           top: 52px;
+//           left: 124px;
+//           width: 130px;
+//           height: 65px;
+//           @include moveClouds(124px, 29px, left, cloudTop);
+//           animation: cloudTop 6s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudRight {
+//           position: absolute;
+//           top: 168px;
+//           right: 30px;
+//           width: 120px;
+//           height: 54px;
+//           @include moveClouds(30px, 23px, right, cloudRight);
+//           animation: cloudRight 6s linear 0.5s infinite;
+//         }
+//       }
+//       p {
+//         color: #606060;
+//         margin-bottom: 5px;
+//       }
+//       .hk_contacts_page_content_box_tell {
+//         text-align: center;
+//         font-size: 34px !important;
+//         font-weight: 600;
+//       }
+//       .hk_contacts_page_content_box_address {
+//         text-align: center;
+//         font-size: 18px !important;
+//         font-weight: 700;
+//       }
+//       .hk_contacts_page_content_box_mail {
+//         text-align: center;
+//         font-size: 18px !important;
+//         font-weight: 400;
+//         text-decoration-line: underline;
+//         a {
+//           color: #606060;
+//         }
+//       }
+//       .hk_contacts_page_content_box_timeLine {
+//         text-align: center;
+//         font-size: 16px !important;
+//         font-weight: 400;
+//       }
+//     }
+//   }
+//   // .hk_contacts_page_content_box {
+//   //   display: flex;
+//   //   justify-content: space-between;
+//   //   align-items: center;
+//   //   flex-direction: column;
+//   //   max-width: 240px;
+//   //   margin: 0 auto 13px;
+//   //   gap: 32px;
+//   //   .hk_contacts_page_content_box_image_box {
+//   //     position: relative;
+//   //     .hk_contacts_page_content_box_cloudLeft {
+//   //       position: absolute;
+//   //       top: 170px;
+//   //       left: 30px;
+//   //       width: 80px;
+//   //       height: 40px;
+//   //       @include moveClouds(30px, 18px, left, cloudLeft);
+//   //       animation: cloudLeft 5s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudTop {
+//   //       position: absolute;
+//   //       top: 52px;
+//   //       left: 124px;
+//   //       width: 130px;
+//   //       height: 65px;
+//   //       @include moveClouds(124px, 29px, left, cloudTop);
+//   //       animation: cloudTop 6s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudRight {
+//   //       position: absolute;
+//   //       top: 168px;
+//   //       right: 30px;
+//   //       width: 120px;
+//   //       height: 54px;
+//   //       @include moveClouds(30px, 23px, right, cloudRight);
+//   //       animation: cloudRight 6s linear 0.5s infinite;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_tell {
+//   //     text-align: center;
+//   //     font-size: 34px;
+//   //     font-weight: 600;
+//   //   }
+//   //   .hk_contacts_page_content_box_address {
+//   //     text-align: center;
+//   //     font-size: 18px;
+//   //     font-weight: 700;
+//   //   }
+//   //   .hk_contacts_page_content_box_mail {
+//   //     text-align: center;
+//   //     font-size: 18px;
+//   //     font-weight: 400;
+//   //     text-decoration-line: underline;
+//   //     a {
+//   //       color: #606060;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_timeLine {
+//   //     text-align: center;
+//   //     font-size: 16px;
+//   //     font-weight: 400;
+//   //   }
+//   // }
+// }
+
+// @media screen and (max-width: 998px) {
+//   .hk_contacts_page {
+//     h1 {
+//       text-align: center;
+//       margin: 45px 0;
+//       color: #384480;
+//       font-size: 48px;
+//       font-weight: 700;
+//     }
+//     .hk_contacts_page_content_box {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       max-width: 638px !important;
+//       margin: 0 auto 136px;
+//       gap: 32px;
+//       .hk_contacts_page_content_box_image_box {
+//         position: relative;
+//         .hk_contacts_page_content_box_cloudLeft {
+//           position: absolute;
+//           top: 170px;
+//           left: 30px;
+//           width: 80px;
+//           height: 40px;
+//           @include moveClouds(30px, 25px, left, cloudLeft);
+//           animation: cloudLeft 5s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudTop {
+//           position: absolute;
+//           top: 52px;
+//           left: 124px;
+//           width: 130px;
+//           height: 65px;
+//           @include moveClouds(124px, 40px, left, cloudTop);
+//           animation: cloudTop 6s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudRight {
+//           position: absolute;
+//           top: 168px;
+//           right: 30px;
+//           width: 120px;
+//           height: 54px;
+//           @include moveClouds(30px, 31px, right, cloudRight);
+//           animation: cloudRight 6s linear 0.5s infinite;
+//         }
+//       }
+//       p {
+//         color: #606060;
+//         margin-bottom: 5px;
+//       }
+//       .hk_contacts_page_content_box_tell {
+//         text-align: center;
+//         font-size: 44px !important;
+//         font-weight: 600;
+//       }
+//       .hk_contacts_page_content_box_address {
+//         text-align: center;
+//         font-size: 18px !important;
+//         font-weight: 700;
+//       }
+//       .hk_contacts_page_content_box_mail {
+//         text-align: center;
+//         font-size: 24px !important;
+//         font-weight: 400;
+//         text-decoration-line: underline;
+//         a {
+//           color: #606060;
+//         }
+//       }
+//       .hk_contacts_page_content_box_timeLine {
+//         text-align: center;
+//         font-size: 22px !important;
+//         font-weight: 400;
+//       }
+//     }
+//   }
+//   // .hk_contacts_page_content_box {
+//   //   display: flex;
+//   //   justify-content: space-between;
+//   //   align-items: center;
+//   //   flex-direction: column;
+//   //   max-width: 638px;
+//   //   margin: 0 auto 13px;
+//   //   gap: 32px;
+//   //   .hk_contacts_page_content_box_image_box {
+//   //     position: relative;
+//   //     .hk_contacts_page_content_box_cloudLeft {
+//   //       position: absolute;
+//   //       top: 170px;
+//   //       left: 30px;
+//   //       width: 80px;
+//   //       height: 40px;
+//   //       @include moveClouds(30px, 25px, left, cloudLeft);
+//   //       animation: cloudLeft 5s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudTop {
+//   //       position: absolute;
+//   //       top: 52px;
+//   //       left: 124px;
+//   //       width: 130px;
+//   //       height: 65px;
+//   //       @include moveClouds(124px, 40px, left, cloudTop);
+//   //       animation: cloudTop 6s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudRight {
+//   //       position: absolute;
+//   //       top: 168px;
+//   //       right: 30px;
+//   //       width: 120px;
+//   //       height: 54px;
+//   //       @include moveClouds(30px, 31px, right, cloudRight);
+//   //       animation: cloudRight 6s linear 0.5s infinite;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_tell {
+//   //     text-align: center;
+//   //     font-size: 44px;
+//   //     font-weight: 600;
+//   //   }
+//   //   .hk_contacts_page_content_box_address {
+//   //     text-align: center;
+//   //     font-size: 18px;
+//   //     font-weight: 700;
+//   //   }
+//   //   .hk_contacts_page_content_box_mail {
+//   //     text-align: center;
+//   //     font-size: 24px;
+//   //     font-weight: 400;
+//   //     text-decoration-line: underline;
+//   //     a {
+//   //       color: #606060;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_timeLine {
+//   //     text-align: center;
+//   //     font-size: 22px;
+//   //     font-weight: 400;
+//   //   }
+//   // }
+// }
+
+// @media screen and (max-width: 992px) and (max-width: 1205px) {
+//   .hk_contacts_page {
+//     h1 {
+//       text-align: center;
+//       margin: 45px 0;
+//       color: #384480;
+//       font-size: 48px;
+//       font-weight: 700;
+//     }
+//     .hk_contacts_page_content_box {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       max-width: 840px !important;
+//       margin: 0 auto 136px;
+//       gap: 32px;
+//       .hk_contacts_page_content_box_image_box {
+//         position: relative;
+//         img {
+//           width: 408px;
+//         }
+//         .hk_contacts_page_content_box_cloudLeft {
+//           position: absolute;
+//           top: 170px;
+//           left: 30px;
+//           width: 80px;
+//           height: 40px;
+//           @include moveClouds(30px, 33px, left, cloudLeft);
+//           animation: cloudLeft 5s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudTop {
+//           position: absolute;
+//           top: 52px;
+//           left: 124px;
+//           width: 130px;
+//           height: 65px;
+//           @include moveClouds(124px, 52px, left, cloudTop);
+//           animation: cloudTop 6s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudRight {
+//           position: absolute;
+//           top: 168px;
+//           right: 30px;
+//           width: 120px;
+//           height: 54px;
+//           @include moveClouds(30px, 41px, right, cloudRight);
+//           animation: cloudRight 6s linear 0.5s infinite;
+//         }
+//       }
+//       p {
+//         color: #606060;
+//         margin-bottom: 5px;
+//       }
+//       .hk_contacts_page_content_box_tell {
+//         text-align: center;
+//         font-size: 52px !important;
+//         font-weight: 600;
+//       }
+//       .hk_contacts_page_content_box_address {
+//         text-align: center;
+//         font-size: 22px !important;
+//         font-weight: 700;
+//       }
+//       .hk_contacts_page_content_box_mail {
+//         text-align: center;
+//         font-size: 26px !important;
+//         font-weight: 400;
+//         text-decoration-line: underline;
+//         a {
+//           color: #606060;
+//         }
+//       }
+//       .hk_contacts_page_content_box_timeLine {
+//         text-align: center;
+//         font-size: 26px !important;
+//         font-weight: 400;
+//       }
+//     }
+//   }
+//   // .hk_contacts_page_content_box {
+//   //   display: flex;
+//   //   justify-content: space-between;
+//   //   align-items: center;
+//   //   max-width: 840px;
+//   //   margin: 0 auto 13px;
+//   //   gap: 32px;
+//   //   .hk_contacts_page_content_box_image_box {
+//   //     position: relative;
+//   //     .hk_contacts_page_content_box_cloudLeft {
+//   //       position: absolute;
+//   //       top: 170px;
+//   //       left: 30px;
+//   //       width: 80px;
+//   //       height: 40px;
+//   //       @include moveClouds(30px, 33px, left, cloudLeft);
+//   //       animation: cloudLeft 5s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudTop {
+//   //       position: absolute;
+//   //       top: 52px;
+//   //       left: 124px;
+//   //       width: 130px;
+//   //       height: 65px;
+//   //       @include moveClouds(124px, 52px, left, cloudTop);
+//   //       animation: cloudTop 6s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudRight {
+//   //       position: absolute;
+//   //       top: 168px;
+//   //       right: 30px;
+//   //       width: 120px;
+//   //       height: 54px;
+//   //       @include moveClouds(30px, 41px, right, cloudRight);
+//   //       animation: cloudRight 6s linear 0.5s infinite;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_tell {
+//   //     text-align: center;
+//   //     font-size: 52px;
+//   //     font-weight: 600;
+//   //   }
+//   //   .hk_contacts_page_content_box_address {
+//   //     text-align: center;
+//   //     font-size: 22px;
+//   //     font-weight: 700;
+//   //   }
+//   //   .hk_contacts_page_content_box_mail {
+//   //     text-align: center;
+//   //     font-size: 26px;
+//   //     font-weight: 400;
+//   //     text-decoration-line: underline;
+//   //     a {
+//   //       color: #606060;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_timeLine {
+//   //     text-align: center;
+//   //     font-size: 26px;
+//   //     font-weight: 400;
+//   //   }
+//   // }
+// }
+
+// @media screen and (max-width: 1440px) {
+//   .hk_contacts_page {
+//     h1 {
+//       text-align: center;
+//       margin: 45px 0;
+//       color: #384480;
+//       font-size: 48px;
+//       font-weight: 700;
+//     }
+//     .hk_contacts_page_content_box {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       max-width: 994px !important;
+//       margin: 0 auto 136px;
+//       gap: 32px;
+//       .hk_contacts_page_content_box_image_box {
+//         position: relative;
+//         img {
+//           width: 482px;
+//         }
+//         .hk_contacts_page_content_box_cloudLeft {
+//           position: absolute;
+//           top: 170px;
+//           left: 30px;
+//           width: 80px;
+//           height: 40px;
+//           @include moveClouds(30px, 39px, left, cloudLeft);
+//           animation: cloudLeft 5s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudTop {
+//           position: absolute;
+//           top: 52px;
+//           left: 124px;
+//           width: 130px;
+//           height: 65px;
+//           @include moveClouds(124px, 62px, left, cloudTop);
+//           animation: cloudTop 6s linear 0.5s infinite;
+//         }
+//         .hk_contacts_page_content_box_cloudRight {
+//           position: absolute;
+//           top: 168px;
+//           right: 30px;
+//           width: 120px;
+//           height: 54px;
+//           @include moveClouds(30px, 49px, right, cloudRight);
+//           animation: cloudRight 6s linear 0.5s infinite;
+//         }
+//       }
+//       p {
+//         color: #606060;
+//         margin-bottom: 5px;
+//       }
+//       .hk_contacts_page_content_box_tell {
+//         text-align: center;
+//         font-size: 60px !important;
+//         font-weight: 600;
+//       }
+//       .hk_contacts_page_content_box_address {
+//         text-align: center;
+//         font-size: 25px !important;
+//         font-weight: 700;
+//       }
+//       .hk_contacts_page_content_box_mail {
+//         text-align: center;
+//         font-size: 30px !important;
+//         font-weight: 400;
+//         text-decoration-line: underline;
+//         a {
+//           color: #606060;
+//         }
+//       }
+//       .hk_contacts_page_content_box_timeLine {
+//         text-align: center;
+//         font-size: 30px !important;
+//         font-weight: 400;
+//       }
+//     }
+//   }
+//   // .hk_contacts_page_content_box {
+//   //   display: flex;
+//   //   justify-content: space-between;
+//   //   align-items: center;
+//   //   max-width: 994px;
+//   //   margin: 0 auto 13px;
+//   //   gap: 32px;
+//   //   .hk_contacts_page_content_box_image_box {
+//   //     position: relative;
+//   //     .hk_contacts_page_content_box_cloudLeft {
+//   //       position: absolute;
+//   //       top: 170px;
+//   //       left: 30px;
+//   //       width: 80px;
+//   //       height: 40px;
+//   //       @include moveClouds(30px, 39px, left, cloudLeft);
+//   //       animation: cloudLeft 5s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudTop {
+//   //       position: absolute;
+//   //       top: 52px;
+//   //       left: 124px;
+//   //       width: 130px;
+//   //       height: 65px;
+//   //       @include moveClouds(124px, 62px, left, cloudTop);
+//   //       animation: cloudTop 6s linear 0.5s infinite;
+//   //     }
+//   //     .hk_contacts_page_content_box_cloudRight {
+//   //       position: absolute;
+//   //       top: 168px;
+//   //       right: 30px;
+//   //       width: 120px;
+//   //       height: 54px;
+//   //       @include moveClouds(30px, 49px, right, cloudRight);
+//   //       animation: cloudRight 6s linear 0.5s infinite;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_tell {
+//   //     text-align: center;
+//   //     font-size: 60px;
+//   //     font-weight: 600;
+//   //   }
+//   //   .hk_contacts_page_content_box_address {
+//   //     text-align: center;
+//   //     font-size: 25px;
+//   //     font-weight: 700;
+//   //   }
+//   //   .hk_contacts_page_content_box_mail {
+//   //     text-align: center;
+//   //     font-size: 30px;
+//   //     font-weight: 400;
+//   //     text-decoration-line: underline;
+//   //     a {
+//   //       color: #606060;
+//   //     }
+//   //   }
+//   //   .hk_contacts_page_content_box_timeLine {
+//   //     text-align: center;
+//   //     font-size: 30px;
+//   //     font-weight: 400;
+//   //   }
+//   // }
+// }

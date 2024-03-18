@@ -1,0 +1,155 @@
+.hk_user_order_info {
+  width: 580px;
+  padding-top: 27px;
+}
+.hk_user_order_info > div:nth-child(odd) {
+  background-color: #EEEEFF;
+  border-radius: 45px;
+}
+.hk_user_order_info .hk_user_order_item {
+  display: flex;
+  align-items: center;
+  height: 62px;
+  padding: 8px 30px;
+  box-sizing: border-box;
+}
+.hk_user_order_info .hk_user_order_item .hk_user_order_item_image_box {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.hk_user_order_info .hk_user_order_item .hk_user_order_item_image_box > img {
+  width: 35px;
+  height: 35px;
+}
+.hk_user_order_info .hk_user_order_item .hk_user_order_item_title_and_price {
+  margin-left: 15px;
+}
+.hk_user_order_info .hk_user_order_item .hk_user_order_item_amount {
+  margin: 0 110px;
+  font-size: 20px;
+}
+.hk_user_order_info .hk_user_order_item .hk_user_order_item_total_price {
+  margin-left: 24px;
+  font-size: 23px;
+}
+.hk_user_order_info .hk_user_order_item_delivery {
+  padding: 17px 50px 17px 30px;
+  height: 62px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: rgba(117, 255, 172, 0.15) !important;
+}
+.hk_user_order_info .hk_user_order_item_delivery > p:first-child {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+.hk_user_order_info .hk_user_order_item_delivery > p:last-child {
+  font-size: 23px;
+}
+.hk_user_order_info .hk_user_order_total {
+  padding: 16px 45px 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.hk_user_order_info .hk_user_order_total p {
+  font-size: 31px;
+}
+.hk_user_order_info .hk_user_order_total span {
+  font-size: 18px;
+  margin-right: 20px;
+}
+.hk_user_order_info .hk_user_order_button_box {
+  display: flex;
+  align-items: center;
+}
+.hk_user_order_info .hk_user_order_button_box button {
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px !important;
+}
+.hk_user_order_info .hk_user_order_button_box > button:nth-child(2) {
+  border: 4px solid #D3D3D3;
+  color: #D3D3D3;
+}
+.hk_user_order_info .hk_user_order_button_box > button:nth-child(2):hover {
+  border: 4px solid #7D849C;
+  color: #7D849C;
+  background-color: #FFFFFF;
+}
+
+@media screen and (max-width: 1199px) {
+  .hk_user_order_info {
+    width: 420px;
+  }
+  .hk_user_order_info > div:nth-child(odd) {
+    background-color: #EEEEFF;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_title_and_price {
+    margin-left: 15px;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_amount {
+    margin: 0 45px;
+    font-size: 20px;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_total_price {
+    margin-left: 4px;
+    font-size: 23px;
+  }
+  .hk_user_order_info .hk_user_order_item_delivery {
+    padding: 17px 40px 17px 30px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .hk_user_order_info {
+    width: 464px;
+  }
+  .hk_user_order_info > div:nth-child(odd) {
+    background-color: #EEEEFF;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_title_and_price {
+    margin-left: 15px;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_amount {
+    margin: 0 20px 0 90px;
+    font-size: 20px;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_total_price {
+    margin-left: 30px;
+    font-size: 23px;
+  }
+  .hk_user_order_info .hk_user_order_item_delivery {
+    padding: 17px 40px 17px 30px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hk_user_order_info {
+    width: 288px;
+  }
+  .hk_user_order_info > div:nth-child(odd) {
+    background-color: #EEEEFF;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_title_and_price {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_amount {
+    margin: 0 30px 0 30px;
+    font-size: 16px;
+  }
+  .hk_user_order_info .hk_user_order_item .hk_user_order_item_total_price {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+  .hk_user_order_info .hk_user_order_item_delivery {
+    padding: 17px 29px 17px 30px;
+    margin-bottom: 20px;
+  }
+}/*# sourceMappingURL=UserOrderInfo.module.css.map */

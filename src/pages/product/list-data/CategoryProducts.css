@@ -1,0 +1,20 @@
+.categoryProductsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px;
+  padding-bottom: 80px;
+}
+
+.spinnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .categoryProductsContainer {
+    display: grid;
+  }
+}/*# sourceMappingURL=CategoryProducts.css.map */

@@ -1,0 +1,107 @@
+.filterContainer {
+  min-width: 250px;
+  margin: 0 74px 0 20px;
+}
+
+.filtersHeader {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.filtersHeader div {
+  cursor: pointer;
+}
+
+.priceRangeOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ant-collapse-header {
+  display: grid;
+  align-items: center !important;
+  border-bottom: 1px solid black;
+  border-radius: 0 !important;
+  padding: 10px 0 0 0 !important;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.ant-collapse-content-box {
+  display: grid;
+  padding: 10px !important;
+}
+.ant-collapse-content-box span {
+  font-size: 15px;
+}
+
+.ant-collapse-expand-icon {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ant-input-number {
+  border-radius: 20px;
+  border-color: black;
+}
+
+.ant-input-number-handler-wrap {
+  display: none !important;
+}
+
+@media screen and (max-width: 1440px) {
+  .ant-collapse-header {
+    font-size: 20px;
+  }
+  .filtersHeader {
+    font-size: 14px;
+  }
+  .ant-collapse-content-box span {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .ant-collapse-header {
+    font-size: 18px;
+  }
+  .filtersHeader {
+    font-size: 14px;
+  }
+  .ant-collapse-content-box span {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .filterContainer {
+    margin-right: 25px;
+  }
+  .ant-collapse-header {
+    font-size: 14px;
+  }
+  .filtersHeader {
+    font-size: 12px;
+  }
+  .ant-collapse-content-box span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .filtersHeader {
+    display: none;
+  }
+  .filterContainer {
+    margin: 0 10px;
+    padding-bottom: 30px;
+  }
+  .ant-collapse-header {
+    font-size: 24px;
+  }
+  .filtersHeader {
+    font-size: 15px;
+  }
+  .ant-collapse-content-box span {
+    font-size: 15px;
+  }
+}/*# sourceMappingURL=Filter.css.map */

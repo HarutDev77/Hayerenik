@@ -1,0 +1,29 @@
+.hk_admin_navigate {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.hk_admin_navigate_logo_box {
+  width: 200px;
+  cursor: pointer;
+}
+.hk_admin_navigate_menu_box ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 410px;
+}
+.hk_admin_navigate_menu_box ul li {
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.hk_admin_navigate_menu_box ul li a {
+  text-decoration: none;
+  color: #606060;
+}
+.hk_admin_navigate_last_box {
+  width: 200px;
+}/*# sourceMappingURL=AdminHeader.module.css.map */
