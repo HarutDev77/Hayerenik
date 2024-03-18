@@ -1,0 +1,735 @@
+.hk_home_section_review {
+  width: 100%;
+  height: 1650px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 87px;
+}
+.hk_home_section_review h2 {
+  position: absolute;
+  left: 265px;
+  font-size: 48px;
+  color: #384480;
+  font-weight: bold;
+  top: 300px;
+  width: 90%;
+  transform: translate(-8.5%);
+  z-index: 0;
+}
+.hk_home_section_review_puzzles_img {
+  width: 100%;
+}
+.hk_home_section_review .hk_home_section_review_sea_img {
+  margin-top: -74px;
+  animation-name: wave;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.hk_home_section_review_waveTop_img {
+  position: absolute;
+  top: 498px;
+  z-index: 20;
+  animation-name: wave;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.hk_home_section_review_waveBottom_img {
+  position: absolute;
+  top: 585px;
+  animation-name: wave;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  z-index: 5;
+}
+
+.hk_home_section_review_boat_img {
+  position: absolute;
+  top: 272px;
+  right: 680px;
+  z-index: 10;
+  animation-name: boat;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.hk_home_section_review_cable_img {
+  position: absolute;
+  top: 491px;
+  right: 510px;
+  z-index: 1;
+}
+
+.hk_home_section_review_under_water_container_top {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 682px;
+  left: 246px;
+}
+.hk_home_section_review_under_water_container_top div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 75px;
+}
+.hk_home_section_review_under_water_container_top p {
+  width: 412px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+.hk_home_section_review_under_water_container_top .hk_home_section_review_green_fish {
+  position: absolute;
+  top: 110px;
+  right: -530px;
+}
+
+.hk_home_section_review_under_water_container_bottom {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 360px;
+  right: 387px;
+}
+.hk_home_section_review_under_water_container_bottom_puzzles_img {
+  width: 100%;
+}
+.hk_home_section_review_under_water_container_bottom div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 75px;
+}
+.hk_home_section_review_under_water_container_bottom p {
+  width: 412px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+}
+.hk_home_section_review_under_water_container_bottom .hk_home_section_review_yellow_fish {
+  position: absolute;
+  top: 100px;
+  left: -379px;
+}
+
+.hk_home_section_review_sandImg_img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+}
+
+.hk_home_section_review_bigBubbleImg_img {
+  position: absolute;
+  top: -40px;
+  right: -284px;
+  animation: smallBubbleRight 1.7s infinite 0.5s;
+}
+
+.hk_home_section_review_middleBubbleImg_img {
+  position: absolute;
+  top: 61px;
+  right: -192px;
+  animation: smallBubbleRight 1.7s infinite 0.3s;
+}
+
+.hk_home_section_review_smallBubbleImg_img {
+  position: absolute;
+  top: 136px;
+  right: -216px;
+  animation: smallBubbleRight 1.7s infinite 0.1s;
+}
+
+.hk_home_section_review_bigBubbleImgLeft_img {
+  position: absolute;
+  top: -56px;
+  left: -200px;
+}
+
+.hk_home_section_review_middleBubbleImgLeft_img {
+  position: absolute;
+  top: 50px;
+  left: -110px;
+}
+
+.hk_home_section_review_smallBubbleImgLeft_img {
+  position: absolute;
+  top: 117px;
+  left: -153px;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes boat {
+  0% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+  50% {
+    transform: rotate3d(5, 5, 7, -10deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+}
+@keyframes smallBubbleRight {
+  0%, 25% {
+    opacity: 0;
+  }
+  30%, 55% {
+    opacity: 1;
+  }
+  60%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes waveMobile {
+  0% {
+    transform: translateX(-300px);
+  }
+  50% {
+    transform: translateX(-500px);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}
+@media screen and (max-width: 1750px) {
+  .hk_home_section_review_puzzles_img {
+    position: relative;
+    z-index: -3;
+    top: 26px;
+  }
+  .hk_home_section_review .hk_home_section_review_sea_img {
+    margin-top: -95px;
+    position: relative;
+    z-index: -2;
+  }
+  .hk_home_section_review .hk_home_section_review_cable_img {
+    z-index: 0;
+    top: 454px;
+  }
+  .hk_home_section_review .hk_home_section_review_sandImg_img {
+    z-index: -1;
+    bottom: 65px;
+  }
+  .hk_home_section_review .hk_home_section_review_boat_img {
+    top: 244px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top {
+    left: 166px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_green_fish {
+    right: -380px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_smallBubbleImg_img {
+    right: -64px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_middleBubbleImg_img {
+    right: -70px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_bigBubbleImg_img {
+    right: -148px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom {
+    right: 200px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_yellow_fish {
+    top: 52px;
+    left: -258px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_smallBubbleImgLeft_img {
+    top: 70px;
+    left: -45px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_middleBubbleImgLeft_img {
+    top: -5px;
+    left: -34px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_bigBubbleImgLeft_img {
+    top: -109px;
+    left: -110px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .hk_home_section_review {
+    width: 100%;
+    height: 1400px;
+    margin-bottom: 87px;
+  }
+  .hk_home_section_review h2 {
+    position: absolute;
+    top: 280px;
+    left: 200px;
+    font-size: 40px;
+  }
+  .hk_home_section_review_puzzles_img {
+    width: 100%;
+    top: 20px;
+  }
+  .hk_home_section_review .hk_home_section_review_sea_img {
+    margin-top: -238px;
+    width: 2200px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveTop_img {
+    top: 400px;
+    width: 1800px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveBottom_img {
+    top: 454px;
+    width: 1800px;
+  }
+  .hk_home_section_review .hk_home_section_review_boat_img {
+    width: 260px;
+    height: 260px;
+    top: 224px;
+    right: 500px;
+  }
+  .hk_home_section_review .hk_home_section_review_cable_img {
+    top: 290px;
+    right: 377px;
+    width: 350px;
+  }
+  .hk_home_section_review .hk_home_section_review_sandImg_img {
+    bottom: 85px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top {
+    max-width: 780px;
+    bottom: 620px;
+    left: 50px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top div {
+    margin-right: 60px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top p {
+    width: 357px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_green_fish {
+    width: 244px;
+    top: 95px;
+    right: -367px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_bigBubbleImg_img {
+    top: 0;
+    right: -161px;
+    width: 85px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_middleBubbleImg_img {
+    top: 89px;
+    right: -85px;
+    width: 50px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_smallBubbleImg_img {
+    top: 150px;
+    right: -127px;
+    width: 30px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom {
+    max-width: 780px;
+    bottom: 293px;
+    right: 50px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom div {
+    margin-right: 60px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom p {
+    width: 357px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_yellow_fish {
+    width: 190px;
+    top: 100px;
+    left: -317px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_bigBubbleImgLeft_img {
+    top: -36px;
+    left: -138px;
+    width: 85px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_middleBubbleImgLeft_img {
+    top: 61px;
+    left: -68px;
+    width: 50px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_smallBubbleImgLeft_img {
+    top: 123px;
+    left: -109px;
+    width: 30px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .hk_home_section_review {
+    height: 1308px;
+    margin-bottom: 60px;
+  }
+  .hk_home_section_review h2 {
+    top: 290px;
+    font-size: 40px;
+  }
+  .hk_home_section_review_puzzles_img {
+    top: 30px;
+  }
+  .hk_home_section_review .hk_home_section_review_sea_img {
+    margin-top: -280px;
+    width: 2000px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveTop_img {
+    top: 400px;
+    width: 1600px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveBottom_img {
+    top: 454px;
+    width: 1600px;
+  }
+  .hk_home_section_review .hk_home_section_review_boat_img {
+    width: 230px;
+    height: 230px;
+    top: 224px;
+    right: 300px;
+  }
+  .hk_home_section_review .hk_home_section_review_cable_img {
+    top: 251px;
+    right: 176px;
+    width: 331px;
+  }
+  .hk_home_section_review .hk_home_section_review_sandImg_img {
+    bottom: 90px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top {
+    max-width: 908px;
+    bottom: 550px;
+    left: 20px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top div {
+    margin-right: 30px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top p {
+    width: 275px;
+    font-size: 13px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_green_fish {
+    width: 170px;
+    top: 48px;
+    right: -260px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_bigBubbleImg_img {
+    top: 5px;
+    right: -124px;
+    width: 66px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_middleBubbleImg_img {
+    top: 82px;
+    right: -68px;
+    width: 37px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_smallBubbleImg_img {
+    top: 127px;
+    right: -97px;
+    width: 18px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom {
+    max-width: 908px;
+    bottom: 286px;
+    right: 76px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom div {
+    margin-right: 40px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom p {
+    width: 275px;
+    font-size: 13px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_yellow_fish {
+    width: 140px;
+    top: 69px;
+    left: -249px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_bigBubbleImgLeft_img {
+    top: -26px;
+    left: -115px;
+    width: 66px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_middleBubbleImgLeft_img {
+    top: 61px;
+    left: -68px;
+    width: 37px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_smallBubbleImgLeft_img {
+    top: 115px;
+    left: -95px;
+    width: 18px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .hk_home_section_review {
+    height: 1308px;
+    margin-bottom: 0;
+  }
+  .hk_home_section_review h2 {
+    top: 270px;
+    font-size: 34px;
+    left: 150px;
+  }
+  .hk_home_section_review_puzzles_img {
+    top: 30px;
+  }
+  .hk_home_section_review .hk_home_section_review_sea_img {
+    margin-top: -339px;
+    width: 1800px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveTop_img {
+    top: 379px;
+    width: 1600px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveBottom_img {
+    top: 438px;
+    width: 1500px;
+  }
+  .hk_home_section_review .hk_home_section_review_boat_img {
+    width: 186px;
+    height: 186px;
+    top: 247px;
+    right: 229px;
+  }
+  .hk_home_section_review .hk_home_section_review_cable_img {
+    top: 184px;
+    right: 117px;
+    width: 289px;
+  }
+  .hk_home_section_review .hk_home_section_review_sandImg_img {
+    bottom: 208px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top {
+    max-width: 800px;
+    bottom: 600px;
+    left: 20px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top div {
+    margin-right: 20px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top div img {
+    width: 144px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top p {
+    width: 240px;
+    font-size: 10px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_green_fish {
+    width: 130px;
+    top: 21px;
+    right: -177px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_bigBubbleImg_img {
+    top: -1px;
+    right: -81px;
+    width: 56px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_middleBubbleImg_img {
+    top: 62px;
+    right: -31px;
+    width: 31px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_smallBubbleImg_img {
+    top: 103px;
+    right: -51px;
+    width: 18px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom {
+    max-width: 800px;
+    bottom: 377px;
+    right: 30px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom div {
+    margin-right: 40px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom div img {
+    width: 144px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom p {
+    width: 230px;
+    font-size: 10px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_yellow_fish {
+    width: 100px;
+    top: 50px;
+    left: -170px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_bigBubbleImgLeft_img {
+    top: -9px;
+    left: -82px;
+    width: 56px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_middleBubbleImgLeft_img {
+    top: 61px;
+    left: -40px;
+    width: 37px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_smallBubbleImgLeft_img {
+    top: 106px;
+    left: -60px;
+    width: 18px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hk_home_section_review {
+    height: 2200px;
+  }
+  .hk_home_section_review h2 {
+    top: 250px;
+    font-size: 36px;
+    left: 87px;
+  }
+  .hk_home_section_review_puzzles_img {
+    top: -18px;
+    width: 200%;
+  }
+  .hk_home_section_review .hk_home_section_review_sea_img {
+    margin-top: -181px;
+    width: 1500px;
+    animation-name: waveMobile;
+  }
+  .hk_home_section_review .hk_home_section_review_waveTop_img {
+    top: 334px;
+    width: 1012px;
+  }
+  .hk_home_section_review .hk_home_section_review_waveBottom_img {
+    top: 381px;
+    width: 1140px;
+  }
+  .hk_home_section_review .hk_home_section_review_boat_img {
+    width: 140px;
+    height: 140px;
+    top: 243px;
+    right: 110px;
+  }
+  .hk_home_section_review .hk_home_section_review_cable_img {
+    display: none;
+  }
+  .hk_home_section_review .hk_home_section_review_sandImg_img {
+    bottom: 116px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top {
+    flex-direction: column;
+    left: unset;
+    max-width: 800px;
+    bottom: unset;
+    top: 500px;
+    transform: translate(5%);
+    width: 90%;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_green_fish_container {
+    display: flex;
+    flex-direction: row;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top div {
+    margin: 0 0 10px 0;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top div img {
+    width: 180px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top p {
+    width: 280px;
+    font-size: 16px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_green_fish {
+    width: 130px;
+    height: 130px;
+    position: static;
+    order: 5;
+    transform: rotate(-40deg);
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_bigBubbleImg_img {
+    width: 56px;
+    height: 56px;
+    position: static;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_middleBubbleImg_img {
+    width: 31px;
+    height: 31px;
+    position: static;
+    margin-top: 67px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_top .hk_home_section_review_smallBubbleImg_img {
+    width: 18px;
+    height: 18px;
+    position: static;
+    margin: 56px 0 0 10px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom {
+    flex-direction: column;
+    right: unset;
+    max-width: 800px;
+    bottom: 300px;
+    transform: translate(5%);
+    width: 90%;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_green_yellow_fish_container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom div {
+    margin: 0 0 10px 0;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom div img {
+    width: 180px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom p {
+    width: 280px;
+    font-size: 16px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_yellow_fish {
+    width: 100px;
+    height: 100px;
+    position: static;
+    order: 1;
+    margin-top: 40px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_bigBubbleImgLeft_img {
+    width: 56px;
+    height: 56px;
+    position: static;
+    margin-top: -63px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_middleBubbleImgLeft_img {
+    width: 37px;
+    height: 37px;
+    position: static;
+    margin: 15px 0 0 17px;
+  }
+  .hk_home_section_review .hk_home_section_review_under_water_container_bottom .hk_home_section_review_smallBubbleImgLeft_img {
+    width: 18px;
+    height: 18px;
+    position: static;
+    margin: 32px 0 0 11px;
+  }
+}
+@media screen and (max-width: 445px) {
+  .hk_home_section_review h2 {
+    left: 40px;
+  }
+  .hk_home_section_review .hk_home_section_review_boat_img {
+    right: 50px;
+  }
+  .hk_home_section_review .hk_home_section_review_sandImg_img {
+    bottom: 128px;
+  }
+}/*# sourceMappingURL=Reviews.module.css.map */

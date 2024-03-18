@@ -1,0 +1,220 @@
+.hk_home_section_top_categories_box_content_box {
+  position: relative;
+  width: 295px;
+  height: 295px;
+  background-color: #EC1F1F;
+  transition: opacity 1s ease;
+}
+.hk_home_section_top_categories_box_content_box_images {
+  width: 100%;
+  height: 100%;
+}
+.hk_home_section_top_categories_box_content_box h3 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_1_red {
+  background-color: #EC1F1F;
+  width: 100px;
+  height: 64px;
+  position: absolute;
+  top: -63px;
+  left: 100px;
+  border-radius: 50px 50px 0 0;
+  z-index: -10;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_container {
+  display: flex;
+  justify-content: space-between;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_2_red {
+  background-color: #EC1F1F;
+  width: 64px;
+  height: 100px;
+  position: absolute;
+  top: 100px;
+  left: -63px;
+  border-radius: 50px 0 0 50px;
+  z-index: -10;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_3_white {
+  background-color: white;
+  width: 64px;
+  height: 100px;
+  position: absolute;
+  right: -2px;
+  top: 100px;
+  border-radius: 50px 0 0 50px;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_4_white {
+  background-color: white;
+  width: 100px;
+  height: 63px;
+  position: absolute;
+  bottom: -2px;
+  left: 100px;
+  border-radius: 50px 50px 0 0;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_1_green {
+  background-color: #C8FD30;
+}
+.hk_home_section_top_categories_box_content_box .hk_puzzle_1_yellow {
+  background-color: #FDD030;
+}
+
+.yellow_container {
+  background-color: #FDD030;
+}
+
+.green_container {
+  background-color: #C8FD30;
+}
+
+@media screen and (max-width: 1440px) {
+  .hk_home_section_top_categories_box_content_box {
+    width: 246px;
+    height: 246px;
+  }
+  .hk_home_section_top_categories_box_content_box h3 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_1_red {
+    width: 83px;
+    height: 53px;
+    top: -53px;
+    left: 83px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_2_red {
+    width: 53px;
+    height: 83px;
+    top: 83px;
+    left: -53px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_3_white {
+    width: 53px;
+    height: 83px;
+    right: -2px;
+    top: 83px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_4_white {
+    width: 83px;
+    height: 53px;
+    bottom: -2px;
+    left: 83px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .hk_home_section_top_categories_box_content_box {
+    width: 200px;
+    height: 200px;
+  }
+  .hk_home_section_top_categories_box_content_box h3 {
+    top: 12px;
+    left: 12px;
+    font-size: 24px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_1_red {
+    width: 70px;
+    height: 45px;
+    top: -45px;
+    left: 65px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_2_red {
+    width: 45px;
+    height: 70px;
+    top: 65px;
+    left: -45px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_3_white {
+    width: 45px;
+    height: 70px;
+    right: -2px;
+    top: 65px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_4_white {
+    width: 70px;
+    height: 45px;
+    bottom: -2px;
+    left: 65px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .hk_home_section_top_categories_box_content_box {
+    width: 157px;
+    height: 157px;
+  }
+  .hk_home_section_top_categories_box_content_box h3 {
+    top: 8px;
+    left: 8px;
+    font-size: 19px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_1_red {
+    width: 53px;
+    height: 34px;
+    top: -34px;
+    left: 53px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_2_red {
+    width: 34px;
+    height: 53px;
+    top: 53px;
+    left: -34px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_3_white {
+    width: 34px;
+    height: 53px;
+    right: -2px;
+    top: 53px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_4_white {
+    width: 53px;
+    height: 34px;
+    bottom: -2px;
+    left: 53px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hk_home_section_top_categories_box_content_box:not(:last-child) {
+    margin-bottom: 100px;
+  }
+  .hk_home_section_top_categories_box_content_box {
+    width: 182px;
+    height: 182px;
+  }
+  .hk_home_section_top_categories_box_content_box h3 {
+    top: 12px;
+    left: 12px;
+    font-size: 22px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_1_red {
+    width: 62px;
+    height: 40px;
+    top: -40px;
+    left: 62px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_2_red {
+    width: 40px;
+    height: 62px;
+    top: 62px;
+    left: -40px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_3_white {
+    width: 40px;
+    height: 62px;
+    right: -2px;
+    top: 62px;
+  }
+  .hk_home_section_top_categories_box_content_box .hk_puzzle_4_white {
+    width: 62px;
+    height: 40px;
+    bottom: -2px;
+    left: 62px;
+  }
+}/*# sourceMappingURL=BigPuzzle.module.css.map */

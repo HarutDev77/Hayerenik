@@ -1,0 +1,21 @@
+.hk_search_result_page_main_box {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.hk_search_result_page_main_box h1 {
+  margin: 45px 0 20px 0;
+  color: #384480;
+  font-size: 48px;
+  font-weight: 700;
+}
+.hk_search_result_page_main_box .hk_search_result_page_main_box_item_box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 80px;
+  margin-top: 100px;
+}
+.hk_search_result_page_main_box .hk_search_result_page_main_box_item_box > div {
+  margin-bottom: 23px;
+}/*# sourceMappingURL=SearchResult.module.css.map */

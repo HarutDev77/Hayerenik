@@ -1,0 +1,43 @@
+.hk_admin_product_manage {
+  width: 1128px;
+  margin: 0 auto 100px;
+}
+.hk_admin_product_manage_upload_section {
+  display: flex;
+  align-items: center;
+}
+.hk_admin_product_manage_upload_section_images_container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 10px;
+}
+.hk_admin_product_manage h2 {
+  color: #9A97C6;
+  margin: 85px 0 40px 0;
+  font-size: 40px;
+  font-weight: 400;
+}
+.hk_admin_product_manage_first_box {
+  margin-bottom: 50px;
+}
+.hk_admin_product_manage_second_box {
+  margin-bottom: 50px;
+}
+.hk_admin_product_manage_third_box {
+  margin: 50px 0;
+}
+.hk_admin_product_manage_third_box div {
+  text-align: start;
+}
+.hk_admin_product_manage_upload_section {
+  width: 600px;
+}
+.hk_admin_product_manage_upload_section_button {
+  display: flex;
+  justify-content: flex-end;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #3C3C3C;
+  border-radius: 11px;
+}/*# sourceMappingURL=ManageProduct.module.css.map */

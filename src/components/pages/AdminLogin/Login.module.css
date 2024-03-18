@@ -1,0 +1,28 @@
+.hk_login_container {
+  margin: 0 auto;
+  width: 380px;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.hk_login_container_header {
+  margin-bottom: 20px;
+}
+.hk_login_container_title {
+  text-align: center;
+}
+.hk_login_container_forgot_password {
+  float: right;
+}
+.hk_login_container_text {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.hk_login_container .hk_login_footer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=Login.module.css.map */

@@ -1,0 +1,33 @@
+.admin_order_list {
+  width: 1100px;
+  margin: 68px auto 150px;
+}
+.admin_order_list h1 {
+  font-size: 40px;
+  color: #9A97C6;
+}
+.admin_order_list_table {
+  margin: 50px 0;
+}
+.admin_order_list_status_box {
+  width: 500px;
+  margin: 50px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.admin_order_list_status_box h3 {
+  font-size: 24px;
+  color: #9A97C6;
+  font-weight: 400;
+  cursor: pointer;
+}
+.admin_order_list_status_box_active {
+  font-weight: bold !important;
+}
+.admin_order_list_search_box {
+  display: flex;
+  width: 490px;
+}
+.admin_order_list_search_box input {
+  margin-right: 15px;
+}/*# sourceMappingURL=OrdersList.module.css.map */

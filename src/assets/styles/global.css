@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.swiper_container .swiper-slide {
+  display: flex;
+  width: 110px !important;
+  height: 100px !important;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+}
+.swiper_container .swiper-slide img {
+  width: 90px;
+  height: 90px;
+}
+.swiper_container .swiper-wrapper {
+  top: 10px;
+  left: 8px;
+  height: 140px;
+}
+
+#select-label {
+  top: -6px;
+  left: 10px;
+  font-size: 17px;
+  color: #c1b6b6;
+}
+
+.MuiFormControl-root {
+  margin-bottom: 15px;
+}/*# sourceMappingURL=global.css.map */

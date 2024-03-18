@@ -1,0 +1,118 @@
+.hk_home_section_different_ages {
+  max-width: 1170px;
+  margin: 0 auto 170px;
+}
+.hk_home_section_different_ages_title {
+  color: #384480;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+.hk_home_section_different_ages_container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 38px;
+}
+.hk_home_section_different_ages_container_boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.hk_home_section_different_ages_container_boxes:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.hk_home_section_different_ages_container_boxes:hover img {
+  transform: rotate(-90deg);
+  transition: 2s;
+}
+.hk_home_section_different_ages_container_boxes:hover:nth-child(2) img, .hk_home_section_different_ages_container_boxes:hover:nth-child(5) img, .hk_home_section_different_ages_container_boxes:hover:nth-child(8):hover img {
+  transform: translateY(-20px);
+  transition: 1s;
+}
+.hk_home_section_different_ages_container_boxes_titles {
+  color: #C69797;
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 1440px) {
+  .hk_home_section_different_ages {
+    max-width: 955px;
+    margin: 0 auto 200px;
+  }
+  .hk_home_section_different_ages_title {
+    font-size: 40px;
+    margin-bottom: 39px;
+  }
+  .hk_home_section_different_ages_container {
+    margin-left: 20px;
+  }
+  .hk_home_section_different_ages_container_boxes_titles {
+    font-size: 53px;
+    margin-bottom: 11px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .hk_home_section_different_ages {
+    max-width: 824px;
+    margin: 0 auto 160px;
+  }
+  .hk_home_section_different_ages_title {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+  .hk_home_section_different_ages_container {
+    margin-left: 0;
+  }
+  .hk_home_section_different_ages_container_boxes img {
+    width: 66px;
+    height: 66px;
+  }
+  .hk_home_section_different_ages_container_boxes_titles {
+    font-size: 45px;
+    margin-bottom: 11px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .hk_home_section_different_ages {
+    max-width: 638px;
+    margin: 0 auto 120px;
+  }
+  .hk_home_section_different_ages_title {
+    font-size: 33px;
+    margin-bottom: 15px;
+  }
+  .hk_home_section_different_ages_container_boxes img {
+    width: 47px;
+    height: 47px;
+  }
+  .hk_home_section_different_ages_container_boxes_titles {
+    font-size: 37px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hk_home_section_different_ages {
+    max-width: 300px;
+    margin: 0 auto 170px;
+  }
+  .hk_home_section_different_ages_title {
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
+  .hk_home_section_different_ages_container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hk_home_section_different_ages_container_boxes img {
+    width: 75px;
+    height: 75px;
+  }
+  .hk_home_section_different_ages_container_boxes_titles {
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+}/*# sourceMappingURL=DifferentAges.module.css.map */
