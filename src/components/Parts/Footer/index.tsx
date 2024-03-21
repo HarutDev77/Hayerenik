@@ -84,11 +84,9 @@ const Footer = () => {
                   <FormattedMessage id={'topCategories'} />
                </h5>
                {topCategories.map((topCategory: TopCategory) => (
-                  <>
-                     <p key={topCategory.id}>
-                        <DynamicMessage data={topCategory} prop={'title'} />
-                     </p>
-                  </>
+                  <p key={topCategory.id}>
+                     <DynamicMessage data={topCategory} prop={'title'} />
+                  </p>
                ))}
             </div>
             <div>

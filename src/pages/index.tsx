@@ -1,11 +1,9 @@
 import MainLayout from '@/layouts';
 import { ReactElement } from 'react';
 import Home from '@/components/pages/Home';
-import { PAGINATION_LIMIT } from '@/constants';
 import UserApi from '@/api/user.api';
-import bestsellers from '@/components/pages/Home/Bestsellers';
 import { Bestseller } from '@/types/bestseller';
-import { Category, TopCategory } from '@/types/category';
+import { TopCategory } from '@/types/category';
 
 export async function getServerSideProps() {
    const bestsellers = await UserApi.getBestsellers();

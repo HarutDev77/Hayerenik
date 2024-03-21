@@ -53,5 +53,6 @@
   "city":"City",
   "notes":"Notes",
   "searchResult":"Search results for",
-  "exploreNow": "Explore now"
+  "exploreNow": "Explore now",
+  "basketWarningText": "We don't have enough of some of the products in the Сart. To ensure you secure your order, we've automatically filled in the maximum available quantity for each of these items, highlighted in blue for your convenience."
 }

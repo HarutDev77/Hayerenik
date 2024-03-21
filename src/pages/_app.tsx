@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactElement, ReactNode } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import enTranslations from '@/translations/en.json';
 import amTranslations from '@/translations/am.json';
-import { store } from '@/store/store'
+import { store } from '@/store/store';
 import { SiteLanguageEnum } from '@/enums/common';
 
 export type NextPageWithLayout = NextPage & {
@@ -61,6 +61,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                </QueryClientProvider>
             </ConfigProvider>
          </IntlProvider>
-       </Provider>
+      </Provider>
    );
 }

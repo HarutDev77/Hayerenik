@@ -1,27 +1,27 @@
-import React, { useState } from 'react'
-import { useRouter } from 'next/router'
-import { FolderEnum, ModeEnum, PropertyTypeEnum } from '@/enums/common'
-import { Button, Form, Input, Select, Spin, Switch } from 'antd'
-import AddImage from '@/assets/images/icon_image_plus_.svg'
-import Image from 'next/image'
-import { useMutation, useQuery } from 'react-query'
-import AdminApi from '@/api/admin.api'
-import QueryApi from '@/api/query.api'
-import { BACKEND_IMAGES_URL } from '@/constants/config'
-import deleteButton from '@/assets/images/delete_foto.svg'
-import classes from './ManageProduct.module.scss'
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { FolderEnum, ModeEnum, PropertyTypeEnum } from '@/enums/common';
+import { Button, Form, Input, Select, Spin, Switch } from 'antd';
+import AddImage from '@/assets/images/icon_image_plus_.svg';
+import Image from 'next/image';
+import { useMutation, useQuery } from 'react-query';
+import AdminApi from '@/api/admin.api';
+import QueryApi from '@/api/query.api';
+import { BACKEND_IMAGES_URL } from '@/constants/config';
+import deleteButton from '@/assets/images/delete_foto.svg';
+import classes from './ManageProduct.module.scss';
 
 const ManageProduct = () => {
-   const [categoryData, setCategoryData] = useState<any[]>([])
-   const [categoryDataById, setCategoryDataById] = useState<any[]>([])
-   const [properties, setProperties] = useState<any[]>([])
-   const [subProducts, setSubProducts] = useState<any[]>([])
-   const [subProductsData, setSubProductsData] = useState<any[]>([])
-   const [subProductsId, setSubProductsId] = useState<any[]>([])
-   const [saveImages, setSaveImages] = useState<string[]>([])
-   const router = useRouter()
-   const { id, mode } = router.query
-   const [form] = Form.useForm()
+   const [categoryData, setCategoryData] = useState<any[]>([]);
+   const [categoryDataById, setCategoryDataById] = useState<any[]>([]);
+   const [properties, setProperties] = useState<any[]>([]);
+   const [subProducts, setSubProducts] = useState<any[]>([]);
+   const [subProductsData, setSubProductsData] = useState<any[]>([]);
+   const [subProductsId, setSubProductsId] = useState<any[]>([]);
+   const [saveImages, setSaveImages] = useState<string[]>([]);
+   const router = useRouter();
+   const { id, mode } = router.query;
+   const [form] = Form.useForm();
 
    const { data } = useQuery(
       `manage-page-data_${id ? 'update' : 'create'}`,
@@ -34,34 +34,37 @@ const ManageProduct = () => {
       {
          onSuccess: (data) => {
             if (mode === ModeEnum.create) {
-               setSubProductsData(data.products)
+               setSubProductsData(data.products);
             } else {
-               data?.product.categoryId && getCategoryData(data?.product.categoryId)
+               data?.product.categoryId && getCategoryData(data?.product.categoryId);
                setSubProductsData(
                   data.products.filter(
-                     (item: any) => !data.product.subProducts.some((product: any) => product.id === item.id),
+                     (item: any) =>
+                        !data.product.subProducts.some((product: any) => product.id === item.id),
                   ),
-               )
+               );
                setSubProducts(
                   data.products.filter((item: any) =>
                      data.product.subProducts.some((product: any) => product.id === item.id),
                   ),
-               )
+               );
 
-               const propertyNames: any = {}
+               setSubProductsId(data.product.subProducts.map((item) => item.id));
+
+               const propertyNames: any = {};
                data?.product?.productProperties?.forEach((productProperty: any) => {
                   if (productProperty.valEn) {
-                     propertyNames['valEn' + productProperty.propertyId] = productProperty.valEn
+                     propertyNames['valEn' + productProperty.propertyId] = productProperty.valEn;
                   }
 
                   if (productProperty.valAm) {
-                     propertyNames['valAm' + productProperty.propertyId] = productProperty.valEn
+                     propertyNames['valAm' + productProperty.propertyId] = productProperty.valEn;
                   }
-               })
+               });
 
-               setProperties(data?.product?.productProperties)
+               setProperties(data?.product?.productProperties);
 
-               setSaveImages(data.product.images.map((image: { src: string }) => image.src))
+               setSaveImages(data.product.images.map((image: { src: string }) => image.src));
 
                form.setFieldsValue({
                   titleEn: data?.product.titleEn,
@@ -77,38 +80,38 @@ const ManageProduct = () => {
                   metaTitle: data?.product.metaTitle,
                   metaDescription: data?.product.metaDescription,
                   ...propertyNames,
-               })
+               });
             }
 
-            setCategoryData(data.categories)
+            setCategoryData(data.categories);
          },
          enabled: !!id || mode === ModeEnum.create,
       },
-   )
+   );
 
    const { mutate: getCategoryInfo } = useMutation({
       mutationFn: (id: number) => {
-         return AdminApi.getProductsCategoryData(id)
+         return AdminApi.getProductsCategoryData(id);
       },
       onSuccess: (data) => {
-         setCategoryDataById(data)
+         setCategoryDataById(data);
       },
-   })
+   });
 
    const getCategoryData = (value: number) => {
-      getCategoryInfo(value)
-   }
+      getCategoryInfo(value);
+   };
 
    // const dataForCreate: any = useMemo(() => data, [data])
 
    const { mutate: manageProduct } = useMutation({
       mutationFn: (data) => {
-         return AdminApi.manageProduct(data, id ? +id : null)
+         return AdminApi.manageProduct(data, id ? +id : null);
       },
       onSuccess: () => {
-         router.push('/admin/product')
+         router.push('/admin/product');
       },
-   })
+   });
 
    const onFinish = (values: any) => {
       manageProduct({
@@ -119,12 +122,12 @@ const ManageProduct = () => {
          productProperties: properties,
          subProductIds: subProductsId,
          images: saveImages,
-      })
-   }
+      });
+   };
 
    const changePropDataNum = (event: any, id: any) => {
       if (event.target && !event.target.value.trim()) {
-         return
+         return;
       }
       if (
          properties.length &&
@@ -134,11 +137,11 @@ const ManageProduct = () => {
       ) {
          const newProperties = properties.map((prop: any) => {
             if (event.target ? prop.propertyId === id : prop.propertyId === id.propId) {
-               return { ...prop, valEn: event.target ? event.target.value : id.children }
+               return { ...prop, valEn: event.target ? event.target.value : id.children };
             }
-            return prop
-         })
-         setProperties(newProperties)
+            return prop;
+         });
+         setProperties(newProperties);
       } else {
          setProperties([
             ...properties,
@@ -146,93 +149,96 @@ const ManageProduct = () => {
                propertyId: event.target ? id : id.propId,
                valEn: event.target ? event.target.value : id.children,
             },
-         ])
+         ]);
       }
-   }
+   };
 
    const changePropText = (event: any, id: any) => {
-      const { name, value } = event.target
+      const { name, value } = event.target;
       // if (!value.trim()) {
       //    return
       // }
       if (properties.some((prop: any) => prop?.propertyId === id)) {
          const newProperties = properties.map((prop: any) => {
             if (prop.propertyId === id) {
-               return { ...prop, [name]: value }
+               return { ...prop, [name]: value };
             }
-            return prop
-         })
-         setProperties(newProperties)
+            return prop;
+         });
+         setProperties(newProperties);
       } else {
-         setProperties([...properties, { propertyId: id, [name]: value }])
+         setProperties([...properties, { propertyId: id, [name]: value }]);
       }
-   }
+   };
 
    const addSubProduct = (value: string, e: any) => {
-      const newSubProductsData = subProductsData.filter((product: any) => product.id !== +value)
-      setSubProductsId([...subProductsId, +value])
-      setSubProductsData(newSubProductsData)
-      setSubProducts([...subProducts, { id: +value, titleEn: e.children }])
-   }
+      const newSubProductsData = subProductsData.filter((product: any) => product.id !== +value);
+      setSubProductsId([...subProductsId, +value]);
+      setSubProductsData(newSubProductsData);
+      setSubProducts([...subProducts, { id: +value, titleEn: e.children }]);
+   };
    const deleteSubProduct = (id: number) => {
-      const elementById = subProducts.find((item) => item.id === id)
-      setSubProductsData([...subProductsData, elementById])
-      const newSubProducts = subProducts.filter((product) => product.id !== id)
-      setSubProducts(newSubProducts)
-      const newArray = subProductsId.filter((item) => item !== id)
-      setSubProductsId(newArray)
-   }
+      const elementById = subProducts.find((item) => item.id === id);
+      setSubProductsData([...subProductsData, elementById]);
+      const newSubProducts = subProducts.filter((product) => product.id !== id);
+      setSubProducts(newSubProducts);
+      const newArray = subProductsId.filter((item) => item !== id);
+      setSubProductsId(newArray);
+   };
 
    const { mutate: mutateImages, isLoading: loader } = useMutation(
       (formData: FormData) => {
-         return QueryApi.saveImages(formData)
+         return QueryApi.saveImages(formData);
       },
       {
          onSuccess: (data) => {
-            setSaveImages([...saveImages, ...data.resData.map((image: { src: string }) => image.src)])
+            setSaveImages([
+               ...saveImages,
+               ...data.resData.map((image: { src: string }) => image.src),
+            ]);
          },
       },
-   )
+   );
 
    const { mutate: deleteImage, isLoading: loaderImage } = useMutation(
       (imageSrc: string) => {
-         return QueryApi.deleteImage(imageSrc)
+         return QueryApi.deleteImage(imageSrc);
       },
       {
          onSuccess: (data) => {
-            setSaveImages(saveImages.filter((image) => image !== data.resData))
+            setSaveImages(saveImages.filter((image) => image !== data.resData));
          },
       },
-   )
+   );
 
    const changeImages = (e: any) => {
-      const files = e.target.files
+      const files = e.target.files;
 
-      const formData: FormData = new FormData() as FormData
+      const formData: FormData = new FormData() as FormData;
 
       for (const file of files) {
-         formData.append('images', file)
+         formData.append('images', file);
       }
 
-      formData.append('folder', FolderEnum.product)
+      formData.append('folder', FolderEnum.product);
 
-      mutateImages(formData)
-   }
+      mutateImages(formData);
+   };
    if (loader) {
       return (
          <div style={{ width: '100px', margin: '120px auto' }}>
             <Spin size={'large'} />
          </div>
-      )
+      );
    }
 
    const deleteProductImage = (src: string) => {
       if (mode === ModeEnum.create) {
-         deleteImage(src)
+         deleteImage(src);
       } else {
-         setSaveImages(saveImages.filter((image: string) => image !== src))
+         setSaveImages(saveImages.filter((image: string) => image !== src));
       }
-   }
+   };
 
    return (
       <section className={classes.hk_admin_product_manage}>
@@ -468,7 +474,7 @@ const ManageProduct = () => {
             </Form.Item>
          </Form>
       </section>
-   )
-}
+   );
+};
 
-export default ManageProduct
+export default ManageProduct;

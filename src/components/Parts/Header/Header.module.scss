@@ -148,6 +148,7 @@
                 font-size: 13px;
                 border-radius: 50%;
                 position: absolute;
+                padding: 0 1px 1px 0;
                 right: 50px;
                 bottom: -2px;
                 background-color: #00D46F;
@@ -326,8 +327,9 @@
                     width: 11px;
                     height: 11px;
                     font-size: 9px;
-                    right: 45px;
-                    bottom: 1px;
+                    padding: 0 1px 1px 0;
+                    right: 44px;
+                    bottom: -1px;
                 }
 
             }
@@ -371,7 +373,6 @@
     .hk_nav{
         box-shadow: 0 2px 4px 0 rgba(56, 68, 128, 0.14);
         .hk_mobile_menu{
-
             .mob_menu_search_box{
                 position: relative;
                 &>img{
@@ -390,18 +391,19 @@
                 }
                 .hk_card_count{
                     position: absolute;
-                    bottom: -5px;
-                    right: -5px;
-                    width: 15px;
-                    height: 15px;
-                    font-size: 13px;
-                    font-family: Arial, sans-serif;
+                    bottom: -2px;
+                    right: -4px;
+                    width: 12px;
+                    height: 12px;
+                    font-size: 10px;
+                    font-family: sans-serif;
                     background-color: #00D46F;
                     color: #FFFFFF;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border-radius: 50%
+                    border-radius: 50%;
+                    padding: 0 1px 1px 0;
                 }
             }
             padding: 10px 20px;

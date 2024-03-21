@@ -26,10 +26,13 @@
     }
     .hk_user_order_item_title_and_price{
       margin-left: 15px;
+      width: 120px;
     }
     .hk_user_order_item_amount{
-      margin: 0 110px;
+      width: 110px;
       font-size: 20px;
+      display: flex;
+      justify-content: center;
     }
     .hk_user_order_item_total_price{
       margin-left: 24px;
@@ -41,6 +44,7 @@
     height: 62px;
     display: flex;
     justify-content: space-between;
+    border-radius: 45px;
     box-sizing: border-box;
     background-color: rgba(117, 255, 172, 0.15)!important;
     &>p:first-child{
@@ -96,7 +100,6 @@
         margin-left: 15px;
       }
       .hk_user_order_item_amount {
-        margin: 0 45px;
         font-size: 20px;
       }
       .hk_user_order_item_total_price {
@@ -121,7 +124,6 @@
         margin-left: 15px;
       }
       .hk_user_order_item_amount {
-        margin: 0 20px 0 90px;
         font-size: 20px;
       }
       .hk_user_order_item_total_price {

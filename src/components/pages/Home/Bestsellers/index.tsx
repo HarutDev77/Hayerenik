@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useRouter } from 'next/router';
 import { FormattedMessage } from 'react-intl';
 
 import ProductItem from '@/components/Parts/ProductItem';
