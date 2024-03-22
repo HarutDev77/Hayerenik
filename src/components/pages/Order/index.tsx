@@ -7,12 +7,18 @@ import UserOrderInfo from '@/components/Parts/UserOrderInfo';
 import ExpandedArrow from '@/assets/images/expanded-arrow.svg';
 import HiddenArrow from '@/assets/images/hidden-arrow.svg';
 import Image from 'next/image';
-import { CHOSE_ITEMS } from '@/constants';
 import classes from './Order.module.scss';
+import UserApi from '@/api/user.api';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { CartProduct } from '@/types/product';
 
 const OrderPage = () => {
    const [isMobile, setIsMobile] = useState<boolean>(false);
    const [isExpanded, setIsExpanded] = useState<boolean>(false);
+   const [items, setItems] = useState<CartProduct[]>([]);
+
+   const choseItems = useSelector((state: RootState) => state.cart.selectedProducts);
 
    useEffect(() => {
       function handleResize() {
@@ -30,6 +36,19 @@ const OrderPage = () => {
 
       return () => window.removeEventListener('resize', handleResize);
    }, []);
+
+   useEffect(() => {
+      const getProducts = async () => {
+         const response = await UserApi.getProductsByIds(choseItems.map((item) => item.id));
+         setItems(response.rows);
+      };
+
+      (async () => {
+         if (choseItems.length) {
+            await getProducts();
+         }
+      })();
+   }, [choseItems]);
 
    return (
       <section className={classes.hk_user_order}>
@@ -65,7 +84,7 @@ const OrderPage = () => {
             </div>
 
             {!isMobile ? (
-               <UserOrderInfo isMobile={isMobile} chosenItems={CHOSE_ITEMS} />
+               <UserOrderInfo isMobile={isMobile} chosenItems={items} />
             ) : (
                <>
                   <p
@@ -76,29 +95,33 @@ const OrderPage = () => {
                      Hide order summary
                   </p>
                   <UserOrderInfo
-                     chosenItems={CHOSE_ITEMS}
+                     chosenItems={items}
                      isMobile={isMobile}
                      style={{
-                        height: isExpanded ? `${(CHOSE_ITEMS.length + 1) * 62 + 20}px` : 0,
+                        height: isExpanded ? `${(items.length + 1) * 62 + 20}px` : 0,
                         overflow: isExpanded ? 'visible' : 'hidden',
                         transition: '0.7s',
                      }}
                   />
                   <div
-                     style={{ justifyContent: isMobile ? 'space-between' : 'flex-end' }}
+                     // style={{ justifyContent: isMobile ? 'space-between' : 'flex-end' }}
+                     // style={isMobile ? { justifyContent: 'space-between' } : { display: 'none' }}
                      className={classes.hk_user_order_total}
                   >
-                     {isMobile && (
+                     {isMobile ? (
                         <div className={classes.hk_user_order_button_box}>
                            <MainButton width={'125px'} height={'34px'} text={'Pay now'} />
                            <MainButton width={'125px'} height={'34px'} text={'Cancel'} />
                         </div>
-                     )}
+                     ) : null}
                      <div>
                         <p>
                            <span>total</span>$
-                           {CHOSE_ITEMS.reduce(
-                              (accum, val) => accum + (val.amount * val.price + val.delivery),
+                           {items.reduce(
+                              (accum, val) =>
+                                 accum +
+                                 choseItems.find((product) => product.id === val.id)?.amount *
+                                    val.price,
                               0,
                            )}
                         </p>

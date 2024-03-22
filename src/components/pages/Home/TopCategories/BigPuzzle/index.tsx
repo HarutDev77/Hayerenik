@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 
-import NoImageAvailable from '@/assets/images/no_product_image.png';
 import { BACKEND_IMAGES_URL } from '@/constants/config';
 import classes from './BigPuzzle.module.scss';
 

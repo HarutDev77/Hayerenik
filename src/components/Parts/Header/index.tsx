@@ -12,18 +12,22 @@ import UserApi from '@/api/user.api';
 import Tree from '@/components/Parts/Tree';
 import DynamicMessage from '@/components/atoms/DynamicMessage';
 import { Category, TopCategory } from '@/types/category';
-import MenuIcon from '@/assets/images/MenuOutlined.svg'
-import classes from './Header.module.scss'
+import MenuIcon from '@/assets/images/MenuOutlined.svg';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import classes from './Header.module.scss';
 
 const Header = () => {
    const [topCategories, setTopCategories] = useState<TopCategory[]>([]);
-   const [showSearchInput, setShowSearchInput] = useState<boolean>(false)
-   const [searchTerm, setSearchTerm] = useState<string>('')
-   const [isOpened, setIsOpened] = useState<boolean>(false)
-   const [categories, setCategories] = useState<any>([])
-   const [isOpenedMobMenu, setIsOpenedMobMenu] = useState(false)
-   const modalRef = useRef<any>()
-   const modalRefMob = useRef<any>()
+   const [showSearchInput, setShowSearchInput] = useState<boolean>(false);
+   const [searchTerm, setSearchTerm] = useState<string>('');
+   const [isOpened, setIsOpened] = useState<boolean>(false);
+   const [categories, setCategories] = useState<any>([]);
+   const [isOpenedMobMenu, setIsOpenedMobMenu] = useState(false);
+   const modalRef = useRef<any>();
+   const modalRefMob = useRef<any>();
+
+   const chosenItems = useSelector((state: RootState) => state.cart.selectedProducts);
 
    const router = useRouter();
 
@@ -80,7 +84,7 @@ const Header = () => {
             event.target.id !== 'list_all_a' &&
             event.target.id !== 'burgerMenu'
          ) {
-            setIsOpenedMobMenu(false)
+            setIsOpenedMobMenu(false);
          }
       }
       document.addEventListener('mousedown', handleClickOutside);
@@ -171,10 +175,9 @@ const Header = () => {
                               priority={true}
                            />
                            <div className={classes.hk_nav_second_box_cart_count}>
-                              <span>0</span>
+                              <span>{chosenItems.length}</span>
                            </div>
                         </Link>
-
                         {showSearchInput ? (
                            <Input
                               onChange={({ target }) => setSearchTerm(target.value)}
@@ -253,7 +256,7 @@ const Header = () => {
                      <Link href={'/cart'}>
                         <Image width={17} height={20} src={Cart} alt={'Card'} />
                      </Link>
-                     <div className={classes.hk_card_count}>0</div>
+                     <div className={classes.hk_card_count}>{chosenItems.length}</div>
                      {showSearchInput ? (
                         <Input
                            onChange={({ target }) => setSearchTerm(target.value)}

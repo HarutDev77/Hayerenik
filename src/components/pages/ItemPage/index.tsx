@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Checkbox } from 'antd';
 import { CheckboxChangeEvent } from 'rc-checkbox';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -23,6 +23,12 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
       product?.images && product.images[0],
    );
 
+   useEffect(() => {
+      if (product?.images) {
+         setSelectedImage(product.images[0]);
+      }
+   }, [product.images]);
+
    const changePrice: (e: CheckboxChangeEvent, subProductPrice: number) => void = (
       e: CheckboxChangeEvent,
       subProductPrice: number,
@@ -36,7 +42,9 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
    return (
       <>
          <section className={classes.hk_item_page_main_section}>
-            <Breadcrumbs breadcrumbs={breadcrumbs} />
+            <div className={classes.hk_item_page_breadcrumbs}>
+               <Breadcrumbs breadcrumbs={breadcrumbs} />
+            </div>
             <div className={classes.hk_item_page_main_section_main_box}>
                <div className={classes.hk_item_page_main_section_main_box_first_box}>
                   <div>
@@ -83,13 +91,15 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                </div>
                <div className={classes.hk_item_page_main_section_main_box_second_box}>
                   <div className={classes.hk_item_page_main_section_main_box_second_box_first_elem}>
-                     <h2>Dynamic</h2>
+                     <h2>
+                        <DynamicMessage data={product} prop={'title'} />
+                     </h2>
                      <p
                         className={
                            classes.hk_item_page_main_section_main_box_second_box_first_elem_description
                         }
                      >
-                        <DynamicMessage data={product} prop={'description'} />
+                        <DynamicMessage data={product} prop={'shortDescription'} />
                      </p>
                      <h3>Details</h3>
                      {product?.productProperties?.map(
@@ -130,10 +140,10 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                                  />
                               )}
                            </div>
-                           <p>
+                           <p className={classes.hk_item_subtitles_name}>
                               <DynamicMessage data={product} prop={'title'} />
                            </p>
-                           <p>${product.price}</p>
+                           <p className={classes.hk_item_subtitles_price}>${product.price}</p>
                         </div>
                      </div>
                   ))}

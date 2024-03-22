@@ -12,6 +12,10 @@
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
   }
 
   p {
@@ -19,9 +23,10 @@
     font-weight: 400;
     margin-bottom: 10px;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow-y: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
   }
 
   span {
