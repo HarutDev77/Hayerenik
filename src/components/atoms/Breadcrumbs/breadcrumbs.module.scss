@@ -1,16 +1,16 @@
 .breadcrumb{
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 1156px;
   margin: 40px auto;
   &_item_cont {
     & img{
-      margin-right: 10px;
-      margin-left: 10px;
+      margin: 0 10px 3px 10px;
     }
     span{
       display: inline-block;
-      width: 130px;
+      max-width: 130px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -21,7 +21,7 @@
   .breadcrumb{
     &_item_cont {
       span{
-        width: 100px;
+        max-width: 100px;
       }
     }
   }
@@ -51,10 +51,5 @@
 @media screen and (max-width: 767px){
   .breadcrumb{
     align-items: flex-start;
-    &_item_cont {
-    }
-    &>span{
-
-    }
   }
 }

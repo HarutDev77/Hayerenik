@@ -13,12 +13,13 @@ import FBLogo from '@/assets/images/FBLogo.svg';
 import CodeMilesLogo from '@/assets/images/CodeMiles.svg';
 import moonImage from '@/assets/images/moon.svg';
 import moonLight from '@/assets/images/moonLight.svg';
-
+import { useRouter } from 'next/router';
 import classes from './Footer.module.scss';
 
 const Footer = () => {
    const [screenPhoto, setScreenPhoto] = useState(cloudsImage);
    const [topCategories, setTopCategories] = useState<TopCategory[]>([]);
+   const router = useRouter();
    const getTopCategories = async () => {
       const response = await UserApi.getTopCategories(5);
       setTopCategories(response);
@@ -46,6 +47,9 @@ const Footer = () => {
          await getTopCategories();
       })();
    }, []);
+   const goToCategory = (id) => {
+      router.push(`/product/list-data/${id}`);
+   };
 
    return (
       <section className={classes.hk_footer}>
@@ -84,7 +88,7 @@ const Footer = () => {
                   <FormattedMessage id={'topCategories'} />
                </h5>
                {topCategories.map((topCategory: TopCategory) => (
-                  <p key={topCategory.id}>
+                  <p onClick={() => goToCategory(topCategory.id)} key={topCategory.id}>
                      <DynamicMessage data={topCategory} prop={'title'} />
                   </p>
                ))}
