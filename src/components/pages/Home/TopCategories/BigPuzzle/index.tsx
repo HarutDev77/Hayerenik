@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-
+import { useRouter } from 'next/router';
 import { BACKEND_IMAGES_URL } from '@/constants/config';
 import classes from './BigPuzzle.module.scss';
 
@@ -16,8 +16,15 @@ interface IBigPuzzle {
 }
 
 const BigPuzzle: FC<IBigPuzzle> = (props: IBigPuzzle) => {
+   const router = useRouter();
+
+   const goToCategory = (id) => {
+      router.push(`product/list-data/${id}`);
+   };
+
    return (
       <div
+         onClick={() => goToCategory(props.id)}
          onMouseEnter={() => props.handleMouseEnter(props.id)}
          onMouseLeave={() => props.handleMouseLeave()}
          className={`${classes.hk_home_section_top_categories_box_content_box} ${

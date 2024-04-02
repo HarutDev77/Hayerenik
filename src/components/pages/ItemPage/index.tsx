@@ -13,6 +13,9 @@ import Bestsellers from '@/components/pages/Home/Bestsellers';
 import DynamicMessage from '@/components/atoms/DynamicMessage';
 import NoImageAvailable from '@/assets/images/no_product_image.png';
 import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '@/slices/cartSlice';
+import { RootState } from '@/store/store';
 import 'swiper/css';
 import classes from './ItemPage.module.scss';
 
@@ -22,6 +25,9 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
    const [selectedImage, setSelectedImage] = useState<string | undefined>(
       product?.images && product.images[0],
    );
+   const [choseIds, setChoseIds] = useState<number[]>([productViewData.product.id]);
+   const selectedProducts = useSelector((state: RootState) => state.cart.selectedProducts);
+   const dispatch = useDispatch();
 
    useEffect(() => {
       if (product?.images) {
@@ -29,13 +35,21 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
       }
    }, [product.images]);
 
-   const changePrice: (e: CheckboxChangeEvent, subProductPrice: number) => void = (
+   const changePrice: (e: CheckboxChangeEvent, subProductPrice: number, id: number) => void = (
       e: CheckboxChangeEvent,
       subProductPrice: number,
+      id: number,
    ): void => {
       setPrice((prevState: number) =>
          e.target.checked ? prevState + subProductPrice : prevState - subProductPrice,
       );
+      e.target.checked
+         ? setChoseIds([...choseIds, id])
+         : setChoseIds(choseIds.filter((item) => item !== id));
+   };
+   console.log(choseIds);
+   const addProduct = () => {
+      dispatch(addToCart(choseIds));
    };
 
    // @ts-ignore
@@ -62,11 +76,11 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                         autoHeight={false}
                         spaceBetween={20}
                         slidesPerView={3}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
+                        // onSlideChange={() => console.log('slide change')}
+                        // onSwiper={(swiper) => console.log(swiper)}
                      >
                         {product?.images?.map((image: string, index: number) => (
-                           <div key={`${index}_${image}`}>
+                           <div key={Math.random()}>
                               <SwiperSlide
                                  style={{ cursor: 'pointer' }}
                                  onClick={() => setSelectedImage(image)}
@@ -104,7 +118,7 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                      <h3>Details</h3>
                      {product?.productProperties?.map(
                         (property: ProductProperty, index: number) => (
-                           <p key={`${index}_${property.id}_${property.valEn}`}>
+                           <p key={property.id}>
                               <span>
                                  <DynamicMessage data={property} prop={'propertyName'} />:
                               </span>
@@ -122,8 +136,11 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                         >
                            <Checkbox
                               // @ts-ignore
+                              disabled={selectedProducts
+                                 .map((item) => item.id)
+                                 .includes(product.id)}
                               onChange={(e: CheckboxChangeEvent) =>
-                                 changePrice ? changePrice(e, product.price) : null
+                                 changePrice(e, product.price, product.id)
                               }
                            />
                            <div>
@@ -144,6 +161,9 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                               <DynamicMessage data={product} prop={'title'} />
                            </p>
                            <p className={classes.hk_item_subtitles_price}>${product.price}</p>
+                           {selectedProducts.map((item) => item.id).includes(product.id) && (
+                              <span style={{ color: 'green', fontWeight: 'bolder' }}>Added ✅</span>
+                           )}
                         </div>
                      </div>
                   ))}
@@ -152,7 +172,14 @@ const ItemPage: FC<{ productViewData: ProductView }> = ({ productViewData }) => 
                         width={'200px'}
                         height={'52px'}
                         fontSize={'20px'}
-                        text={'Add to card'}
+                        text={
+                           selectedProducts
+                              .map((item) => item.id)
+                              .includes(productViewData.product.id)
+                              ? 'Added'
+                              : 'Add to card'
+                        }
+                        onClick={addProduct}
                      />
                      <p>${price}</p>
                   </div>

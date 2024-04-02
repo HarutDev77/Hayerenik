@@ -8,7 +8,7 @@ import { GetServerSidePropsContext } from 'next';
 import { SearchParams } from '@/types/search-params';
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-   const { term, limit = PAGINATION_LIMIT, page = 1 } = context.query;
+   const { term = '', limit = PAGINATION_LIMIT, page = 1 } = context.query;
    const productsData: { rows: Product[]; count: number } = await UserApi.searchProducts(
       term as string,
       page as number,

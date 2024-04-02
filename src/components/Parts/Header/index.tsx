@@ -69,22 +69,29 @@ const Header = () => {
 
    useEffect(() => {
       function handleClickOutside(event: MouseEvent): void {
-         if (
-            modalRef.current &&
-            !modalRef.current.contains(event.target as Node) &&
-            event.target?.id !== 'list_all' &&
-            event.target?.id !== 'list_all_a'
-         ) {
-            setIsOpened(false);
-         }
-         if (
-            modalRefMob.current &&
-            !modalRefMob.current.contains(event.target as Node) &&
-            event.target.id !== 'list_all' &&
-            event.target.id !== 'list_all_a' &&
-            event.target.id !== 'burgerMenu'
-         ) {
-            setIsOpenedMobMenu(false);
+         if (event.target.classList.contains('closeMenu')) {
+            setTimeout(() => {
+               setIsOpened(false);
+               setIsOpenedMobMenu(false);
+            }, 300);
+         } else {
+            if (
+               modalRef.current &&
+               !modalRef.current.contains(event.target as Node) &&
+               event.target?.id !== 'list_all' &&
+               event.target?.id !== 'list_all_a'
+            ) {
+               setIsOpened(false);
+            }
+            if (
+               modalRefMob.current &&
+               !modalRefMob.current.contains(event.target as Node) &&
+               event.target.id !== 'list_all' &&
+               event.target.id !== 'list_all_a' &&
+               event.target.id !== 'burgerMenu'
+            ) {
+               setIsOpenedMobMenu(false);
+            }
          }
       }
       document.addEventListener('mousedown', handleClickOutside);
@@ -93,6 +100,10 @@ const Header = () => {
          document.removeEventListener('mousedown', handleClickOutside);
       };
    }, [modalRef]);
+
+   const goToCategory = (id) => {
+      router.push(`/product/list-data/${id}`);
+   };
 
    return (
       <>
@@ -142,10 +153,8 @@ const Header = () => {
                               </a>
                            </li>
                            {topCategories.map((topCategory: TopCategory) => (
-                              <li key={topCategory.id}>
-                                 <Link href='#'>
-                                    <DynamicMessage data={topCategory} prop={'title'} />
-                                 </Link>
+                              <li onClick={() => goToCategory(topCategory.id)} key={topCategory.id}>
+                                 <DynamicMessage data={topCategory} prop={'title'} />
                               </li>
                            ))}
                         </ul>
@@ -216,9 +225,15 @@ const Header = () => {
                                     ))}
                                  </div>
                               )}
-                              <li>Books</li>
-                              <li>For school</li>
-                              <li>Games</li>
+                              {topCategories.map((topCategory: TopCategory) => (
+                                 <li
+                                    className='closeMenu'
+                                    onClick={() => goToCategory(topCategory.id)}
+                                    key={topCategory.id}
+                                 >
+                                    <DynamicMessage data={topCategory} prop={'title'} />
+                                 </li>
+                              ))}
                               <li>
                                  <Link href='#'>
                                     <FormattedMessage id={'aboutUs'} />

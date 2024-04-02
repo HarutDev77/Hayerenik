@@ -73,6 +73,24 @@ const cartSlice = createSlice({
          state.selectedProducts = newState;
          setLocalStorageItem<ChosenItem[]>('selectedProducts', newState);
       },
+      addToCart: (state, action: PayloadAction<number[]>) => {
+         const selectedProducts: number[] = state.selectedProducts.map(
+            (item: ChosenItem) => item.id,
+         );
+
+         const data: number[] = action.payload.filter((item) => {
+            return !selectedProducts.includes(item);
+         });
+
+         let newItems: ChosenItem[] = data.map((item: number) => {
+            return { id: item, amount: 1 };
+         });
+
+         const newItems2 = [...state.selectedProducts, ...newItems];
+
+         state.selectedProducts = newItems2;
+         setLocalStorageItem<ChosenItem[]>('selectedProducts', newItems2);
+      },
    },
 });
 
@@ -82,5 +100,6 @@ export const {
    deleteItemId,
    changeAmount,
    changeAmountByValue,
+   addToCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

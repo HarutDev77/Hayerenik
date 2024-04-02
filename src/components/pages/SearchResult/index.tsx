@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from 'react';
 import ProductItem from '@/components/Parts/ProductItem';
-import classes from './SearchResult.module.scss';
 import { PAGINATION_LIMIT } from '@/constants';
-import { Pagination } from 'antd';
+import Pagination from '@/components/Parts/Pagination';
 import { useRouter } from 'next/router';
 import DynamicMessage from '@/components/atoms/DynamicMessage';
 import { SearchParams } from '@/types/search-params';
+import classes from './SearchResult.module.scss';
 
 const SearchResultPage: FC<SearchParams> = ({
    productsData,
@@ -39,14 +39,8 @@ const SearchResultPage: FC<SearchParams> = ({
                   price={product.price}
                />
             ))}
+            <Pagination amount={products.count} term={term} limit={limit} page={page} />
          </div>
-
-         <Pagination
-            style={{ marginBottom: '150px', textAlign: 'center' }}
-            onChange={changePage}
-            defaultPageSize={limit}
-            total={products?.count || 0}
-         />
       </div>
    );
 };
